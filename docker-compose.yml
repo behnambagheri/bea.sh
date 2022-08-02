@@ -2,6 +2,7 @@ version: '1.0'
 services:
   behnambagheri.ir:
     build: .
+    container_name: behnambagheri.ir
     restart: unless-stopped
     ports:
     - 127.0.0.1:81:80
