@@ -1,0 +1,7 @@
+version: '1.0'
+services:
+  behnambagheri.ir:
+    build: .
+    restart: unless-stopped
+    expose:
+      - 127.0.0.1:81:80
