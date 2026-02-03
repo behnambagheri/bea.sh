@@ -4,14 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Behnam Bagheri — DevOps Engineer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="page-shell">
-    <div class="theme-toggle" aria-label="Toggle color scheme">
+    <div class="theme-toggle" aria-label="Header actions">
+      <a class="header-link" href="#services">Services</a>
       <button id="themeButton" type="button" class="icon-button" aria-live="polite">Auto</button>
     </div>
     <main class="hero">
@@ -75,6 +73,251 @@
             <span class="pill">Automation: Bash, Python</span>
             <span class="pill">Infrastructure &amp; Networking (on-prem)</span>
           </div>
+        </div>
+      </section>
+      <section class="card services" id="services">
+        <div class="section-header">
+          <h2>Services</h2>
+          <span class="tag">Iran-ready</span>
+        </div>
+        <p class="muted">Quick access to my public tooling and private services. Many of these are hosted in Iran and keep working on the national intranet during international connectivity outages.</p>
+        <div class="services-grid">
+          <article class="service-card" data-access="public">
+            <div class="service-header">
+              <h3>IP Info</h3>
+              <span class="pill status public">Public</span>
+            </div>
+            <p>Instant IP, ASN, and network details for quick debugging and verification.</p>
+            <div class="service-links">
+              <a href="https://ip.behnam.pro" target="_blank" rel="noreferrer">ip.behnam.pro</a>
+              <a href="https://ip.bea.sh" target="_blank" rel="noreferrer">ip.bea.sh</a>
+            </div>
+            <div class="service-meta">
+              <span class="pill">Iran</span>
+            </div>
+          </article>
+          <article class="service-card" data-access="public">
+            <div class="service-header">
+              <h3>Telegram Proxy</h3>
+              <span class="pill status public">Public</span>
+            </div>
+            <p>Telegram API proxy to improve reliability and connectivity.</p>
+            <div class="service-links">
+              <a href="https://tg.behnam.pro" target="_blank" rel="noreferrer">tg.behnam.pro</a>
+              <a href="https://tg.bea.sh" target="_blank" rel="noreferrer">tg.bea.sh</a>
+            </div>
+            <div class="service-meta">
+              <span class="pill">Iran</span>
+            </div>
+          </article>
+          <article class="service-card" data-access="public">
+            <div class="service-header">
+              <h3>Pastebin</h3>
+              <span class="pill status public">Public</span>
+            </div>
+            <p>Lightweight paste sharing for logs, snippets, and quick notes.</p>
+            <div class="service-links">
+              <a href="https://paste.behnam.pro" target="_blank" rel="noreferrer">paste.behnam.pro</a>
+              <a href="https://paste.bea.sh" target="_blank" rel="noreferrer">paste.bea.sh</a>
+            </div>
+            <div class="service-meta">
+              <span class="pill">Iran</span>
+            </div>
+          </article>
+          <article class="service-card" data-access="public">
+            <div class="service-header">
+              <h3>Shortener</h3>
+              <span class="pill status public">Public</span>
+            </div>
+            <p>Simple URL shortener for fast, clean links.</p>
+            <div class="service-links">
+              <a href="https://s.behnam.pro" target="_blank" rel="noreferrer">s.behnam.pro</a>
+              <a href="https://s.bea.sh" target="_blank" rel="noreferrer">s.bea.sh</a>
+            </div>
+            <div class="service-meta">
+              <span class="pill">Iran</span>
+            </div>
+          </article>
+          <article class="service-card" data-access="public">
+            <div class="service-header">
+              <h3>Drive</h3>
+              <span class="pill status public">Public</span>
+            </div>
+            <p>Curated files and useful resources for quick downloads.</p>
+            <div class="service-links">
+              <a href="https://drive.behnam.pro" target="_blank" rel="noreferrer">drive.behnam.pro</a>
+              <a href="https://drive.bea.sh" target="_blank" rel="noreferrer">drive.bea.sh</a>
+            </div>
+            <div class="service-meta">
+              <span class="pill">Iran</span>
+            </div>
+          </article>
+          <article class="service-card" data-access="request">
+            <div class="service-header">
+              <h3>Matrix Chat</h3>
+              <span class="pill status request">Request access</span>
+            </div>
+            <p>Private Matrix homeserver you can use with any Element app.</p>
+            <div class="service-links">
+              <a href="https://matrix.behnam.pro" target="_blank" rel="noreferrer">matrix.behnam.pro</a>
+            </div>
+            <div class="service-actions">
+              <button class="request-access" type="button" data-service="Matrix Chat" aria-expanded="false">Request access</button>
+            </div>
+            <div class="access-panel" hidden>
+              <p>Contact: <a href="mailto:bagheri@linuxmail.org">bagheri@linuxmail.org</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
+            </div>
+            <div class="service-meta">
+              <span class="pill">Iran</span>
+            </div>
+          </article>
+          <article class="service-card" data-access="public">
+            <div class="service-header">
+              <h3>Element Web</h3>
+              <span class="pill status public">Public</span>
+            </div>
+            <p>Hosted Element web client for Matrix chat.</p>
+            <div class="service-links">
+              <a href="https://element.behnam.pro" target="_blank" rel="noreferrer">element.behnam.pro</a>
+            </div>
+            <div class="service-meta">
+              <span class="pill">Iran</span>
+            </div>
+          </article>
+          <article class="service-card" data-access="request">
+            <div class="service-header">
+              <h3>Meet</h3>
+              <span class="pill status request">Request access</span>
+            </div>
+            <p>Private Jitsi Meet instance for secure video calls.</p>
+            <div class="service-links">
+              <a href="https://meet.behnam.pro" target="_blank" rel="noreferrer">meet.behnam.pro</a>
+            </div>
+            <div class="service-actions">
+              <button class="request-access" type="button" data-service="Meet" aria-expanded="false">Request access</button>
+            </div>
+            <div class="access-panel" hidden>
+              <p>Contact: <a href="mailto:bagheri@linuxmail.org">bagheri@linuxmail.org</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
+            </div>
+            <div class="service-meta">
+              <span class="pill">Iran</span>
+            </div>
+          </article>
+          <article class="service-card" data-access="request">
+            <div class="service-header">
+              <h3>Desk</h3>
+              <span class="pill status request">Request access</span>
+            </div>
+            <p>RustDesk relay for secure remote access sessions.</p>
+            <div class="service-links">
+              <a href="https://desk.behnam.pro" target="_blank" rel="noreferrer">desk.behnam.pro</a>
+            </div>
+            <div class="service-actions">
+              <button class="request-access" type="button" data-service="Desk" aria-expanded="false">Request access</button>
+            </div>
+            <div class="access-panel" hidden>
+              <p>Contact: <a href="mailto:bagheri@linuxmail.org">bagheri@linuxmail.org</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
+            </div>
+            <div class="service-meta">
+              <span class="pill">Iran</span>
+            </div>
+          </article>
+          <article class="service-card" data-access="public">
+            <div class="service-header">
+              <h3>Docker Proxy</h3>
+              <span class="pill status public">Public</span>
+            </div>
+            <p>Docker registry proxy to improve image pulls and reliability.</p>
+            <div class="service-links">
+              <a href="https://docker.behnam.pro" target="_blank" rel="noreferrer">docker.behnam.pro</a>
+            </div>
+            <div class="service-meta">
+              <span class="pill">Iran</span>
+            </div>
+          </article>
+          <article class="service-card" data-access="request">
+            <div class="service-header">
+              <h3>Private Registry</h3>
+              <span class="pill status request">Request access</span>
+            </div>
+            <p>Private Docker registry for controlled image distribution.</p>
+            <div class="service-links">
+              <a href="https://reg.behnam.pro" target="_blank" rel="noreferrer">reg.behnam.pro</a>
+            </div>
+            <div class="service-actions">
+              <button class="request-access" type="button" data-service="Private Registry" aria-expanded="false">Request access</button>
+            </div>
+            <div class="access-panel" hidden>
+              <p>Contact: <a href="mailto:bagheri@linuxmail.org">bagheri@linuxmail.org</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
+            </div>
+            <div class="service-meta">
+              <span class="pill">Iran</span>
+            </div>
+          </article>
+          <article class="service-card" data-access="public">
+            <div class="service-header">
+              <h3>NPM Proxy</h3>
+              <span class="pill status public">Public</span>
+            </div>
+            <p>NPM proxy for faster, more reliable package installs.</p>
+            <div class="service-links">
+              <a href="https://registry.behnam.pro/repository/npm/" target="_blank" rel="noreferrer">registry.behnam.pro/repository/npm</a>
+            </div>
+            <div class="service-meta">
+              <span class="pill">Iran</span>
+            </div>
+          </article>
+          <article class="service-card" data-access="public">
+            <div class="service-header">
+              <h3>PyPI Proxy</h3>
+              <span class="pill status public">Public</span>
+            </div>
+            <p>PyPI proxy for faster, more reliable package installs.</p>
+            <div class="service-links">
+              <a href="https://registry.behnam.pro/repository/pypi/simple" target="_blank" rel="noreferrer">registry.behnam.pro/repository/pypi/simple</a>
+            </div>
+            <div class="service-meta">
+              <span class="pill">Iran</span>
+            </div>
+          </article>
+          <article class="service-card" data-access="request">
+            <div class="service-header">
+              <h3>DNS</h3>
+              <span class="pill status request">Request access</span>
+            </div>
+            <p>Private DNS resolver for trusted and consistent name resolution.</p>
+            <div class="service-links">
+              <span>46.245.114.114</span>
+            </div>
+            <div class="service-actions">
+              <button class="request-access" type="button" data-service="DNS" aria-expanded="false">Request access</button>
+            </div>
+            <div class="access-panel" hidden>
+              <p>Contact: <a href="mailto:bagheri@linuxmail.org">bagheri@linuxmail.org</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
+            </div>
+            <div class="service-meta">
+              <span class="pill">Iran</span>
+            </div>
+          </article>
+          <article class="service-card" data-access="request">
+            <div class="service-header">
+              <h3>Mail</h3>
+              <span class="pill status request">Request access</span>
+            </div>
+            <p>Private email service for managed, hosted inboxes.</p>
+            <div class="service-links">
+              <a href="https://mail.bea.sh" target="_blank" rel="noreferrer">mail.bea.sh</a>
+            </div>
+            <div class="service-actions">
+              <button class="request-access" type="button" data-service="Mail" aria-expanded="false">Request access</button>
+            </div>
+            <div class="access-panel" hidden>
+              <p>Contact: <a href="mailto:bagheri@linuxmail.org">bagheri@linuxmail.org</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
+            </div>
+            <div class="service-meta">
+              <span class="pill">Iran</span>
+            </div>
+          </article>
         </div>
       </section>
     </main>

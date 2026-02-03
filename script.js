@@ -28,3 +28,20 @@ prefersDark.addEventListener('change', () => {
 });
 
 applyTheme(localStorage.getItem(THEME_KEY) || 'auto');
+
+document.querySelectorAll('.request-access').forEach((buttonEl) => {
+  buttonEl.addEventListener('click', () => {
+    const panel = buttonEl.closest('.service-card')?.querySelector('.access-panel');
+    if (!panel) return;
+    const isHidden = panel.hasAttribute('hidden');
+    if (isHidden) {
+      panel.removeAttribute('hidden');
+      buttonEl.setAttribute('aria-expanded', 'true');
+      buttonEl.textContent = 'Hide contact';
+    } else {
+      panel.setAttribute('hidden', '');
+      buttonEl.setAttribute('aria-expanded', 'false');
+      buttonEl.textContent = 'Request access';
+    }
+  });
+});
