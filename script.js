@@ -45,3 +45,100 @@ document.querySelectorAll('.request-access').forEach((buttonEl) => {
     }
   });
 });
+
+const modalBackdrop = document.getElementById('modalBackdrop');
+const modalCloseButtons = document.querySelectorAll('.modal-close');
+let activeModal = null;
+
+const openModal = (modalId) => {
+  if (!modalBackdrop) return;
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
+  activeModal = modal;
+  modalBackdrop.removeAttribute('hidden');
+  document.body.classList.add('modal-open');
+  modal.focus();
+};
+
+const closeModal = () => {
+  if (!modalBackdrop || !activeModal) return;
+  modalBackdrop.setAttribute('hidden', '');
+  document.body.classList.remove('modal-open');
+  activeModal = null;
+};
+
+document.querySelectorAll('.usage-guide').forEach((buttonEl) => {
+  buttonEl.addEventListener('click', () => {
+    const modalTarget = buttonEl.getAttribute('data-modal-target');
+    if (!modalTarget) return;
+    openModal(modalTarget);
+  });
+});
+
+modalCloseButtons.forEach((buttonEl) => {
+  buttonEl.addEventListener('click', closeModal);
+});
+
+if (modalBackdrop) {
+  modalBackdrop.addEventListener('click', (event) => {
+    if (event.target === modalBackdrop) {
+      closeModal();
+    }
+  });
+}
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && activeModal) {
+    closeModal();
+  }
+});
+
+const copyTextToClipboard = async (text) => {
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+
+  const textArea = document.createElement('textarea');
+  textArea.value = text;
+  textArea.setAttribute('readonly', '');
+  textArea.style.position = 'fixed';
+  textArea.style.opacity = '0';
+  document.body.appendChild(textArea);
+  textArea.select();
+  document.execCommand('copy');
+  textArea.remove();
+};
+
+document.querySelectorAll('.modal pre').forEach((preEl) => {
+  const codeEl = preEl.querySelector('code');
+  if (!codeEl || !preEl.parentElement) return;
+
+  const wrapper = document.createElement('div');
+  wrapper.className = 'code-block';
+  preEl.parentElement.insertBefore(wrapper, preEl);
+  wrapper.appendChild(preEl);
+
+  const copyButton = document.createElement('button');
+  copyButton.type = 'button';
+  copyButton.className = 'code-copy';
+  copyButton.textContent = 'Copy';
+  wrapper.appendChild(copyButton);
+
+  copyButton.addEventListener('click', async () => {
+    const code = codeEl.textContent || '';
+    if (!code) return;
+    try {
+      await copyTextToClipboard(code);
+      copyButton.textContent = 'Copied';
+      setTimeout(() => {
+        copyButton.textContent = 'Copy';
+      }, 1200);
+    } catch {
+      copyButton.textContent = 'Failed';
+      setTimeout(() => {
+        copyButton.textContent = 'Copy';
+      }, 1200);
+    }
+  });
+});

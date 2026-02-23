@@ -454,6 +454,21 @@ body {
   border-color: var(--accent);
 }
 
+.usage-guide {
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.usage-guide:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
 .access-panel {
   border: 1px dashed var(--border);
   border-radius: 10px;
@@ -509,6 +524,115 @@ body {
   color: var(--accent);
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 999;
+}
+
+.modal {
+  width: min(920px, 100%);
+  max-height: calc(100vh - 40px);
+  overflow: auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 6px;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.modal-subtitle {
+  margin: 0 0 12px;
+  color: var(--muted);
+}
+
+.modal h3 {
+  margin: 16px 0 8px;
+  font-size: 1rem;
+}
+
+.modal .code-block {
+  position: relative;
+  margin: 0 0 12px;
+}
+
+.modal pre {
+  margin: 0;
+  padding: 12px;
+  padding-top: 40px;
+  background: rgba(15, 23, 42, 0.45);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow-x: auto;
+}
+
+body[data-theme='light'] .modal pre {
+  background: #f1f5f9;
+}
+
+.modal code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.code-copy {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
+  color: var(--text);
+  padding: 4px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.code-copy:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.modal-close {
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
+  color: var(--text);
+  padding: 7px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.modal-close:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
 @media (max-width: 720px) {
   .card {
     padding: 18px;
@@ -525,5 +649,13 @@ body {
 
   .location {
     text-align: left;
+  }
+
+  .modal {
+    padding: 14px;
+  }
+
+  .modal code {
+    font-size: 0.8rem;
   }
 }
