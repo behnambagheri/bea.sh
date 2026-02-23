@@ -351,31 +351,42 @@
         <h2 id="aptUsageModalTitle">APT Repository Usage</h2>
         <button class="modal-close" type="button" aria-label="Close usage guide">Close</button>
       </div>
-      <p class="modal-subtitle">Add the repository for your Ubuntu release:</p>
+      <p class="modal-subtitle">Fastest setup first, then manual steps if you prefer.</p>
 
-      <h3>Ubuntu 24.04 (Noble)</h3>
-      <pre><code>sudo tee /etc/apt/sources.list.d/bea-proxy.list > /dev/null <<'EOF'
+      <section class="guide-block guide-block-primary">
+        <p class="guide-label">Recommended</p>
+        <h3>Bootstrap Script</h3>
+        <pre><code>curl -fsSL https://registry.behnam.pro/apt-bootstrap.sh | sudo bash</code></pre>
+      </section>
+
+      <p class="modal-subtitle">Manual repository setup by Ubuntu release:</p>
+
+      <section class="guide-block">
+        <h3>Ubuntu 24.04 (Noble)</h3>
+        <pre><code>sudo tee /etc/apt/sources.list.d/bea-proxy.list > /dev/null <<'EOF'
 deb https://registry.behnam.pro/ubuntu noble main universe restricted multiverse
 deb https://registry.behnam.pro/ubuntu noble-updates main universe restricted multiverse
 deb https://registry.behnam.pro/ubuntu noble-security main universe restricted multiverse
 EOF</code></pre>
+      </section>
 
-      <h3>Ubuntu 22.04 (Jammy)</h3>
-      <pre><code>sudo tee /etc/apt/sources.list.d/bea-proxy.list > /dev/null <<'EOF'
+      <section class="guide-block">
+        <h3>Ubuntu 22.04 (Jammy)</h3>
+        <pre><code>sudo tee /etc/apt/sources.list.d/bea-proxy.list > /dev/null <<'EOF'
 deb https://registry.behnam.pro/ubuntu jammy main universe restricted multiverse
 deb https://registry.behnam.pro/ubuntu jammy-updates main universe restricted multiverse
 deb https://registry.behnam.pro/ubuntu jammy-security main universe restricted multiverse
 EOF</code></pre>
+      </section>
 
-      <h3>Ubuntu 25.04 (Plucky)</h3>
-      <pre><code>sudo tee /etc/apt/sources.list.d/bea-proxy.list > /dev/null <<'EOF'
+      <section class="guide-block">
+        <h3>Ubuntu 25.04 (Plucky)</h3>
+        <pre><code>sudo tee /etc/apt/sources.list.d/bea-proxy.list > /dev/null <<'EOF'
 deb https://registry.behnam.pro/ubuntu plucky main universe restricted multiverse
 deb https://registry.behnam.pro/ubuntu plucky-updates main universe restricted multiverse
 deb https://registry.behnam.pro/ubuntu plucky-security main universe restricted multiverse
 EOF</code></pre>
-
-      <p class="modal-subtitle">or just run:</p>
-      <pre><code>curl -fsSL https://registry.behnam.pro/apt-bootstrap.sh | sudo bash</code></pre>
+      </section>
     </div>
   </div>
   <script src="script.js"></script>
