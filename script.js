@@ -6,10 +6,12 @@ const applyTheme = (theme) => {
   if (!theme || theme === 'auto') {
     document.body.removeAttribute('data-theme');
     button.textContent = 'Auto';
+    button.setAttribute('aria-label', 'Theme: auto');
     return;
   }
   document.body.setAttribute('data-theme', theme);
   button.textContent = theme === 'dark' ? 'Dark' : 'Light';
+  button.setAttribute('aria-label', `Theme: ${theme}`);
 };
 
 const cycleTheme = () => {
@@ -142,3 +144,22 @@ document.querySelectorAll('.modal pre').forEach((preEl) => {
     }
   });
 });
+
+const revealItems = document.querySelectorAll('.reveal');
+
+if ('IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.12 },
+  );
+
+  revealItems.forEach((item) => revealObserver.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add('is-visible'));
+}

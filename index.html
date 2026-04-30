@@ -3,341 +3,360 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Behnam Bagheri — DevOps Engineer</title>
+  <title>Behnam Bagheri - DevOps Engineer</title>
+  <meta
+    name="description"
+    content="DevOps engineer in Tehran building reliable CI/CD, Kubernetes, observability, backup, and private infrastructure services."
+  >
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="page-shell">
-    <div class="theme-toggle" aria-label="Header actions">
-      <a class="header-link" href="#services">Services</a>
-      <button id="themeButton" type="button" class="icon-button" aria-live="polite">Auto</button>
-    </div>
-    <main class="hero">
-      <div class="intro">
-        <p class="eyebrow">Resume</p>
-        <h1>Behnam Bagheri</h1>
-        <p class="subtitle">DevOps Engineer</p>
-        <div class="meta">
-          <div class="meta-item">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C7.58 2 4 5.35 4 9.46 4 15.3 11.15 21.6 11.46 21.86a1 1 0 0 0 1.08.12c.34-.16 8.46-4.16 8.46-12.52C21 5.35 16.42 2 12 2Zm0 17.35C9.93 17 6 12.83 6 9.46 6 6.39 8.55 4 12 4s6 2.39 6 5.46c0 4.16-3.63 7.82-6 9.89Zm0-13.31a3.38 3.38 0 1 0 3.38 3.38A3.39 3.39 0 0 0 12 6.04Zm0 5.38a2 2 0 1 1 2-2 2 2 0 0 1-2 2Z"/></svg>
-            <span>Tehran, Iran (Hybrid)</span>
-          </div>
-          <a class="meta-item" href="mailto:bagheri@linuxmail.org">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v.28l8 5.2 8-5.2V6H4Zm16 12V9.72l-7.43 4.82a1 1 0 0 1-1.14 0L4 9.72V18h16Z"/></svg>
-            <span>bagheri@linuxmail.org</span>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Behnam Bagheri home">
+      <span class="brand-mark">BB</span>
+      <span>Behnam Bagheri</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="#experience">Experience</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <button id="themeButton" type="button" class="theme-button" aria-live="polite">Auto</button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero-section reveal">
+      <div class="hero-content">
+        <p class="eyebrow">DevOps Engineer - Tehran, Iran</p>
+        <h1>Production infrastructure, automation, and reliability for real-world systems.</h1>
+        <p class="hero-copy">
+          I operate on-prem Kubernetes, CI/CD pipelines, monitoring, backups, and private platform services with a practical focus on uptime, recovery, and clear operational workflows.
+        </p>
+        <div class="hero-actions" id="contact">
+          <a class="button button-primary" href="mailto:bagheri@linuxmail.org">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v.35l8 5.2 8-5.2V6H4Zm16 12V8.73l-7.46 4.85a1 1 0 0 1-1.08 0L4 8.73V18h16Z"/></svg>
+            Email me
           </a>
-          <a class="meta-item" href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">
+          <a class="button button-secondary" href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 3H3.55A1.55 1.55 0 0 0 2 4.55v14.9A1.55 1.55 0 0 0 3.55 21h16.9A1.55 1.55 0 0 0 22 19.45V4.55A1.55 1.55 0 0 0 20.45 3ZM8.34 18.5H5.7V9.75h2.64ZM7 8.56a1.5 1.5 0 1 1 1.5-1.5A1.51 1.51 0 0 1 7 8.56Zm11.5 9.94h-2.63V13.5c0-1.19-.43-2-1.51-2a1.64 1.64 0 0 0-1.54 1.11 2 2 0 0 0-.1.71v5.18H9.09V9.75h2.63v1.2a2.69 2.69 0 0 1 2.48-1.36c1.81 0 3.3 1.23 3.3 3.86Z"/></svg>
-            <span>/in/behnambaqeri</span>
-          </a>
-          <a class="meta-item" href="https://behnambagheri.ir" target="_blank" rel="noreferrer">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.26 5.32a9.94 9.94 0 0 0-2 4.68h3.16a16 16 0 0 1 .68-2.14A10.13 10.13 0 0 1 4.26 5.32ZM8.6 10H15.4a15 15 0 0 0-.64-2.43A23 23 0 0 0 12 7a23.46 23.46 0 0 0-2.76.57A15 15 0 0 0 8.6 10Zm-.35 2a14.44 14.44 0 0 0 .65 2.43A22.73 22.73 0 0 0 12 15a22.73 22.73 0 0 0 3.1-.57A14.44 14.44 0 0 0 15.75 12ZM6.42 12H3.07a10 10 0 0 0 2 4.68 9.61 9.61 0 0 1 1.85-2.46A15.62 15.62 0 0 1 6.42 12Zm9-4.14A16 16 0 0 1 16.56 10h3.37a10 10 0 0 0-2-4.68 10.13 10.13 0 0 1-2.56 2.54Zm2.12 6.82a9.68 9.68 0 0 1 1.7 2.36A10 10 0 0 0 20 12h-3.09a15.62 15.62 0 0 1-.41 2.68ZM8.51 7.1A9.7 9.7 0 0 1 10 4.38 10 10 0 0 0 6 6.41a9.21 9.21 0 0 0 2.51.69Zm2.83 9.52A9.53 9.53 0 0 1 9.35 13a16 16 0 0 1-2.55.61 10 10 0 0 0 4.54 2.99Zm.26-12a23.92 23.92 0 0 1 2.35.46 9.64 9.64 0 0 1-2.11-2.87A10 10 0 0 0 11.6 4.62Zm2.62 12.2A9.21 9.21 0 0 0 18 17.59a10 10 0 0 0 1.72-1.71 9.62 9.62 0 0 0-3.44-.98 23.4 23.4 0 0 1-2.06-.08Z"/></svg>
-            <span>behnambagheri.ir</span>
+            LinkedIn
           </a>
         </div>
       </div>
-      <section class="card">
-        <h2>Professional Summary</h2>
-        <p>DevOps Engineer bridging infrastructure, CI/CD, and production reliability with 6+ years of hands-on experience. Strong in CI/CD pipelines, monitoring and alerting systems, backup and disaster recovery, and automation for operational visibility. Experienced in incident handling, automation at scale, and maintaining reliable systems in high-availability environments.</p>
-      </section>
-      <section class="card experience">
-        <div class="section-header">
-          <h2>Experience</h2>
-          <span class="tag">2021 — Present</span>
+
+      <aside class="hero-panel" aria-label="Operational profile">
+        <div class="signal-card">
+          <span class="signal-dot" aria-hidden="true"></span>
+          <p>Available for hybrid infrastructure, automation, and reliability work.</p>
         </div>
-        <div class="role">
+        <div class="metric-grid">
+          <div>
+            <strong>6+</strong>
+            <span>Years hands-on</span>
+          </div>
+          <div>
+            <strong>30+</strong>
+            <span>CI/CD pipelines</span>
+          </div>
+          <div>
+            <strong>6+</strong>
+            <span>K8s nodes</span>
+          </div>
+          <div>
+            <strong>24/7</strong>
+            <span>Production mindset</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="profile-band reveal" aria-label="Contact details">
+      <a class="profile-item" href="mailto:bagheri@linuxmail.org">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v.35l8 5.2 8-5.2V6H4Zm16 12V8.73l-7.46 4.85a1 1 0 0 1-1.08 0L4 8.73V18h16Z"/></svg>
+        <span>bagheri@linuxmail.org</span>
+      </a>
+      <a class="profile-item" href="https://behnambagheri.ir" target="_blank" rel="noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.93 9h-3.1a15.6 15.6 0 0 0-1.02-5.04A8.02 8.02 0 0 1 18.93 11ZM12 4.04c.56.8 1.47 2.5 1.78 6.96h-3.56C10.53 6.54 11.44 4.84 12 4.04ZM4.26 13h3.91c.1 1.9.39 3.55.83 4.88A8.03 8.03 0 0 1 4.26 13Zm3.91-2H4.26A8.03 8.03 0 0 1 9 6.12 17.86 17.86 0 0 0 8.17 11ZM12 19.96c-.56-.8-1.47-2.5-1.78-6.96h3.56C13.47 17.46 12.56 19.16 12 19.96Zm3-2.08c.44-1.33.73-2.98.83-4.88h3.1A8.02 8.02 0 0 1 15 17.88Z"/></svg>
+        <span>behnambagheri.ir</span>
+      </a>
+      <span class="profile-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C7.58 2 4 5.35 4 9.46c0 5.84 7.15 12.14 7.46 12.4a1 1 0 0 0 1.08.12C12.88 21.82 21 17.82 21 9.46 21 5.35 16.42 2 12 2Zm0 17.35C9.93 17 6 12.83 6 9.46 6 6.39 8.55 4 12 4s6 2.39 6 5.46c0 4.16-3.63 7.82-6 9.89Zm0-13.31a3.38 3.38 0 1 0 0 6.76 3.38 3.38 0 0 0 0-6.76Z"/></svg>
+        <span>Tehran, Iran - Hybrid</span>
+      </span>
+    </section>
+
+    <section class="section-grid" id="experience">
+      <div class="section-intro reveal">
+        <p class="eyebrow">Experience</p>
+        <h2>DevOps Engineer at Bitmax</h2>
+        <p>
+          Production infrastructure work across Kubernetes, CI/CD, observability, automation, incident response, and recovery planning.
+        </p>
+      </div>
+
+      <div class="timeline-card reveal">
+        <div class="role-header">
           <div>
             <p class="eyebrow">Bitmax</p>
             <h3>DevOps Engineer</h3>
           </div>
-          <p class="location">On-prem Kubernetes (6+ node clusters)</p>
+          <span class="tag">2021 - Present</span>
         </div>
-        <ul class="bullet-list">
-          <li>Designed, deployed, and operated on-prem Kubernetes clusters supporting microservices.</li>
-          <li>Built and maintained 30+ CI/CD pipelines using Atlassian Bamboo and Bitbucket for backend and frontend.</li>
-          <li>Developed Bash and Python scripts for automation, backup management, reporting, and operational workflows.</li>
-          <li>Implemented webhooks for Bamboo, Bitbucket, Jira, and Sentry to automate deployments, notifications, and incident alerts.</li>
-          <li>Designed monitoring and alerting systems with Prometheus, Grafana, and Alertmanager; built dashboards for engineers.</li>
-          <li>Handled production incidents including hardware failures, database outages, and network disruptions with rapid recovery strategies.</li>
-          <li>Designed cybersecurity playbooks and runbooks for PostgreSQL and critical services with tested restore procedures.</li>
-          <li>Implemented safe rollback mechanisms integrated with CI/CD pipelines and staged rollouts.</li>
+        <p class="role-context">On-prem Kubernetes clusters supporting backend and frontend microservices.</p>
+        <ul class="work-list">
+          <li>Designed, deployed, and operated on-prem Kubernetes clusters with 6+ nodes.</li>
+          <li>Built and maintained 30+ CI/CD pipelines using Atlassian Bamboo and Bitbucket.</li>
+          <li>Automated backup management, reporting, deployment notifications, and operational workflows with Bash and Python.</li>
+          <li>Implemented monitoring and alerting with Prometheus, Grafana, and Alertmanager.</li>
+          <li>Handled production incidents across hardware failures, database outages, and network disruptions.</li>
+          <li>Built cybersecurity playbooks, restore procedures, rollback mechanisms, and staged rollout workflows.</li>
         </ul>
-        <div class="skills">
-          <h4>Core Skills</h4>
-          <div class="pill-group">
-            <span class="pill">Linux (Production)</span>
-            <span class="pill">CI/CD: Bamboo, Bitbucket, Git</span>
-            <span class="pill">Containers &amp; Orchestration: Docker, Kubernetes (on-prem)</span>
-            <span class="pill">Monitoring: Prometheus, Grafana, Alertmanager</span>
-            <span class="pill">Backup &amp; Disaster Recovery</span>
-            <span class="pill">Automation: Bash, Python</span>
-            <span class="pill">Infrastructure &amp; Networking (on-prem)</span>
+      </div>
+    </section>
+
+    <section class="capabilities reveal" aria-label="Core capabilities">
+      <div class="capability">
+        <span>01</span>
+        <h3>Platform Operations</h3>
+        <p>Linux, Docker, Kubernetes, on-prem networking, and practical high-availability operations.</p>
+      </div>
+      <div class="capability">
+        <span>02</span>
+        <h3>Delivery Systems</h3>
+        <p>Bamboo, Bitbucket, Git, deployment automation, staged rollouts, and rollback paths.</p>
+      </div>
+      <div class="capability">
+        <span>03</span>
+        <h3>Reliability Tooling</h3>
+        <p>Prometheus, Grafana, Alertmanager, Sentry hooks, backup workflows, and disaster recovery.</p>
+      </div>
+    </section>
+
+    <section class="services-section" id="services">
+      <div class="section-intro services-intro reveal">
+        <p class="eyebrow">Hosted Services</p>
+        <h2>Public tooling and private infrastructure services.</h2>
+        <p>
+          Many services are hosted in Iran and are designed to remain useful during international connectivity outages.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal" data-access="public">
+          <div class="service-header">
+            <h3>IP Info</h3>
+            <span class="status status-public">Public</span>
           </div>
-        </div>
-      </section>
-      <section class="card services" id="services">
-        <div class="section-header">
-          <h2>Services</h2>
-          <span class="tag">Iran-ready</span>
-        </div>
-        <p class="muted">Quick access to my public tooling and private services. Many of these are hosted in Iran and keep working on the national intranet during international connectivity outages.</p>
-        <div class="services-grid">
-          <article class="service-card" data-access="public">
-            <div class="service-header">
-              <h3>IP Info</h3>
-              <span class="pill status public">Public</span>
-            </div>
-            <p>Instant IP, ASN, and network details for quick debugging and verification.</p>
-            <div class="service-links">
-              <a href="https://ip.behnam.pro" target="_blank" rel="noreferrer">ip.behnam.pro</a>
-              <a href="https://ip.bea.sh" target="_blank" rel="noreferrer">ip.bea.sh</a>
-            </div>
-            <div class="service-meta">
-              <span class="pill">Iran</span>
-            </div>
-          </article>
-          <article class="service-card" data-access="public">
-            <div class="service-header">
-              <h3>Telegram Proxy</h3>
-              <span class="pill status public">Public</span>
-            </div>
-            <p>Telegram API proxy to improve reliability and connectivity.</p>
-            <div class="service-links">
-              <a href="https://tg.behnam.pro" target="_blank" rel="noreferrer">tg.behnam.pro</a>
-              <a href="https://tg.bea.sh" target="_blank" rel="noreferrer">tg.bea.sh</a>
-            </div>
-            <div class="service-meta">
-              <span class="pill">Iran</span>
-            </div>
-          </article>
-          <article class="service-card" data-access="public">
-            <div class="service-header">
-              <h3>Pastebin</h3>
-              <span class="pill status public">Public</span>
-            </div>
-            <p>Lightweight paste sharing for logs, snippets, and quick notes.</p>
-            <div class="service-links">
-              <a href="https://paste.behnam.pro" target="_blank" rel="noreferrer">paste.behnam.pro</a>
-              <a href="https://paste.bea.sh" target="_blank" rel="noreferrer">paste.bea.sh</a>
-            </div>
-            <div class="service-meta">
-              <span class="pill">Iran</span>
-            </div>
-          </article>
-          <article class="service-card" data-access="public">
-            <div class="service-header">
-              <h3>Shortener</h3>
-              <span class="pill status public">Public</span>
-            </div>
-            <p>Simple URL shortener for fast, clean links.</p>
-            <div class="service-links">
-              <a href="https://s.behnam.pro" target="_blank" rel="noreferrer">s.behnam.pro</a>
-              <a href="https://s.bea.sh" target="_blank" rel="noreferrer">s.bea.sh</a>
-            </div>
-            <div class="service-meta">
-              <span class="pill">Iran</span>
-            </div>
-          </article>
-          <article class="service-card" data-access="public">
-            <div class="service-header">
-              <h3>Drive</h3>
-              <span class="pill status public">Public</span>
-            </div>
-            <p>Curated files and useful resources for quick downloads.</p>
-            <div class="service-links">
-              <a href="https://drive.behnam.pro" target="_blank" rel="noreferrer">drive.behnam.pro</a>
-              <a href="https://drive.bea.sh" target="_blank" rel="noreferrer">drive.bea.sh</a>
-            </div>
-            <div class="service-meta">
-              <span class="pill">Iran</span>
-            </div>
-          </article>
-          <article class="service-card" data-access="request">
-            <div class="service-header">
-              <h3>Matrix Chat</h3>
-              <span class="pill status request">Request access</span>
-            </div>
-            <p>Private Matrix homeserver you can use with any Element app.</p>
-            <div class="service-links">
-              <a href="https://matrix.behnam.pro" target="_blank" rel="noreferrer">matrix.behnam.pro</a>
-            </div>
-            <div class="service-actions">
-              <button class="request-access" type="button" data-service="Matrix Chat" aria-expanded="false">Request access</button>
-            </div>
-            <div class="access-panel" hidden>
-              <p>Contact: <a href="mailto:bagheri@linuxmail.org">bagheri@linuxmail.org</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
-            </div>
-            <div class="service-meta">
-              <span class="pill">Iran</span>
-            </div>
-          </article>
-          <article class="service-card" data-access="public">
-            <div class="service-header">
-              <h3>Element Web</h3>
-              <span class="pill status public">Public</span>
-            </div>
-            <p>Hosted Element web client for Matrix chat.</p>
-            <div class="service-links">
-              <a href="https://element.behnam.pro" target="_blank" rel="noreferrer">element.behnam.pro</a>
-            </div>
-            <div class="service-meta">
-              <span class="pill">Iran</span>
-            </div>
-          </article>
-          <article class="service-card" data-access="request">
-            <div class="service-header">
-              <h3>Meet</h3>
-              <span class="pill status request">Request access</span>
-            </div>
-            <p>Private Jitsi Meet instance for secure video calls.</p>
-            <div class="service-links">
-              <a href="https://meet.behnam.pro" target="_blank" rel="noreferrer">meet.behnam.pro</a>
-            </div>
-            <div class="service-actions">
-              <button class="request-access" type="button" data-service="Meet" aria-expanded="false">Request access</button>
-            </div>
-            <div class="access-panel" hidden>
-              <p>Contact: <a href="mailto:bagheri@linuxmail.org">bagheri@linuxmail.org</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
-            </div>
-            <div class="service-meta">
-              <span class="pill">Iran</span>
-            </div>
-          </article>
-          <article class="service-card" data-access="request">
-            <div class="service-header">
-              <h3>Desk</h3>
-              <span class="pill status request">Request access</span>
-            </div>
-            <p>RustDesk relay for secure remote access sessions.</p>
-            <div class="service-links">
-              <a href="https://desk.behnam.pro" target="_blank" rel="noreferrer">desk.behnam.pro</a>
-            </div>
-            <div class="service-actions">
-              <button class="request-access" type="button" data-service="Desk" aria-expanded="false">Request access</button>
-            </div>
-            <div class="access-panel" hidden>
-              <p>Contact: <a href="mailto:bagheri@linuxmail.org">bagheri@linuxmail.org</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
-            </div>
-            <div class="service-meta">
-              <span class="pill">Iran</span>
-            </div>
-          </article>
-          <article class="service-card" data-access="public">
-            <div class="service-header">
-              <h3>Docker Proxy</h3>
-              <span class="pill status public">Public</span>
-            </div>
-            <p>Docker registry proxy to improve image pulls and reliability.</p>
-            <div class="service-links">
-              <a href="https://docker.behnam.pro" target="_blank" rel="noreferrer">docker.behnam.pro</a>
-            </div>
-            <div class="service-meta">
-              <span class="pill">Iran</span>
-            </div>
-          </article>
-          <article class="service-card" data-access="request">
-            <div class="service-header">
-              <h3>Private Registry</h3>
-              <span class="pill status request">Request access</span>
-            </div>
-            <p>Private Docker registry for controlled image distribution.</p>
-            <div class="service-links">
-              <a href="https://reg.behnam.pro" target="_blank" rel="noreferrer">reg.behnam.pro</a>
-            </div>
-            <div class="service-actions">
-              <button class="request-access" type="button" data-service="Private Registry" aria-expanded="false">Request access</button>
-            </div>
-            <div class="access-panel" hidden>
-              <p>Contact: <a href="mailto:bagheri@linuxmail.org">bagheri@linuxmail.org</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
-            </div>
-            <div class="service-meta">
-              <span class="pill">Iran</span>
-            </div>
-          </article>
-          <article class="service-card" data-access="public">
-            <div class="service-header">
-              <h3>NPM Proxy</h3>
-              <span class="pill status public">Public</span>
-            </div>
-            <p>NPM proxy for faster, more reliable package installs.</p>
-            <div class="service-links">
-              <a href="https://registry.behnam.pro/repository/npm/" target="_blank" rel="noreferrer">registry.behnam.pro/repository/npm</a>
-            </div>
-            <div class="service-meta">
-              <span class="pill">Iran</span>
-            </div>
-          </article>
-          <article class="service-card" data-access="public">
-            <div class="service-header">
-              <h3>PyPI Proxy</h3>
-              <span class="pill status public">Public</span>
-            </div>
-            <p>PyPI proxy for faster, more reliable package installs.</p>
-            <div class="service-links">
-              <a href="https://registry.behnam.pro/repository/pypi/simple" target="_blank" rel="noreferrer">registry.behnam.pro/repository/pypi/simple</a>
-            </div>
-            <div class="service-meta">
-              <span class="pill">Iran</span>
-            </div>
-          </article>
-          <article class="service-card" data-access="public">
-            <div class="service-header">
-              <h3>APT Repository</h3>
-              <span class="pill status public">Public</span>
-            </div>
-            <p>Ubuntu APT mirror/proxy to speed up package installs and updates.</p>
-            <div class="service-links">
-              <a href="https://registry.behnam.pro/ubuntu" target="_blank" rel="noreferrer">registry.behnam.pro/ubuntu</a>
-            </div>
-            <div class="service-actions">
-              <button class="usage-guide" type="button" data-modal-target="aptUsageModal">Usage guide</button>
-            </div>
-            <div class="service-meta">
-              <span class="pill">Iran</span>
-            </div>
-          </article>
-          <article class="service-card" data-access="request">
-            <div class="service-header">
-              <h3>DNS</h3>
-              <span class="pill status request">Request access</span>
-            </div>
-            <p>Private DNS resolver for trusted and consistent name resolution.</p>
-            <div class="service-links">
-              <span>46.245.114.114</span>
-            </div>
-            <div class="service-actions">
-              <button class="request-access" type="button" data-service="DNS" aria-expanded="false">Request access</button>
-            </div>
-            <div class="access-panel" hidden>
-              <p>Contact: <a href="mailto:bagheri@linuxmail.org">bagheri@linuxmail.org</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
-            </div>
-            <div class="service-meta">
-              <span class="pill">Iran</span>
-            </div>
-          </article>
-          <article class="service-card" data-access="request">
-            <div class="service-header">
-              <h3>Mail</h3>
-              <span class="pill status request">Request access</span>
-            </div>
-            <p>Private email service for managed, hosted inboxes.</p>
-            <div class="service-links">
-              <a href="https://mail.bea.sh" target="_blank" rel="noreferrer">mail.bea.sh</a>
-            </div>
-            <div class="service-actions">
-              <button class="request-access" type="button" data-service="Mail" aria-expanded="false">Request access</button>
-            </div>
-            <div class="access-panel" hidden>
-              <p>Contact: <a href="mailto:bagheri@linuxmail.org">bagheri@linuxmail.org</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
-            </div>
-            <div class="service-meta">
-              <span class="pill">Iran</span>
-            </div>
-          </article>
-        </div>
-      </section>
-    </main>
-  </header>
+          <p>Instant IP, ASN, and network details for quick debugging and verification.</p>
+          <div class="service-links">
+            <a href="https://ip.behnam.pro" target="_blank" rel="noreferrer">ip.behnam.pro</a>
+            <a href="https://ip.bea.sh" target="_blank" rel="noreferrer">ip.bea.sh</a>
+          </div>
+        </article>
+
+        <article class="service-card reveal" data-access="public">
+          <div class="service-header">
+            <h3>Telegram Proxy</h3>
+            <span class="status status-public">Public</span>
+          </div>
+          <p>Telegram API proxy to improve reliability and connectivity.</p>
+          <div class="service-links">
+            <a href="https://tg.behnam.pro" target="_blank" rel="noreferrer">tg.behnam.pro</a>
+            <a href="https://tg.bea.sh" target="_blank" rel="noreferrer">tg.bea.sh</a>
+          </div>
+        </article>
+
+        <article class="service-card reveal" data-access="public">
+          <div class="service-header">
+            <h3>Pastebin</h3>
+            <span class="status status-public">Public</span>
+          </div>
+          <p>Lightweight paste sharing for logs, snippets, and quick notes.</p>
+          <div class="service-links">
+            <a href="https://paste.behnam.pro" target="_blank" rel="noreferrer">paste.behnam.pro</a>
+            <a href="https://paste.bea.sh" target="_blank" rel="noreferrer">paste.bea.sh</a>
+          </div>
+        </article>
+
+        <article class="service-card reveal" data-access="public">
+          <div class="service-header">
+            <h3>Shortener</h3>
+            <span class="status status-public">Public</span>
+          </div>
+          <p>Simple URL shortener for fast, clean links.</p>
+          <div class="service-links">
+            <a href="https://s.behnam.pro" target="_blank" rel="noreferrer">s.behnam.pro</a>
+            <a href="https://s.bea.sh" target="_blank" rel="noreferrer">s.bea.sh</a>
+          </div>
+        </article>
+
+        <article class="service-card reveal" data-access="public">
+          <div class="service-header">
+            <h3>Drive</h3>
+            <span class="status status-public">Public</span>
+          </div>
+          <p>Curated files and useful resources for quick downloads.</p>
+          <div class="service-links">
+            <a href="https://drive.behnam.pro" target="_blank" rel="noreferrer">drive.behnam.pro</a>
+            <a href="https://drive.bea.sh" target="_blank" rel="noreferrer">drive.bea.sh</a>
+          </div>
+        </article>
+
+        <article class="service-card reveal" data-access="request">
+          <div class="service-header">
+            <h3>Matrix Chat</h3>
+            <span class="status status-request">Request</span>
+          </div>
+          <p>Private Matrix homeserver you can use with any Element app.</p>
+          <div class="service-links">
+            <a href="https://matrix.behnam.pro" target="_blank" rel="noreferrer">matrix.behnam.pro</a>
+          </div>
+          <button class="request-access" type="button" data-service="Matrix Chat" aria-expanded="false">Request access</button>
+          <div class="access-panel" hidden>
+            <p>Contact: <a href="mailto:bagheri@linuxmail.org">bagheri@linuxmail.org</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
+          </div>
+        </article>
+
+        <article class="service-card reveal" data-access="public">
+          <div class="service-header">
+            <h3>Element Web</h3>
+            <span class="status status-public">Public</span>
+          </div>
+          <p>Hosted Element web client for Matrix chat.</p>
+          <div class="service-links">
+            <a href="https://element.behnam.pro" target="_blank" rel="noreferrer">element.behnam.pro</a>
+          </div>
+        </article>
+
+        <article class="service-card reveal" data-access="request">
+          <div class="service-header">
+            <h3>Meet</h3>
+            <span class="status status-request">Request</span>
+          </div>
+          <p>Private Jitsi Meet instance for secure video calls.</p>
+          <div class="service-links">
+            <a href="https://meet.behnam.pro" target="_blank" rel="noreferrer">meet.behnam.pro</a>
+          </div>
+          <button class="request-access" type="button" data-service="Meet" aria-expanded="false">Request access</button>
+          <div class="access-panel" hidden>
+            <p>Contact: <a href="mailto:bagheri@linuxmail.org">bagheri@linuxmail.org</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
+          </div>
+        </article>
+
+        <article class="service-card reveal" data-access="request">
+          <div class="service-header">
+            <h3>Desk</h3>
+            <span class="status status-request">Request</span>
+          </div>
+          <p>RustDesk relay for secure remote access sessions.</p>
+          <div class="service-links">
+            <a href="https://desk.behnam.pro" target="_blank" rel="noreferrer">desk.behnam.pro</a>
+          </div>
+          <button class="request-access" type="button" data-service="Desk" aria-expanded="false">Request access</button>
+          <div class="access-panel" hidden>
+            <p>Contact: <a href="mailto:bagheri@linuxmail.org">bagheri@linuxmail.org</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
+          </div>
+        </article>
+
+        <article class="service-card reveal" data-access="public">
+          <div class="service-header">
+            <h3>Docker Proxy</h3>
+            <span class="status status-public">Public</span>
+          </div>
+          <p>Docker registry proxy to improve image pulls and reliability.</p>
+          <div class="service-links">
+            <a href="https://docker.behnam.pro" target="_blank" rel="noreferrer">docker.behnam.pro</a>
+          </div>
+        </article>
+
+        <article class="service-card reveal" data-access="request">
+          <div class="service-header">
+            <h3>Private Registry</h3>
+            <span class="status status-request">Request</span>
+          </div>
+          <p>Private Docker registry for controlled image distribution.</p>
+          <div class="service-links">
+            <a href="https://reg.behnam.pro" target="_blank" rel="noreferrer">reg.behnam.pro</a>
+          </div>
+          <button class="request-access" type="button" data-service="Private Registry" aria-expanded="false">Request access</button>
+          <div class="access-panel" hidden>
+            <p>Contact: <a href="mailto:bagheri@linuxmail.org">bagheri@linuxmail.org</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
+          </div>
+        </article>
+
+        <article class="service-card reveal" data-access="public">
+          <div class="service-header">
+            <h3>NPM Proxy</h3>
+            <span class="status status-public">Public</span>
+          </div>
+          <p>NPM proxy for faster, more reliable package installs.</p>
+          <div class="service-links">
+            <a href="https://registry.behnam.pro/repository/npm/" target="_blank" rel="noreferrer">registry.behnam.pro/repository/npm</a>
+          </div>
+        </article>
+
+        <article class="service-card reveal" data-access="public">
+          <div class="service-header">
+            <h3>PyPI Proxy</h3>
+            <span class="status status-public">Public</span>
+          </div>
+          <p>PyPI proxy for faster, more reliable package installs.</p>
+          <div class="service-links">
+            <a href="https://registry.behnam.pro/repository/pypi/simple" target="_blank" rel="noreferrer">registry.behnam.pro/repository/pypi/simple</a>
+          </div>
+        </article>
+
+        <article class="service-card reveal service-card-featured" data-access="public">
+          <div class="service-header">
+            <h3>APT Repository</h3>
+            <span class="status status-public">Public</span>
+          </div>
+          <p>Ubuntu APT mirror/proxy to speed up package installs and updates.</p>
+          <div class="service-links">
+            <a href="https://registry.behnam.pro/ubuntu" target="_blank" rel="noreferrer">registry.behnam.pro/ubuntu</a>
+          </div>
+          <button class="usage-guide" type="button" data-modal-target="aptUsageModal">Usage guide</button>
+        </article>
+
+        <article class="service-card reveal" data-access="request">
+          <div class="service-header">
+            <h3>DNS</h3>
+            <span class="status status-request">Request</span>
+          </div>
+          <p>Private DNS resolver for trusted and consistent name resolution.</p>
+          <div class="service-links">
+            <span>46.245.114.114</span>
+          </div>
+          <button class="request-access" type="button" data-service="DNS" aria-expanded="false">Request access</button>
+          <div class="access-panel" hidden>
+            <p>Contact: <a href="mailto:bagheri@linuxmail.org">bagheri@linuxmail.org</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
+          </div>
+        </article>
+
+        <article class="service-card reveal" data-access="request">
+          <div class="service-header">
+            <h3>Mail</h3>
+            <span class="status status-request">Request</span>
+          </div>
+          <p>Private email service for managed, hosted inboxes.</p>
+          <div class="service-links">
+            <a href="https://mail.bea.sh" target="_blank" rel="noreferrer">mail.bea.sh</a>
+          </div>
+          <button class="request-access" type="button" data-service="Mail" aria-expanded="false">Request access</button>
+          <div class="access-panel" hidden>
+            <p>Contact: <a href="mailto:bagheri@linuxmail.org">bagheri@linuxmail.org</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Behnam Bagheri - DevOps Engineer</p>
+    <a href="#top">Back to top</a>
+  </footer>
+
   <div class="modal-backdrop" id="modalBackdrop" hidden>
     <div
       class="modal"
@@ -389,6 +408,7 @@ EOF</code></pre>
       </section>
     </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
