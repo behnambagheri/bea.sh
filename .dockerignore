@@ -1,8 +1,11 @@
-node_modules
-npm-debug.log
-Dockerfile
 .git
 .gitignore
+.dockerignore
+.DS_Store
+**/.DS_Store
+.idea
+.codex
 AGENTS.md
-Behnam Bagheri.png
-Behnam Bagheri.jpg
+Dockerfile
+docker-compose.yml
+functions
