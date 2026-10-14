@@ -1,4 +1,6 @@
 // Advertise the Markdown profile so AI agents can find it from any response.
+const CANONICAL_HOST = 'bea.sh';
+
 const LINK_HEADER = '</llms.txt>; rel="describedby"; type="text/markdown", </sitemap.xml>; rel="sitemap"; type="application/xml"';
 
 // Pages uploads the whole repo, so only site assets are served; everything else is a 404.
@@ -20,6 +22,14 @@ function wantsPlainProfile(request) {
 
 export async function onRequest({ request, env, next }) {
   const url = new URL(request.url);
+
+  // www.bea.sh duplicates the canonical host, so send visitors and crawlers to bea.sh.
+  if (url.hostname === `www.${CANONICAL_HOST}`) {
+    url.hostname = CANONICAL_HOST;
+    url.protocol = 'https:';
+    return Response.redirect(url.toString(), 301);
+  }
+
   const fetchAsset = (req) => (env.ASSETS ? env.ASSETS.fetch(req) : next(req));
 
   const isRoot = url.pathname === '/';

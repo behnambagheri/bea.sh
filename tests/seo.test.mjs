@@ -141,6 +141,14 @@ test('Pages function marks pages.dev hosts noindex but not the canonical host', 
   }
 });
 
+test('Pages function redirects www to the canonical host, keeping path and query', async () => {
+  for (const [path, location] of [['/', 'https://bea.sh/'], ['/fa/?ref=x', 'https://bea.sh/fa/?ref=x'], ['/missing', 'https://bea.sh/missing']]) {
+    const response = await call(path, { host: 'www.bea.sh' });
+    assert.equal(response.status, 301, path);
+    assert.equal(response.headers.get('location'), location, path);
+  }
+});
+
 test('Pages function keeps repo files out of the site', async () => {
   for (const path of ['/AGENTS.md', '/nginx.conf', '/package.json', '/tests/seo.test.mjs']) {
     assert.equal((await call(path)).status, 404, path);
