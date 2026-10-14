@@ -96,12 +96,21 @@
     }
   </script>
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="styles.css?v=20261014">
+  <link rel="stylesheet" href="styles.css?v=20261014b">
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="Behnam Bagheri home">
-      <img class="brand-mark" src="/favicon.svg" width="36" height="36" alt="">
+    <a class="brand" href="#top" aria-label="Behnam Bagheri home" aria-describedby="logo-meaning">
+      <span class="brand-logo">
+        <img class="brand-mark" src="/favicon.svg" width="36" height="36" alt="">
+        <span class="logo-tip" id="logo-meaning" role="tooltip">
+          <strong class="logo-tip-title">The keystone arch</strong>
+          <span><b>Keystone</b> &mdash; the last stone that locks an arch. Rarely seen, yet everything rests on it, like infrastructure.</span>
+          <span><b>Arch</b> &mdash; a stable structure carrying the load; its two sides are Dev and Ops.</span>
+          <span><b>Base</b> &mdash; the platform everything is built on.</span>
+          <span class="logo-tip-note">A quiet nod to Persian architecture.</span>
+        </span>
+      </span>
       <span>Behnam Bagheri</span>
     </a>
     <nav class="site-nav" aria-label="Primary navigation">
