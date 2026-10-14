@@ -4,7 +4,7 @@ const LINK_HEADER = '</llms.txt>; rel="describedby"; type="text/markdown", </sit
 // Pages uploads the whole repo, so only site assets are served; everything else is a 404.
 const PUBLIC_FILES = new Set([
   '/', '/index.html', '/styles.css', '/script.js', '/llms.txt', '/robots.txt', '/sitemap.xml',
-  '/favicon.ico', '/favicon.svg', '/apple-touch-icon.png',
+  '/favicon.ico', '/favicon.svg', '/apple-touch-icon.png', '/fa', '/fa/', '/fa/index.html',
 ]);
 
 function isPublicPath(pathname) {
@@ -44,6 +44,11 @@ export async function onRequest({ request, env, next }) {
     // The same URL serves HTML or text depending on the client, so it must not be shared-cached.
     response.headers.set('cache-control', 'no-store');
     response.headers.set('vary', 'User-Agent, Accept');
+  }
+
+  // Preview and *.pages.dev deployments duplicate https://bea.sh/, so keep them out of search results.
+  if (url.hostname.endsWith('.pages.dev')) {
+    response.headers.set('x-robots-tag', 'noindex');
   }
 
   response.headers.append('link', LINK_HEADER);

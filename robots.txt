@@ -3,5 +3,7 @@
 
 User-agent: *
 Allow: /
+# Cloudflare internals (e.g. email-protection links), not content.
+Disallow: /cdn-cgi/
 
 Sitemap: https://bea.sh/sitemap.xml

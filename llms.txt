@@ -52,6 +52,61 @@ Services Behnam designed and operates, many hosted in Iran so they keep working 
 - [Clash converter](https://clash-converter.behnam.pro) and [Sing-box converter](https://sbox-converter.behnam.pro): browser-based proxy config builders
 - Private Matrix homeserver, Jitsi Meet, RustDesk relay, Docker registry, DNS resolver, and mail service (access on request)
 
+## پروفایل به فارسی
+
+نسخه فارسی صفحه: https://bea.sh/fa/
+
+### بهنام باقری — مهندس DevOps
+
+بهنام باقری (Behnam Bagheri) مهندس DevOps در تهران با بیش از ۶ سال تجربه در راه‌اندازی، نگهداری و اتوماسیون زیرساخت production است: کلاسترهای کوبرنتیز (Kubernetes) روی سرورهای داخلی (on-prem)، پایپ‌لاین‌های CI/CD، مانیتورینگ و هشدار، بکاپ و بازیابی از فاجعه. آماده همکاری هیبریدی (حضوری و دورکاری) در حوزه زیرساخت، اتوماسیون و پایداری سرویس‌ها. به فارسی و انگلیسی کار می‌کند.
+
+#### راه‌های تماس
+
+- ایمیل (ترجیحی): bagheri@linuxmail.org
+- لینکدین: https://www.linkedin.com/in/behnambaqeri/
+- وب‌سایت: https://bea.sh/ (و https://behnambagheri.ir/)
+- محل: تهران، ایران — هیبریدی
+
+برای پیشنهاد همکاری لطفاً نام شرکت، عنوان شغلی، نوع همکاری (دورکاری، هیبریدی یا حضوری) و زمان شروع را ذکر کنید.
+
+#### مناسب برای
+
+- مهندس DevOps (دواپس)
+- مهندس پایداری سایت (SRE)
+- مهندس زیرساخت یا پلتفرم، به‌ویژه برای سیستم‌های on-prem و self-hosted
+
+#### سابقه کاری: مهندس DevOps در بیتمکس (Bitmax)، از ۲۰۲۱ تا اکنون
+
+کلاسترهای کوبرنتیز on-prem برای میکروسرویس‌های بک‌اند و فرانت‌اند.
+
+- طراحی، راه‌اندازی و نگهداری کلاسترهای کوبرنتیز on-prem با بیش از ۶ نود.
+- ساخت و نگهداری بیش از ۳۰ پایپ‌لاین CI/CD با Atlassian Bamboo و Bitbucket.
+- اتوماسیون مدیریت بکاپ، گزارش‌گیری، اعلان‌های دیپلوی و فرایندهای عملیاتی با Bash و Python.
+- اتصال Bamboo، Bitbucket، Jira و Sentry با وب‌هوک برای سیگنال‌های دیپلوی و حوادث.
+- پیاده‌سازی مانیتورینگ و هشدار با Prometheus، Grafana و Alertmanager.
+- مدیریت حوادث production شامل خرابی سخت‌افزار، قطعی دیتابیس و اختلالات شبکه.
+- تدوین پلی‌بوک‌های امنیتی، روال‌های بازیابی، مکانیزم‌های rollback، ران‌بوک‌های بازیابی PostgreSQL و فرایندهای انتشار مرحله‌ای (staged rollout).
+
+#### مهارت‌ها
+
+- عملیات پلتفرم: لینوکس در production، داکر (Docker)، کوبرنتیز on-prem، شبکه on-prem، دسترس‌پذیری بالا (High Availability)
+- تحویل نرم‌افزار: CI/CD، Atlassian Bamboo، Bitbucket، Git، اتوماسیون دیپلوی، انتشار مرحله‌ای، rollback
+- پایداری: Prometheus، Grafana، Alertmanager، Sentry، مدیریت حوادث، بکاپ و بازیابی از فاجعه (DR)، عملیات PostgreSQL
+- اتوماسیون: Bash، Python
+
+#### سرویس‌های میزبانی‌شده
+
+سرویس‌هایی که بهنام طراحی کرده و نگهداری می‌کند؛ بسیاری از آن‌ها در ایران میزبانی می‌شوند تا در زمان قطعی یا اختلال اینترنت بین‌الملل هم قابل استفاده بمانند.
+
+- [اطلاعات IP](https://ip.bea.sh): نمایش IP، ASN و جزئیات شبکه
+- [پیست‌بین](https://paste.bea.sh): اشتراک‌گذاری لاگ و تکه‌کد
+- [کوتاه‌کننده لینک](https://s.bea.sh)
+- [پروکسی رجیستری داکر](https://docker.behnam.pro)
+- [پروکسی پکیج‌ها](https://registry.behnam.pro): میرور APT اوبونتو، npm و PyPI
+- [مبدل Clash](https://clash-converter.behnam.pro) و [مبدل Sing-box](https://sbox-converter.behnam.pro): ساخت کانفیگ پروکسی در مرورگر
+- هوم‌سرور خصوصی Matrix، Jitsi Meet، رله RustDesk، رجیستری خصوصی داکر، DNS خصوصی و سرویس ایمیل (با درخواست دسترسی)
+
 ## Optional
 
 - [Website](https://bea.sh/): the same profile as an HTML page, with schema.org Person data
+- [Persian page](https://bea.sh/fa/): the same profile in Persian (فارسی)

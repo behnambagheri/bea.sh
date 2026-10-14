@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>بهنام باقری - مهندس DevOps در تهران | کوبرنتیز، CI/CD، مانیتورینگ</title>
+  <meta
+    name="description"
+    content="بهنام باقری، مهندس DevOps در تهران با بیش از ۶ سال تجربه: کوبرنتیز on-prem، پایپ‌لاین‌های CI/CD، مانیتورینگ با Prometheus و Grafana، بکاپ و بازیابی از فاجعه."
+  >
+  <meta name="author" content="بهنام باقری">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://bea.sh/fa/">
+  <link rel="alternate" hreflang="en" href="https://bea.sh/">
+  <link rel="alternate" hreflang="fa" href="https://bea.sh/fa/">
+  <link rel="alternate" hreflang="x-default" href="https://bea.sh/">
+  <link rel="describedby" type="text/markdown" href="/llms.txt" title="Profile for LLMs and AI agents">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="بهنام باقری">
+  <meta property="og:url" content="https://bea.sh/fa/">
+  <meta property="og:title" content="بهنام باقری - مهندس DevOps">
+  <meta property="og:description" content="مهندس DevOps در تهران: کوبرنتیز، CI/CD، مانیتورینگ، بکاپ و زیرساخت پایدار.">
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:image" content="https://bea.sh/public/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="بهنام باقری - مهندس DevOps، تهران">
+  <meta property="profile:first_name" content="بهنام">
+  <meta property="profile:last_name" content="باقری">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="بهنام باقری - مهندس DevOps">
+  <meta name="twitter:description" content="مهندس DevOps در تهران: کوبرنتیز، CI/CD، مانیتورینگ، بکاپ و زیرساخت پایدار.">
+  <meta name="twitter:image" content="https://bea.sh/public/og-image.png">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "url": "https://bea.sh/fa/",
+      "inLanguage": "fa",
+      "mainEntity": {
+        "@type": "Person",
+        "@id": "https://bea.sh/#person",
+        "name": "بهنام باقری",
+        "alternateName": ["Behnam Bagheri", "Behnam Baqeri"],
+        "jobTitle": "مهندس DevOps",
+        "description": "مهندس DevOps با بیش از ۶ سال تجربه در راه‌اندازی و نگهداری کوبرنتیز on-prem، پایپ‌لاین‌های CI/CD، مانیتورینگ و هشدار، بکاپ و بازیابی از فاجعه. آماده همکاری هیبریدی در حوزه زیرساخت، اتوماسیون و پایداری سرویس‌ها.",
+        "email": "mailto:bagheri@linuxmail.org",
+        "url": "https://bea.sh/",
+        "sameAs": [
+          "https://www.linkedin.com/in/behnambaqeri/",
+          "https://behnambagheri.ir/"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "تهران",
+          "addressCountry": "IR"
+        },
+        "worksFor": {
+          "@type": "Organization",
+          "name": "بیتمکس",
+          "alternateName": "Bitmax"
+        },
+        "knowsLanguage": [
+          { "@type": "Language", "name": "Persian", "alternateName": "fa" },
+          { "@type": "Language", "name": "English", "alternateName": "en" }
+        ],
+        "knowsAbout": [
+          "دواپس (DevOps)",
+          "مهندسی پایداری سایت (SRE)",
+          "کوبرنتیز (Kubernetes)",
+          "داکر (Docker)",
+          "لینوکس",
+          "CI/CD",
+          "Atlassian Bamboo",
+          "Bitbucket",
+          "Prometheus",
+          "Grafana",
+          "Alertmanager",
+          "Sentry",
+          "PostgreSQL",
+          "بکاپ و بازیابی از فاجعه",
+          "مدیریت حوادث",
+          "Bash",
+          "Python",
+          "شبکه on-prem"
+        ]
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    body {
+      font-family: Vazirmatn, 'Segoe UI', Tahoma, system-ui, -apple-system, sans-serif;
+    }
+
+    .eyebrow {
+      letter-spacing: 0;
+    }
+
+    .hero-content h1,
+    .section-intro h2 {
+      line-height: 1.35;
+    }
+
+    .metric-grid div {
+      border-right: 0;
+      border-left: 1px solid var(--line);
+    }
+
+    .metric-grid div:nth-child(2n) {
+      border-left: 0;
+    }
+
+    .work-list li {
+      padding-left: 0;
+      padding-right: 28px;
+    }
+
+    .work-list li::before {
+      left: auto;
+      right: 0;
+    }
+
+    .ltr {
+      direction: ltr;
+      unicode-bidi: isolate;
+    }
+
+    .access-note {
+      margin: 22px 0 0;
+      color: var(--muted);
+    }
+
+    @media (max-width: 720px) {
+      .metric-grid div {
+        border-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="صفحه اصلی بهنام باقری">
+      <span class="brand-mark">BB</span>
+      <span>بهنام باقری</span>
+    </a>
+    <nav class="site-nav" aria-label="منوی اصلی">
+      <a href="#experience">سابقه کاری</a>
+      <a href="#services">سرویس‌ها</a>
+      <a href="#contact">تماس</a>
+      <a href="/" hreflang="en" lang="en">English</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero-section">
+      <div class="hero-content">
+        <p class="eyebrow">مهندس DevOps - تهران، ایران</p>
+        <h1>زیرساخت عملیاتی، اتوماسیون و پایداری برای سیستم‌های واقعی.</h1>
+        <p class="hero-copy">
+          من کلاسترهای کوبرنتیز on-prem، پایپ‌لاین‌های CI/CD، مانیتورینگ، بکاپ و سرویس‌های خصوصی زیرساخت را راه‌اندازی و نگهداری می‌کنم؛ با تمرکز عملی بر دسترس‌پذیری (uptime)، بازیابی سریع و فرایندهای عملیاتی شفاف.
+        </p>
+        <div class="hero-actions" id="contact">
+          <a class="button button-primary" href="mailto:bagheri@linuxmail.org">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v.35l8 5.2 8-5.2V6H4Zm16 12V8.73l-7.46 4.85a1 1 0 0 1-1.08 0L4 8.73V18h16Z"/></svg>
+            ارسال ایمیل
+          </a>
+          <a class="button button-secondary" href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 3H3.55A1.55 1.55 0 0 0 2 4.55v14.9A1.55 1.55 0 0 0 3.55 21h16.9A1.55 1.55 0 0 0 22 19.45V4.55A1.55 1.55 0 0 0 20.45 3ZM8.34 18.5H5.7V9.75h2.64ZM7 8.56a1.5 1.5 0 1 1 1.5-1.5A1.51 1.51 0 0 1 7 8.56Zm11.5 9.94h-2.63V13.5c0-1.19-.43-2-1.51-2a1.64 1.64 0 0 0-1.54 1.11 2 2 0 0 0-.1.71v5.18H9.09V9.75h2.63v1.2a2.69 2.69 0 0 1 2.48-1.36c1.81 0 3.3 1.23 3.3 3.86Z"/></svg>
+            لینکدین
+          </a>
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="خلاصه پروفایل">
+        <div class="signal-card">
+          <span class="signal-dot" aria-hidden="true"></span>
+          <p>آماده همکاری هیبریدی در حوزه زیرساخت، اتوماسیون و پایداری سرویس‌ها.</p>
+        </div>
+        <div class="metric-grid">
+          <div>
+            <strong>+۶</strong>
+            <span>سال تجربه عملی</span>
+          </div>
+          <div>
+            <strong>+۳۰</strong>
+            <span>پایپ‌لاین CI/CD</span>
+          </div>
+          <div>
+            <strong>+۶</strong>
+            <span>نود کوبرنتیز</span>
+          </div>
+          <div>
+            <strong>۲۴/۷</strong>
+            <span>نگاه production</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="profile-band" aria-label="اطلاعات تماس">
+      <a class="profile-item" href="mailto:bagheri@linuxmail.org">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v.35l8 5.2 8-5.2V6H4Zm16 12V8.73l-7.46 4.85a1 1 0 0 1-1.08 0L4 8.73V18h16Z"/></svg>
+        <span class="ltr">bagheri@linuxmail.org</span>
+      </a>
+      <a class="profile-item" href="https://bea.sh/" hreflang="en">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.93 9h-3.1a15.6 15.6 0 0 0-1.02-5.04A8.02 8.02 0 0 1 18.93 11ZM12 4.04c.56.8 1.47 2.5 1.78 6.96h-3.56C10.53 6.54 11.44 4.84 12 4.04ZM4.26 13h3.91c.1 1.9.39 3.55.83 4.88A8.03 8.03 0 0 1 4.26 13Zm3.91-2H4.26A8.03 8.03 0 0 1 9 6.12 17.86 17.86 0 0 0 8.17 11ZM12 19.96c-.56-.8-1.47-2.5-1.78-6.96h3.56C13.47 17.46 12.56 19.16 12 19.96Zm3-2.08c.44-1.33.73-2.98.83-4.88h3.1A8.02 8.02 0 0 1 15 17.88Z"/></svg>
+        <span class="ltr">bea.sh</span>
+      </a>
+      <span class="profile-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C7.58 2 4 5.35 4 9.46c0 5.84 7.15 12.14 7.46 12.4a1 1 0 0 0 1.08.12C12.88 21.82 21 17.82 21 9.46 21 5.35 16.42 2 12 2Zm0 17.35C9.93 17 6 12.83 6 9.46 6 6.39 8.55 4 12 4s6 2.39 6 5.46c0 4.16-3.63 7.82-6 9.89Zm0-13.31a3.38 3.38 0 1 0 0 6.76 3.38 3.38 0 0 0 0-6.76Z"/></svg>
+        <span>تهران، ایران - هیبریدی (حضوری و دورکاری)</span>
+      </span>
+    </section>
+
+    <section class="section-grid" id="experience">
+      <div class="section-intro">
+        <p class="eyebrow">سابقه کاری</p>
+        <h2>مهندس DevOps در بیتمکس</h2>
+        <p>
+          کار روی زیرساخت عملیاتی در حوزه کوبرنتیز، CI/CD، مشاهده‌پذیری (observability)، اتوماسیون، مدیریت حوادث و برنامه‌ریزی بازیابی.
+        </p>
+      </div>
+
+      <div class="timeline-card">
+        <div class="role-header">
+          <div>
+            <p class="eyebrow">بیتمکس (Bitmax)</p>
+            <h3>مهندس DevOps</h3>
+          </div>
+          <span class="tag">۲۰۲۱ - اکنون</span>
+        </div>
+        <p class="role-context">کلاسترهای کوبرنتیز on-prem برای میکروسرویس‌های بک‌اند و فرانت‌اند.</p>
+        <ul class="work-list">
+          <li>طراحی، راه‌اندازی و نگهداری کلاسترهای کوبرنتیز on-prem با بیش از ۶ نود.</li>
+          <li>ساخت و نگهداری بیش از ۳۰ پایپ‌لاین CI/CD با Atlassian Bamboo و Bitbucket.</li>
+          <li>اتوماسیون مدیریت بکاپ، گزارش‌گیری، اعلان‌های دیپلوی و فرایندهای عملیاتی با Bash و Python.</li>
+          <li>اتصال Bamboo، Bitbucket، Jira و Sentry با وب‌هوک برای سیگنال‌های دیپلوی و حوادث.</li>
+          <li>پیاده‌سازی مانیتورینگ و هشدار با Prometheus، Grafana و Alertmanager.</li>
+          <li>مدیریت حوادث production شامل خرابی سخت‌افزار، قطعی دیتابیس و اختلالات شبکه.</li>
+          <li>تدوین پلی‌بوک‌های امنیتی، روال‌های بازیابی، مکانیزم‌های rollback، ران‌بوک‌های بازیابی PostgreSQL و فرایندهای انتشار مرحله‌ای (staged rollout).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="capabilities" aria-label="توانمندی‌های اصلی">
+      <div class="capability">
+        <span>۰۱</span>
+        <h3>عملیات پلتفرم</h3>
+        <p>لینوکس، داکر، کوبرنتیز، شبکه on-prem و راهکارهای عملی دسترس‌پذیری بالا (High Availability).</p>
+      </div>
+      <div class="capability">
+        <span>۰۲</span>
+        <h3>سیستم‌های تحویل نرم‌افزار</h3>
+        <p>Bamboo، Bitbucket، Git، اتوماسیون دیپلوی، انتشار مرحله‌ای و مسیرهای rollback.</p>
+      </div>
+      <div class="capability">
+        <span>۰۳</span>
+        <h3>ابزارهای پایداری</h3>
+        <p>Prometheus، Grafana، Alertmanager، وب‌هوک‌های Sentry، فرایندهای بکاپ و بازیابی از فاجعه (DR).</p>
+      </div>
+    </section>
+
+    <section class="services-section" id="services">
+      <div class="section-intro services-intro">
+        <p class="eyebrow">سرویس‌های میزبانی‌شده</p>
+        <h2>ابزارهای عمومی و سرویس‌های خصوصی زیرساخت.</h2>
+        <p>
+          بسیاری از این سرویس‌ها در ایران میزبانی می‌شوند و طوری طراحی شده‌اند که در زمان قطعی یا اختلال اینترنت بین‌الملل هم قابل استفاده بمانند.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-header">
+            <h3>اطلاعات IP</h3>
+            <span class="status status-public">عمومی</span>
+          </div>
+          <p>نمایش فوری IP، ASN و جزئیات شبکه برای عیب‌یابی و بررسی سریع.</p>
+          <div class="service-links">
+            <a href="https://ip.behnam.pro" target="_blank" rel="noreferrer">ip.behnam.pro</a>
+            <a href="https://ip.bea.sh" target="_blank" rel="noreferrer">ip.bea.sh</a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-header">
+            <h3>پروکسی تلگرام</h3>
+            <span class="status status-public">عمومی</span>
+          </div>
+          <p>پروکسی API تلگرام برای اتصال پایدارتر و قابل اعتمادتر.</p>
+          <div class="service-links">
+            <a href="https://tg.behnam.pro" target="_blank" rel="noreferrer">tg.behnam.pro</a>
+            <a href="https://tg.bea.sh" target="_blank" rel="noreferrer">tg.bea.sh</a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-header">
+            <h3>پیست‌بین (Pastebin)</h3>
+            <span class="status status-public">عمومی</span>
+          </div>
+          <p>اشتراک‌گذاری سبک لاگ، تکه‌کد و یادداشت‌های سریع.</p>
+          <div class="service-links">
+            <a href="https://paste.behnam.pro" target="_blank" rel="noreferrer">paste.behnam.pro</a>
+            <a href="https://paste.bea.sh" target="_blank" rel="noreferrer">paste.bea.sh</a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-header">
+            <h3>کوتاه‌کننده لینک</h3>
+            <span class="status status-public">عمومی</span>
+          </div>
+          <p>کوتاه‌کننده ساده لینک برای ساخت لینک‌های سریع و تمیز.</p>
+          <div class="service-links">
+            <a href="https://s.behnam.pro" target="_blank" rel="noreferrer">s.behnam.pro</a>
+            <a href="https://s.bea.sh" target="_blank" rel="noreferrer">s.bea.sh</a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-header">
+            <h3>درایو</h3>
+            <span class="status status-public">عمومی</span>
+          </div>
+          <p>فایل‌ها و منابع کاربردی منتخب برای دانلود سریع.</p>
+          <div class="service-links">
+            <a href="https://drive.behnam.pro" target="_blank" rel="noreferrer">drive.behnam.pro</a>
+            <a href="https://drive.bea.sh" target="_blank" rel="noreferrer">drive.bea.sh</a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-header">
+            <h3>مبدل Clash</h3>
+            <span class="status status-public">عمومی</span>
+          </div>
+          <p>ساخت کانفیگ Mihomo و Clash در مرورگر با خروجی YAML تمیز.</p>
+          <div class="service-links">
+            <a href="https://clash-converter.behnam.pro" target="_blank" rel="noreferrer">clash-converter.behnam.pro</a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-header">
+            <h3>مبدل Sing-box</h3>
+            <span class="status status-public">عمومی</span>
+          </div>
+          <p>تبدیل لینک‌ها و کانفیگ‌های پروکسی به JSON مخصوص Sing-box، مستقیم در مرورگر.</p>
+          <div class="service-links">
+            <a href="https://sbox-converter.behnam.pro" target="_blank" rel="noreferrer">sbox-converter.behnam.pro</a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-header">
+            <h3>چت Matrix</h3>
+            <span class="status status-request">با درخواست</span>
+          </div>
+          <p>هوم‌سرور خصوصی Matrix که با هر اپلیکیشن Element قابل استفاده است.</p>
+          <div class="service-links">
+            <a href="https://matrix.behnam.pro" target="_blank" rel="noreferrer">matrix.behnam.pro</a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-header">
+            <h3>Element وب</h3>
+            <span class="status status-public">عمومی</span>
+          </div>
+          <p>کلاینت وب Element برای چت در Matrix.</p>
+          <div class="service-links">
+            <a href="https://element.behnam.pro" target="_blank" rel="noreferrer">element.behnam.pro</a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-header">
+            <h3>جلسه ویدیویی (Meet)</h3>
+            <span class="status status-request">با درخواست</span>
+          </div>
+          <p>سرور خصوصی Jitsi Meet برای تماس‌های ویدیویی امن.</p>
+          <div class="service-links">
+            <a href="https://meet.behnam.pro" target="_blank" rel="noreferrer">meet.behnam.pro</a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-header">
+            <h3>دسترسی از راه دور (Desk)</h3>
+            <span class="status status-request">با درخواست</span>
+          </div>
+          <p>رله RustDesk برای جلسات امن دسترسی از راه دور.</p>
+          <div class="service-links">
+            <a href="https://desk.behnam.pro" target="_blank" rel="noreferrer">desk.behnam.pro</a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-header">
+            <h3>پروکسی داکر</h3>
+            <span class="status status-public">عمومی</span>
+          </div>
+          <p>پروکسی رجیستری داکر برای دریافت سریع‌تر و پایدارتر ایمیج‌ها.</p>
+          <div class="service-links">
+            <a href="https://docker.behnam.pro" target="_blank" rel="noreferrer">docker.behnam.pro</a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-header">
+            <h3>رجیستری خصوصی</h3>
+            <span class="status status-request">با درخواست</span>
+          </div>
+          <p>رجیستری خصوصی داکر برای توزیع کنترل‌شده ایمیج‌ها.</p>
+          <div class="service-links">
+            <a href="https://reg.behnam.pro" target="_blank" rel="noreferrer">reg.behnam.pro</a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-header">
+            <h3>پروکسی NPM</h3>
+            <span class="status status-public">عمومی</span>
+          </div>
+          <p>پروکسی NPM برای نصب سریع‌تر و پایدارتر پکیج‌ها.</p>
+          <div class="service-links">
+            <a href="https://registry.behnam.pro/repository/npm/" target="_blank" rel="noreferrer">registry.behnam.pro/repository/npm</a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-header">
+            <h3>پروکسی PyPI</h3>
+            <span class="status status-public">عمومی</span>
+          </div>
+          <p>پروکسی PyPI برای نصب سریع‌تر و پایدارتر پکیج‌های پایتون.</p>
+          <div class="service-links">
+            <a href="https://registry.behnam.pro/repository/pypi/simple" target="_blank" rel="noreferrer">registry.behnam.pro/repository/pypi/simple</a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-header">
+            <h3>مخزن APT</h3>
+            <span class="status status-public">عمومی</span>
+          </div>
+          <p>میرور/پروکسی APT اوبونتو برای نصب و به‌روزرسانی سریع‌تر پکیج‌ها. راهنمای نصب در <a href="https://bea.sh/#services" hreflang="en">نسخه انگلیسی</a>.</p>
+          <div class="service-links">
+            <a href="https://registry.behnam.pro/ubuntu" target="_blank" rel="noreferrer">registry.behnam.pro/ubuntu</a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-header">
+            <h3>DNS</h3>
+            <span class="status status-request">با درخواست</span>
+          </div>
+          <p>DNS ریزالور خصوصی برای پاسخ‌دهی قابل اعتماد و یکنواخت.</p>
+          <div class="service-links">
+            <span class="ltr">46.245.114.114</span>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-header">
+            <h3>ایمیل</h3>
+            <span class="status status-request">با درخواست</span>
+          </div>
+          <p>سرویس ایمیل خصوصی با صندوق‌های مدیریت‌شده.</p>
+          <div class="service-links">
+            <a href="https://mail.bea.sh" target="_blank" rel="noreferrer">mail.bea.sh</a>
+          </div>
+        </article>
+      </div>
+
+      <p class="access-note">
+        برای دسترسی به سرویس‌های «با درخواست» از طریق
+        <a class="ltr" href="mailto:bagheri@linuxmail.org">bagheri@linuxmail.org</a>
+        یا <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">لینکدین</a> پیام بدهید.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>بهنام باقری - مهندس DevOps</p>
+    <a href="#top">بازگشت به بالا</a>
+  </footer>
+</body>
+</html>

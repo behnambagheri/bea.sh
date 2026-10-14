@@ -1,0 +1,7 @@
+{
+  "name": "behnambagheri-site",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/"
+  }
+}

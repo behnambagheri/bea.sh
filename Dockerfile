@@ -5,5 +5,6 @@ WORKDIR /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Site assets (explicit allowlist so repo/config files are never served)
-COPY index.html styles.css script.js llms.txt robots.txt sitemap.xml ./
+COPY index.html styles.css script.js llms.txt robots.txt sitemap.xml favicon.ico favicon.svg apple-touch-icon.png ./
 COPY public ./public
+COPY fa ./fa
