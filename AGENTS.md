@@ -16,6 +16,7 @@
 - Plain HTML, CSS, and vanilla JavaScript; no frameworks or dependencies.
 - 2-space indentation, single quotes in JS, trailing commas in multi-line literals.
 - Theme colors are CSS custom properties on `:root`, with dark overrides via `prefers-color-scheme` and `body[data-theme]`; keep both in sync.
+- `styles.css` and `script.js` are linked with a `?v=YYYYMMDD` query because browsers cache them for 4 hours; bump it in `index.html` and `fa/index.html` whenever either file changes.
 - When profile details change, update `index.html` (page and JSON-LD) and `llms.txt` together; bump `lastmod` in `sitemap.xml`.
 
 ## Commits

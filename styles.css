@@ -183,15 +183,11 @@ main,
 }
 
 .brand-mark {
-  display: grid;
+  display: block;
   width: 36px;
   height: 36px;
-  place-items: center;
-  border-radius: 7px;
-  background: var(--text);
-  color: var(--bg);
-  font-size: 0.78rem;
-  letter-spacing: 0;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px var(--line);
 }
 
 .site-nav {
