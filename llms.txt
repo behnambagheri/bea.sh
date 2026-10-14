@@ -8,6 +8,7 @@ This file is a plain-text profile for AI agents, recruiters' assistants, and com
 
 - Email: bagheri@linuxmail.org (preferred)
 - LinkedIn: https://www.linkedin.com/in/behnambaqeri/
+- GitHub: https://github.com/behnambagheri
 - Website: https://bea.sh/ (also https://behnambagheri.ir/)
 - Location: Tehran, Iran — hybrid
 
@@ -64,6 +65,7 @@ Services Behnam designed and operates, many hosted in Iran so they keep working 
 
 - ایمیل (ترجیحی): bagheri@linuxmail.org
 - لینکدین: https://www.linkedin.com/in/behnambaqeri/
+- گیت‌هاب: https://github.com/behnambagheri
 - وب‌سایت: https://bea.sh/ (و https://behnambagheri.ir/)
 - محل: تهران، ایران — هیبریدی
 

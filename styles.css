@@ -244,7 +244,7 @@ main {
   text-transform: uppercase;
 }
 
-.hero-content h1,
+.hero-title,
 .section-intro h2 {
   margin: 0;
   color: var(--text);
@@ -252,7 +252,7 @@ main {
   letter-spacing: 0;
 }
 
-.hero-content h1 {
+.hero-title {
   max-width: 780px;
   font-size: clamp(2.8rem, 5.1vw, 5.15rem);
 }
@@ -845,7 +845,7 @@ html.js .reveal.is-visible {
     padding-top: 42px;
   }
 
-  .hero-content h1 {
+  .hero-title {
     font-size: clamp(2.55rem, 13vw, 4.1rem);
   }
 
