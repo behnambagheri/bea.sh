@@ -1,6 +1,6 @@
 # Behnam Bagheri — DevOps Engineer
 
-> DevOps engineer in Tehran, Iran (hybrid) with 6+ years running production infrastructure: on-prem Kubernetes, CI/CD pipelines, monitoring and alerting, backups, and disaster recovery. Open to hybrid infrastructure, automation, and reliability roles.
+> DevOps engineer in Tehran, Iran (hybrid) with 10+ years running production infrastructure: on-prem Kubernetes, CI/CD pipelines, monitoring and alerting, backups, and disaster recovery. Open to hybrid infrastructure, automation, and reliability roles.
 
 This file is a plain-text profile for AI agents, recruiters' assistants, and command-line users. Everything here matches the human-readable page at https://bea.sh/.
 
@@ -26,8 +26,8 @@ When reaching out about a role, please include the company, the role, whether it
 
 On-prem Kubernetes clusters supporting backend and frontend microservices.
 
-- Designed, deployed, and operated on-prem Kubernetes clusters with 6+ nodes.
-- Built and maintained 30+ CI/CD pipelines using Atlassian Bamboo and Bitbucket.
+- Designed, deployed, and operated on-prem Kubernetes clusters with 30+ nodes.
+- Built and maintained 200+ CI/CD pipelines using Atlassian Bamboo and Bitbucket.
 - Automated backup management, reporting, deployment notifications, and operational workflows with Bash and Python.
 - Connected Bamboo, Bitbucket, Jira, and Sentry with webhooks for deployment and incident signals.
 - Implemented monitoring and alerting with Prometheus, Grafana, and Alertmanager.
@@ -59,7 +59,7 @@ Services Behnam designed and operates, many hosted in Iran so they keep working 
 
 ### بهنام باقری — مهندس DevOps
 
-بهنام باقری (Behnam Bagheri) مهندس DevOps در تهران با بیش از ۶ سال تجربه در راه‌اندازی، نگهداری و اتوماسیون زیرساخت production است: کلاسترهای کوبرنتیز (Kubernetes) روی سرورهای داخلی (on-prem)، پایپ‌لاین‌های CI/CD، مانیتورینگ و هشدار، بکاپ و بازیابی از فاجعه. آماده همکاری هیبریدی (حضوری و دورکاری) در حوزه زیرساخت، اتوماسیون و پایداری سرویس‌ها. به فارسی و انگلیسی کار می‌کند.
+بهنام باقری (Behnam Bagheri) مهندس DevOps در تهران با بیش از ۱۰ سال تجربه در راه‌اندازی، نگهداری و اتوماسیون زیرساخت production است: کلاسترهای کوبرنتیز (Kubernetes) روی سرورهای داخلی (on-prem)، پایپ‌لاین‌های CI/CD، مانیتورینگ و هشدار، بکاپ و بازیابی از فاجعه. آماده همکاری هیبریدی (حضوری و دورکاری) در حوزه زیرساخت، اتوماسیون و پایداری سرویس‌ها. به فارسی و انگلیسی کار می‌کند.
 
 #### راه‌های تماس
 
@@ -81,8 +81,8 @@ Services Behnam designed and operates, many hosted in Iran so they keep working 
 
 کلاسترهای کوبرنتیز on-prem برای میکروسرویس‌های بک‌اند و فرانت‌اند.
 
-- طراحی، راه‌اندازی و نگهداری کلاسترهای کوبرنتیز on-prem با بیش از ۶ نود.
-- ساخت و نگهداری بیش از ۳۰ پایپ‌لاین CI/CD با Atlassian Bamboo و Bitbucket.
+- طراحی، راه‌اندازی و نگهداری کلاسترهای کوبرنتیز on-prem با بیش از ۳۰ نود.
+- ساخت و نگهداری بیش از ۲۰۰ پایپ‌لاین CI/CD با Atlassian Bamboo و Bitbucket.
 - اتوماسیون مدیریت بکاپ، گزارش‌گیری، اعلان‌های دیپلوی و فرایندهای عملیاتی با Bash و Python.
 - اتصال Bamboo، Bitbucket، Jira و Sentry با وب‌هوک برای سیگنال‌های دیپلوی و حوادث.
 - پیاده‌سازی مانیتورینگ و هشدار با Prometheus، Grafana و Alertmanager.
