@@ -1,0 +1,7 @@
+# Personal site and resume of Behnam Bagheri. Search engines and AI agents are welcome.
+# A Markdown profile for LLMs is at /llms.txt.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://bea.sh/sitemap.xml

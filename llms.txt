@@ -1,0 +1,57 @@
+# Behnam Bagheri — DevOps Engineer
+
+> DevOps engineer in Tehran, Iran (hybrid) with 6+ years running production infrastructure: on-prem Kubernetes, CI/CD pipelines, monitoring and alerting, backups, and disaster recovery. Open to hybrid infrastructure, automation, and reliability roles.
+
+This file is a plain-text profile for AI agents, recruiters' assistants, and command-line users. Everything here matches the human-readable page at https://bea.sh/.
+
+## Contact
+
+- Email: bagheri@linuxmail.org (preferred)
+- LinkedIn: https://www.linkedin.com/in/behnambaqeri/
+- Website: https://bea.sh/ (also https://behnambagheri.ir/)
+- Location: Tehran, Iran — hybrid
+
+When reaching out about a role, please include the company, the role, whether it is remote, hybrid, or on-site, and the expected start date.
+
+## Good fit for
+
+- DevOps Engineer
+- Site Reliability Engineer (SRE)
+- Platform or Infrastructure Engineer working with on-prem or self-hosted systems
+
+## Experience
+
+### DevOps Engineer — Bitmax (2021 – present)
+
+On-prem Kubernetes clusters supporting backend and frontend microservices.
+
+- Designed, deployed, and operated on-prem Kubernetes clusters with 6+ nodes.
+- Built and maintained 30+ CI/CD pipelines using Atlassian Bamboo and Bitbucket.
+- Automated backup management, reporting, deployment notifications, and operational workflows with Bash and Python.
+- Connected Bamboo, Bitbucket, Jira, and Sentry with webhooks for deployment and incident signals.
+- Implemented monitoring and alerting with Prometheus, Grafana, and Alertmanager.
+- Handled production incidents across hardware failures, database outages, and network disruptions.
+- Built cybersecurity playbooks, restore procedures, rollback mechanisms, PostgreSQL recovery runbooks, and staged rollout workflows.
+
+## Skills
+
+- Platform operations: Linux in production, Docker, Kubernetes (on-prem), on-prem networking, high availability
+- Delivery: CI/CD, Atlassian Bamboo, Bitbucket, Git, deployment automation, staged rollouts, rollback
+- Reliability: Prometheus, Grafana, Alertmanager, Sentry, incident response, backup and disaster recovery, PostgreSQL operations
+- Automation: Bash, Python
+
+## Self-hosted services
+
+Services Behnam designed and operates, many hosted in Iran so they keep working during international connectivity outages.
+
+- [IP Info](https://ip.bea.sh): IP, ASN, and network details
+- [Pastebin](https://paste.bea.sh): paste sharing for logs and snippets
+- [URL shortener](https://s.bea.sh)
+- [Docker registry proxy](https://docker.behnam.pro)
+- [Package proxies](https://registry.behnam.pro): APT (Ubuntu), npm, and PyPI mirrors
+- [Clash converter](https://clash-converter.behnam.pro) and [Sing-box converter](https://sbox-converter.behnam.pro): browser-based proxy config builders
+- Private Matrix homeserver, Jitsi Meet, RustDesk relay, Docker registry, DNS resolver, and mail service (access on request)
+
+## Optional
+
+- [Website](https://bea.sh/): the same profile as an HTML page, with schema.org Person data
