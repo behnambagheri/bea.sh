@@ -163,3 +163,31 @@ test('Docker image ships every file the Pages function serves', () => {
   assert.match(dockerfile, /COPY public \.\/public/);
   assert.match(dockerfile, /COPY fa \.\/fa/);
 });
+
+test('English and Persian blog indexes link to each other and stay noindex while empty', () => {
+  const pages = { en: read('blog/index.html').toString(), fa: read('fa/blog/index.html').toString() };
+  assert.match(pages.fa, /<html lang="fa" dir="rtl">/);
+  for (const [lang, page] of Object.entries(pages)) {
+    const pageHead = page.slice(0, page.indexOf('</head>'));
+    assert.match(pageHead, /<link rel="alternate" hreflang="en" href="https:\/\/bea\.sh\/blog\/">/, lang);
+    assert.match(pageHead, /<link rel="alternate" hreflang="fa" href="https:\/\/bea\.sh\/fa\/blog\/">/, lang);
+    const data = JSON.parse(pageHead.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+    assert.equal(data['@type'], 'Blog', lang);
+    assert.equal(data.author['@id'], 'https://bea.sh/#person', lang);
+    // An empty blog is thin content: keep it out of the index until the first post ships.
+    if (data.blogPost.length === 0) assert.match(pageHead, /<meta name="robots" content="noindex, follow">/, lang);
+  }
+});
+
+test('Pages function serves the blog but not post templates', async () => {
+  for (const path of ['/blog/', '/fa/blog/']) {
+    const response = await call(path);
+    assert.equal(response.status, 200, path);
+    assert.deepEqual(Buffer.from(await response.arrayBuffer()), read(`${path.slice(1)}index.html`), path);
+  }
+  assert.equal((await call('/templates/blog-post.en.html')).status, 404);
+});
+
+test('Docker image ships the blog', () => {
+  assert.match(read('Dockerfile').toString(), /COPY blog \.\/blog/);
+});

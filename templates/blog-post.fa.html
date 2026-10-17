@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--
+  Persian blog post template. Not served; copy it to fa/blog/SLUG/index.html.
+  Replace every {{PLACEHOLDER}}. Use the same SLUG (English, kebab-case) as the English post
+  at blog/SLUG/index.html. Write the Persian text natively, not as a word-for-word translation.
+  See AGENTS.md > Blog.
+-->
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{عنوان}} - بهنام باقری</title>
+  <meta name="description" content="{{توضیح کوتاه}}">
+  <meta name="author" content="بهنام باقری">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://bea.sh/fa/blog/{{SLUG}}/">
+  <link rel="alternate" hreflang="en" href="https://bea.sh/blog/{{SLUG}}/">
+  <link rel="alternate" hreflang="fa" href="https://bea.sh/fa/blog/{{SLUG}}/">
+  <link rel="alternate" hreflang="x-default" href="https://bea.sh/blog/{{SLUG}}/">
+  <link rel="describedby" type="text/markdown" href="/llms.txt" title="Profile for LLMs and AI agents">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="بهنام باقری">
+  <meta property="og:url" content="https://bea.sh/fa/blog/{{SLUG}}/">
+  <meta property="og:title" content="{{عنوان}}">
+  <meta property="og:description" content="{{توضیح کوتاه}}">
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:image" content="https://bea.sh/public/og-image.png">
+  <meta property="article:published_time" content="{{YYYY-MM-DD}}">
+  <meta property="article:author" content="https://bea.sh/fa/">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "{{عنوان}}",
+      "description": "{{توضیح کوتاه}}",
+      "url": "https://bea.sh/fa/blog/{{SLUG}}/",
+      "mainEntityOfPage": "https://bea.sh/fa/blog/{{SLUG}}/",
+      "inLanguage": "fa",
+      "datePublished": "{{YYYY-MM-DD}}",
+      "dateModified": "{{YYYY-MM-DD}}",
+      "image": "https://bea.sh/public/og-image.png",
+      "keywords": ["{{کلیدواژه}}", "دواپس"],
+      "author": { "@type": "Person", "@id": "https://bea.sh/#person", "name": "بهنام باقری", "url": "https://bea.sh/fa/" },
+      "isPartOf": { "@type": "Blog", "url": "https://bea.sh/fa/blog/" },
+      "translationOfWork": { "@type": "BlogPosting", "url": "https://bea.sh/blog/{{SLUG}}/", "inLanguage": "en" }
+    }
+  </script>
+  <link rel="stylesheet" href="/styles.css?v=20261015">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/fa/" aria-label="صفحه اصلی بهنام باقری">
+      <img class="brand-mark" src="/favicon.svg" width="36" height="36" alt="">
+      <span>بهنام باقری</span>
+    </a>
+    <nav class="site-nav" aria-label="منوی اصلی">
+      <a href="/fa/blog/">وبلاگ</a>
+      <a href="/blog/{{SLUG}}/" hreflang="en" lang="en">English</a>
+    </nav>
+  </header>
+
+  <main>
+    <article class="article">
+      <p class="eyebrow">وبلاگ</p>
+      <h1>{{عنوان}}</h1>
+      <p class="post-meta">
+        <time datetime="{{YYYY-MM-DD}}">{{تاریخ شمسی}}</time> · بهنام باقری، مهندس دواپس (DevOps)
+      </p>
+
+      <!-- Start with the problem and the outcome in 2-3 sentences. -->
+      <p>{{خلاصه}}</p>
+
+      <h2>{{بخش}}</h2>
+      <p>{{متن}}</p>
+
+      <pre><code>{{کد}}</code></pre>
+
+      <h2>جمع‌بندی</h2>
+      <ul>
+        <li>{{نکته}}</li>
+      </ul>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>بهنام باقری - مهندس دواپس (DevOps) · <a class="ltr" href="mailto:behnam@bea.sh">behnam@bea.sh</a></p>
+    <a href="/fa/blog/">همه مطالب</a>
+  </footer>
+</body>
+</html>

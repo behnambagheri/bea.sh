@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+  English blog post template. Not served; copy it to blog/SLUG/index.html.
+  Replace every {{PLACEHOLDER}}. The Persian version lives at fa/blog/SLUG/index.html
+  (same SLUG) and is built from templates/blog-post.fa.html. See AGENTS.md > Blog.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITLE}} - Behnam Bagheri</title>
+  <meta name="description" content="{{DESCRIPTION_70_TO_160_CHARS}}">
+  <meta name="author" content="Behnam Bagheri">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://bea.sh/blog/{{SLUG}}/">
+  <link rel="alternate" hreflang="en" href="https://bea.sh/blog/{{SLUG}}/">
+  <link rel="alternate" hreflang="fa" href="https://bea.sh/fa/blog/{{SLUG}}/">
+  <link rel="alternate" hreflang="x-default" href="https://bea.sh/blog/{{SLUG}}/">
+  <link rel="describedby" type="text/markdown" href="/llms.txt" title="Profile for LLMs and AI agents">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Behnam Bagheri">
+  <meta property="og:url" content="https://bea.sh/blog/{{SLUG}}/">
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESCRIPTION_70_TO_160_CHARS}}">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fa_IR">
+  <meta property="og:image" content="https://bea.sh/public/og-image.png">
+  <meta property="article:published_time" content="{{YYYY-MM-DD}}">
+  <meta property="article:author" content="https://bea.sh/">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "{{TITLE}}",
+      "description": "{{DESCRIPTION_70_TO_160_CHARS}}",
+      "url": "https://bea.sh/blog/{{SLUG}}/",
+      "mainEntityOfPage": "https://bea.sh/blog/{{SLUG}}/",
+      "inLanguage": "en",
+      "datePublished": "{{YYYY-MM-DD}}",
+      "dateModified": "{{YYYY-MM-DD}}",
+      "image": "https://bea.sh/public/og-image.png",
+      "keywords": ["{{KEYWORD}}", "DevOps"],
+      "author": { "@type": "Person", "@id": "https://bea.sh/#person", "name": "Behnam Bagheri", "url": "https://bea.sh/" },
+      "isPartOf": { "@type": "Blog", "url": "https://bea.sh/blog/" },
+      "workTranslation": { "@type": "BlogPosting", "url": "https://bea.sh/fa/blog/{{SLUG}}/", "inLanguage": "fa" }
+    }
+  </script>
+  <link rel="stylesheet" href="/styles.css?v=20261015">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Behnam Bagheri home">
+      <img class="brand-mark" src="/favicon.svg" width="36" height="36" alt="">
+      <span>Behnam Bagheri</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="/blog/">Blog</a>
+      <a href="/fa/blog/{{SLUG}}/" hreflang="fa" lang="fa">فارسی</a>
+      <button id="themeButton" type="button" class="theme-button" aria-live="polite">Auto</button>
+    </nav>
+  </header>
+
+  <main>
+    <article class="article">
+      <p class="eyebrow">Blog</p>
+      <h1>{{TITLE}}</h1>
+      <p class="post-meta">
+        <time datetime="{{YYYY-MM-DD}}">{{Month D, YYYY}}</time> · Behnam Bagheri, DevOps Engineer
+      </p>
+
+      <!-- Start with the problem and the outcome in 2-3 sentences: an AI or a skimming reader should get the point here. -->
+      <p>{{SUMMARY}}</p>
+
+      <h2>{{SECTION}}</h2>
+      <p>{{BODY}}</p>
+
+      <pre><code>{{CODE}}</code></pre>
+
+      <h2>Takeaways</h2>
+      <ul>
+        <li>{{TAKEAWAY}}</li>
+      </ul>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>Behnam Bagheri - DevOps Engineer · <a href="mailto:behnam@bea.sh">behnam@bea.sh</a></p>
+    <a href="/blog/">All posts</a>
+  </footer>
+
+  <script src="/script.js?v=20261014"></script>
+</body>
+</html>

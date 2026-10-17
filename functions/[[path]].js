@@ -7,10 +7,14 @@ const LINK_HEADER = '</llms.txt>; rel="describedby"; type="text/markdown", </sit
 const PUBLIC_FILES = new Set([
   '/', '/index.html', '/styles.css', '/script.js', '/llms.txt', '/robots.txt', '/sitemap.xml',
   '/favicon.ico', '/favicon.svg', '/apple-touch-icon.png', '/fa', '/fa/', '/fa/index.html',
+  '/blog', '/fa/blog',
 ]);
 
+// Directories whose whole contents are site content.
+const PUBLIC_PREFIXES = ['/public/', '/blog/', '/fa/blog/'];
+
 function isPublicPath(pathname) {
-  return PUBLIC_FILES.has(pathname) || pathname.startsWith('/public/');
+  return PUBLIC_FILES.has(pathname) || PUBLIC_PREFIXES.some((prefix) => pathname.startsWith(prefix));
 }
 
 // CLI clients (and agents that fetch with them) or Markdown-preferring clients get the profile as text.
