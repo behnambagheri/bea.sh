@@ -50,25 +50,28 @@
       "translationOfWork": { "@type": "BlogPosting", "url": "https://bea.sh/blog/{{SLUG}}/", "inLanguage": "en" }
     }
   </script>
-  <link rel="stylesheet" href="/styles.css?v=20261017">
+  <link rel="stylesheet" href="/ds/v1/tokens.css?v=20261018">
+  <link rel="stylesheet" href="/ds/v1/base.css?v=20261018">
+  <link rel="stylesheet" href="/ds/v1/components.css?v=20261018">
+  <link rel="stylesheet" href="/styles.css?v=20261018">
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="/fa/" aria-label="صفحه اصلی بهنام باقری">
-      <img class="brand-mark" src="/favicon.svg" width="36" height="36" alt="">
+  <header class="bb-header">
+    <a class="bb-brand" href="/fa/" aria-label="صفحه اصلی بهنام باقری">
+      <img class="bb-brand-mark" src="/favicon.svg" width="36" height="36" alt="">
       <span>بهنام باقری</span>
     </a>
-    <nav class="site-nav" aria-label="منوی اصلی">
-      <a href="/fa/blog/">وبلاگ</a>
-      <a href="/blog/{{SLUG}}/" hreflang="en" lang="en">English</a>
+    <nav class="bb-nav" aria-label="منوی اصلی">
+      <a class="bb-nav-link" href="/fa/blog/">وبلاگ</a>
+      <a class="bb-nav-link" href="/blog/{{SLUG}}/" hreflang="en" lang="en">English</a>
     </nav>
   </header>
 
   <main>
     <article class="article">
-      <p class="eyebrow">وبلاگ</p>
+      <p class="bb-eyebrow">وبلاگ</p>
       <h1>{{عنوان}}</h1>
-      <p class="post-meta">
+      <p class="bb-post-meta">
         <time datetime="{{YYYY-MM-DD}}">{{تاریخ شمسی}}</time> · بهنام باقری، مهندس دواپس (DevOps)
       </p>
 
@@ -78,7 +81,7 @@
       <h2>{{بخش}}</h2>
       <p>{{متن}}</p>
 
-      <pre><code>{{کد}}</code></pre>
+      <pre class="bb-code"><code>{{کد}}</code></pre>
 
       <h2>جمع‌بندی</h2>
       <ul>
@@ -87,8 +90,8 @@
     </article>
   </main>
 
-  <footer class="site-footer">
-    <p>بهنام باقری - مهندس دواپس (DevOps) · <a class="ltr" href="mailto:behnam@bea.sh">behnam@bea.sh</a></p>
+  <footer class="bb-footer">
+    <p>بهنام باقری - مهندس دواپس (DevOps) · <a class="bb-ltr" href="mailto:behnam@bea.sh">behnam@bea.sh</a></p>
     <a href="/fa/blog/">همه مطالب</a>
   </footer>
 </body>

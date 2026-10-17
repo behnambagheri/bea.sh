@@ -20,6 +20,7 @@ This site exists for Behnam Bagheri's personal branding. Every change should ser
 - Static assets (fonts, images) go under `public/`.
 - `llms.txt` is the Markdown profile for LLMs and AI agents (llmstxt.org format); `robots.txt` and `sitemap.xml` support crawlers; `index.html` carries schema.org `Person` JSON-LD and `<link>` tags pointing to `/llms.txt`.
 - `functions/[[path]].js` is the Cloudflare Pages Function (production, bea.sh): it serves only allowlisted site files (Pages uploads the whole repo), returns `llms.txt` as plain text for `/` to `curl`/`wget`/`httpie` or `Accept: text/markdown`, redirects `www.bea.sh` and `behnambagheri.ir` (with `www`) to `bea.sh`, and adds a `Link` header pointing to `/llms.txt`.
+- `ds/` is the Behnam Bagheri Design System shared by all of Behnam's sites: `ds/v1/tokens.css` (`--bb-` tokens, light/dark, `[data-product]` accents), `ds/v1/base.css` (self-hosted Space Grotesk and Vazirmatn, body, RTL), `ds/v1/components.css` (`bb-` classes built with logical properties), and `ds/index.html` (noindex live demo). `/ds/v1/*` is served with `Access-Control-Allow-Origin: *` and a one-week cache so other domains can load it. Keep token names and values in sync with the Figma file "Behnam Bagheri Design System"; breaking changes go to a new `ds/v2/`.
 - `blog/` and `fa/blog/` hold the bilingual blog; `templates/` holds post templates and is not served.
 - `Dockerfile`, `nginx.conf`, and `docker-compose.yml` serve the same site from an nginx container with the same `/` and `Link` behavior.
 
@@ -33,13 +34,14 @@ This site exists for Behnam Bagheri's personal branding. Every change should ser
 ## Development
 - Open `index.html` directly, or serve the root with any static server (e.g., `python3 -m http.server`).
 - Docker: `docker compose up -d --build` serves the site on `127.0.0.1:81`.
-- The Dockerfile copies an explicit allowlist (`index.html`, `styles.css`, `script.js`, `llms.txt`, `robots.txt`, `sitemap.xml`, `public/`). Add any new served file there and to `PUBLIC_FILES` in `functions/[[path]].js`, or it will be missing or return 404.
+- The Dockerfile copies an explicit allowlist (`index.html`, `styles.css`, `script.js`, `llms.txt`, `robots.txt`, `sitemap.xml`, `public/`, `ds/`, `blog/`, `fa/`). Add any new served file there and to `PUBLIC_FILES` in `functions/[[path]].js`, or it will be missing or return 404.
 
 ## Coding Style
 - Plain HTML, CSS, and vanilla JavaScript; no frameworks or dependencies.
 - 2-space indentation, single quotes in JS, trailing commas in multi-line literals.
-- Theme colors are CSS custom properties on `:root`, with dark overrides via `prefers-color-scheme` and `body[data-theme]`; keep both in sync.
-- `styles.css` and `script.js` are linked with a `?v=YYYYMMDD` query because browsers cache them for 4 hours; bump it in `index.html` and `fa/index.html` whenever either file changes.
+- Pages load `ds/v1/tokens.css`, `base.css`, `components.css`, then `styles.css`, which holds only page-specific rules. Use `--bb-` tokens and `bb-` components; the short aliases (`--bg`, `--accent`…) exist only for compatibility.
+- Theme colors live in `ds/v1/tokens.css`: light on `:root`, dark via `prefers-color-scheme` (unless `html[data-theme='light']`) and `html[data-theme='dark']`; keep both dark blocks in sync. `script.js` sets `data-theme` on `<html>`.
+- `styles.css`, `script.js` and the `ds/v1/*.css` files are linked with a `?v=YYYYMMDD` query because browsers cache them for 4 hours; bump it in `index.html` and `fa/index.html` whenever either file changes.
 - When profile details change, update `index.html` (page and JSON-LD) and `llms.txt` together; bump `lastmod` in `sitemap.xml`.
 
 ## Commits

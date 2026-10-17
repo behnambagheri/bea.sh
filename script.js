@@ -2,40 +2,45 @@ const THEME_KEY = 'bb-theme';
 const button = document.getElementById('themeButton');
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
-const applyTheme = (theme) => {
-  if (!theme || theme === 'auto') {
-    document.body.removeAttribute('data-theme');
-    button.textContent = 'Auto';
-    button.setAttribute('aria-label', 'Theme: auto');
-    return;
-  }
-  document.body.setAttribute('data-theme', theme);
-  button.textContent = theme === 'dark' ? 'Dark' : 'Light';
-  button.setAttribute('aria-label', `Theme: ${theme}`);
+// The design system reads data-theme from <html>.
+const root = document.documentElement;
+
+// Light or dark only: the OS preference decides until the visitor picks one, then the pick is remembered.
+const savedTheme = () => {
+  const theme = localStorage.getItem(THEME_KEY);
+  return theme === 'light' || theme === 'dark' ? theme : null;
 };
 
-const cycleTheme = () => {
-  const current = localStorage.getItem(THEME_KEY) || 'auto';
-  const next = current === 'auto' ? 'dark' : current === 'dark' ? 'light' : 'auto';
-  localStorage.setItem(THEME_KEY, next);
-  applyTheme(next);
+const currentTheme = () => savedTheme() || (prefersDark.matches ? 'dark' : 'light');
+
+const applyTheme = () => {
+  const theme = currentTheme();
+  if (savedTheme()) {
+    root.setAttribute('data-theme', theme);
+  } else {
+    root.removeAttribute('data-theme');
+  }
+  // The button's icon shows the theme on screen (sun or moon); clicking switches to the other one.
+  const label = `Theme: ${theme}. Switch to ${theme === 'dark' ? 'light' : 'dark'}`;
+  button.dataset.current = theme;
+  button.setAttribute('aria-label', label);
+  button.title = label;
 };
 
 if (button) {
-  button.addEventListener('click', cycleTheme);
-
-  prefersDark.addEventListener('change', () => {
-    if ((localStorage.getItem(THEME_KEY) || 'auto') === 'auto') {
-      applyTheme('auto');
-    }
+  button.addEventListener('click', () => {
+    localStorage.setItem(THEME_KEY, currentTheme() === 'dark' ? 'light' : 'dark');
+    applyTheme();
   });
 
-  applyTheme(localStorage.getItem(THEME_KEY) || 'auto');
+  prefersDark.addEventListener('change', applyTheme);
+
+  applyTheme();
 }
 
 document.querySelectorAll('.request-access').forEach((buttonEl) => {
   buttonEl.addEventListener('click', () => {
-    const panel = buttonEl.closest('.service-card')?.querySelector('.access-panel');
+    const panel = buttonEl.closest('.bb-service-card')?.querySelector('.access-panel');
     if (!panel) return;
     const isHidden = panel.hasAttribute('hidden');
     if (isHidden) {
@@ -118,14 +123,15 @@ document.querySelectorAll('.modal pre').forEach((preEl) => {
   const codeEl = preEl.querySelector('code');
   if (!codeEl || !preEl.parentElement) return;
 
+  preEl.classList.add('bb-code');
   const wrapper = document.createElement('div');
-  wrapper.className = 'code-block';
+  wrapper.className = 'bb-code-block';
   preEl.parentElement.insertBefore(wrapper, preEl);
   wrapper.appendChild(preEl);
 
   const copyButton = document.createElement('button');
   copyButton.type = 'button';
-  copyButton.className = 'code-copy';
+  copyButton.className = 'bb-code-copy';
   copyButton.textContent = 'Copy';
   wrapper.appendChild(copyButton);
 
@@ -166,7 +172,7 @@ if ('IntersectionObserver' in window) {
   revealItems.forEach((item) => item.classList.add('is-visible'));
 }
 
-const navLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')];
+const navLinks = [...document.querySelectorAll('.bb-nav a[href^="#"]')];
 const navTargets = navLinks
   .map((link) => document.getElementById(link.getAttribute('href').slice(1)))
   .filter(Boolean)

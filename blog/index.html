@@ -39,39 +39,45 @@
       "blogPost": []
     }
   </script>
-  <link rel="stylesheet" href="/styles.css?v=20261017">
+  <link rel="stylesheet" href="/ds/v1/tokens.css?v=20261018">
+  <link rel="stylesheet" href="/ds/v1/base.css?v=20261018">
+  <link rel="stylesheet" href="/ds/v1/components.css?v=20261018">
+  <link rel="stylesheet" href="/styles.css?v=20261018">
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="/" aria-label="Behnam Bagheri home">
-      <img class="brand-mark" src="/favicon.svg" width="36" height="36" alt="">
+  <header class="bb-header">
+    <a class="bb-brand" href="/" aria-label="Behnam Bagheri home">
+      <img class="bb-brand-mark" src="/favicon.svg" width="36" height="36" alt="">
       <span>Behnam Bagheri</span>
     </a>
-    <nav class="site-nav" aria-label="Primary navigation">
-      <a href="/">Home</a>
-      <a href="/fa/blog/" hreflang="fa" lang="fa">فارسی</a>
-      <button id="themeButton" type="button" class="theme-button" aria-live="polite">Auto</button>
+    <nav class="bb-nav" aria-label="Primary navigation">
+      <a class="bb-nav-link" href="/">Home</a>
+      <a class="bb-nav-link" href="/fa/blog/" hreflang="fa" lang="fa">فارسی</a>
+      <button id="themeButton" type="button" class="bb-theme-toggle" aria-label="Theme: light" title="Theme: light">
+        <svg class="bb-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0-5a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm0 17a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1ZM3 11h1a1 1 0 1 1 0 2H3a1 1 0 1 1 0-2Zm17 0h1a1 1 0 1 1 0 2h-1a1 1 0 1 1 0-2ZM5.64 4.22l.71.71a1 1 0 0 1-1.42 1.42l-.7-.71a1 1 0 0 1 1.41-1.42Zm12.02 12.02.71.71a1 1 0 0 1-1.42 1.41l-.7-.7a1 1 0 0 1 1.41-1.42ZM19.78 5.64l-.71.71a1 1 0 0 1-1.42-1.42l.71-.7a1 1 0 0 1 1.42 1.41ZM7.76 17.66l-.71.71a1 1 0 0 1-1.41-1.42l.7-.71a1 1 0 0 1 1.42 1.42Z"/></svg>
+        <svg class="bb-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.05 8.05 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Z"/></svg>
+      </button>
     </nav>
   </header>
 
   <main>
     <section class="blog-intro">
-      <p class="eyebrow">Blog</p>
+      <p class="bb-eyebrow">Blog</p>
       <h1>Field notes from production infrastructure</h1>
       <p>Write-ups on on-prem Kubernetes, CI/CD, monitoring, incident response, and disaster recovery, based on real work.</p>
     </section>
 
-    <!-- Newest first. Each entry: <li class="post-card"><h2><a href="/blog/SLUG/">Title</a></h2><p class="post-meta"><time datetime="YYYY-MM-DD">Month D, YYYY</time></p><p>Summary.</p></li> -->
+    <!-- Newest first. Each entry: <li class="bb-post-card"><h2><a href="/blog/SLUG/">Title</a></h2><p class="bb-post-meta"><time datetime="YYYY-MM-DD">Month D, YYYY</time></p><p>Summary.</p></li> -->
     <ul class="post-list">
       <li class="post-empty">The first posts are on their way.</li>
     </ul>
   </main>
 
-  <footer class="site-footer">
+  <footer class="bb-footer">
     <p>Behnam Bagheri - DevOps Engineer</p>
     <a href="/">bea.sh</a>
   </footer>
 
-  <script src="/script.js?v=20261017"></script>
+  <script src="/script.js?v=20261018"></script>
 </body>
 </html>

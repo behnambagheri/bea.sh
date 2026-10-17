@@ -193,3 +193,24 @@ test('Pages function serves the blog but not post templates', async () => {
 test('Docker image ships the blog', () => {
   assert.match(read('Dockerfile').toString(), /COPY blog \.\/blog/);
 });
+
+test('Pages function serves the design system with CORS and a long cache', async () => {
+  for (const path of ['/ds/v1/tokens.css', '/ds/v1/base.css', '/ds/v1/components.css', '/ds/v1/fonts/vazirmatn/Vazirmatn-variable.woff2']) {
+    const response = await call(path);
+    assert.equal(response.status, 200, path);
+    assert.equal(response.headers.get('access-control-allow-origin'), '*', path);
+    assert.match(response.headers.get('cache-control'), /max-age=604800/, path);
+  }
+  const demo = await call('/ds/');
+  assert.equal(demo.status, 200);
+  assert.match(await demo.text(), /<meta name="robots" content="noindex, follow">/);
+});
+
+test('Pages load the design system before the page styles', () => {
+  for (const file of ['index.html', 'fa/index.html', 'blog/index.html', 'fa/blog/index.html']) {
+    const page = read(file).toString();
+    const order = ['tokens.css', 'base.css', 'components.css', 'styles.css'].map((name) => page.indexOf(name));
+    assert.ok(order.every((index, i) => index > 0 && (i === 0 || index > order[i - 1])), file);
+  }
+  assert.match(read('Dockerfile').toString(), /COPY ds \.\/ds/);
+});

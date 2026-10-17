@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Behnam Bagheri Design System</title>
+  <meta name="description" content="Live reference for the Behnam Bagheri Design System: tokens, product accents and components shared by bea.sh and Behnam's other sites.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="v1/tokens.css?v=20261018">
+  <link rel="stylesheet" href="v1/base.css?v=20261018">
+  <link rel="stylesheet" href="v1/components.css?v=20261018">
+  <style>
+    main {
+      padding: 34px 0 42px;
+    }
+
+    .demo-section {
+      display: grid;
+      gap: 16px;
+      padding: 32px 0;
+      border-top: 1px solid var(--bb-line);
+    }
+
+    .demo-section h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .demo-lead {
+      max-width: 720px;
+      margin: 0;
+      color: var(--bb-muted);
+    }
+
+    .demo-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding: 16px;
+      border: 1px solid var(--bb-line);
+      border-radius: var(--bb-radius-md);
+      background: var(--bb-surface);
+    }
+
+    .demo-controls fieldset {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .demo-controls legend {
+      margin-bottom: 6px;
+      color: var(--bb-muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .demo-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+    }
+
+    .demo-cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .demo-two {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      align-items: start;
+    }
+
+    .swatch {
+      display: grid;
+      gap: 4px;
+      padding: 10px;
+      border: 1px solid var(--bb-line);
+      border-radius: var(--bb-radius-md);
+      background: var(--bb-surface);
+      font-size: 0.82rem;
+    }
+
+    .swatch span:first-child {
+      height: 44px;
+      border: 1px solid var(--bb-line);
+      border-radius: var(--bb-radius-sm);
+    }
+
+    .swatch code {
+      color: var(--bb-muted);
+      font-family: var(--bb-font-mono);
+      font-size: 0.74rem;
+      overflow-wrap: anywhere;
+    }
+
+    .space-bar {
+      height: 12px;
+      border-radius: var(--bb-radius-sm);
+      background: var(--bb-accent);
+    }
+
+    .demo-header-preview .bb-header {
+      position: static;
+      width: auto;
+      margin: 0;
+    }
+
+    @media (max-width: 1040px) {
+      .demo-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      main {
+        width: min(100% - 28px, var(--bb-container));
+      }
+
+      .demo-cards,
+      .demo-two {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="bb-header">
+    <a class="bb-brand" href="#top" aria-describedby="demo-logo-tip">
+      <span class="bb-tooltip-host">
+        <img class="bb-brand-mark" src="/favicon.svg" width="36" height="36" alt="">
+        <span class="bb-tooltip" id="demo-logo-tip" role="tooltip">
+          <strong class="bb-tooltip-title" data-i18n="tipTitle">The keystone arch</strong>
+          <span data-i18n="tipBody">The last stone that locks an arch: rarely seen, yet everything rests on it.</span>
+          <span class="bb-tooltip-note" data-i18n="tipNote">Tooltip: hover the logo or focus the brand link.</span>
+        </span>
+      </span>
+      <span data-i18n="brand">Behnam Bagheri Design System</span>
+    </a>
+    <nav class="bb-nav" aria-label="Demo sections">
+      <a class="bb-nav-link" href="#tokens" aria-current="true" data-i18n="navTokens">Tokens</a>
+      <a class="bb-nav-link" href="#components" data-i18n="navComponents">Components</a>
+      <a class="bb-nav-link" href="https://bea.sh/">bea.sh</a>
+      <button class="bb-theme-toggle" type="button" id="themeToggle" aria-label="Theme: light" title="Theme: light">
+        <svg class="bb-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0-5a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm0 17a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1ZM3 11h1a1 1 0 1 1 0 2H3a1 1 0 1 1 0-2Zm17 0h1a1 1 0 1 1 0 2h-1a1 1 0 1 1 0-2ZM5.64 4.22l.71.71a1 1 0 0 1-1.42 1.42l-.7-.71a1 1 0 0 1 1.41-1.42Zm12.02 12.02.71.71a1 1 0 0 1-1.42 1.41l-.7-.7a1 1 0 0 1 1.41-1.42ZM19.78 5.64l-.71.71a1 1 0 0 1-1.42-1.42l.71-.7a1 1 0 0 1 1.42 1.41ZM7.76 17.66l-.71.71a1 1 0 0 1-1.41-1.42l.7-.71a1 1 0 0 1 1.42 1.42Z"/></svg>
+        <svg class="bb-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.05 8.05 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Z"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main class="bb-container" id="top">
+    <p class="bb-eyebrow" data-i18n="eyebrow">Design system v1</p>
+    <h1 style="margin: 0 0 12px; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15;" data-i18n="title">One identity across every site.</h1>
+    <p class="demo-lead" data-i18n="lead">Same base look everywhere; each product changes only its accent. Load the three stylesheets from bea.sh/ds/v1/ and set data-product on &lt;html&gt;.</p>
+
+    <form class="demo-controls" style="margin-top: 20px;" aria-label="Demo settings">
+      <fieldset>
+        <legend data-i18n="theme">Theme</legend>
+        <label class="bb-button bb-button--sm"><input type="radio" name="theme" value="light" checked> Light</label>
+        <label class="bb-button bb-button--sm"><input type="radio" name="theme" value="dark"> Dark</label>
+      </fieldset>
+      <fieldset>
+        <legend data-i18n="direction">Direction</legend>
+        <label class="bb-button bb-button--sm"><input type="radio" name="dir" value="ltr" checked> LTR (en)</label>
+        <label class="bb-button bb-button--sm"><input type="radio" name="dir" value="rtl"> RTL (fa)</label>
+      </fieldset>
+      <fieldset>
+        <legend data-i18n="product">Product accent</legend>
+        <label class="bb-button bb-button--sm"><input type="radio" name="product" value="blue" checked> blue</label>
+        <label class="bb-button bb-button--sm"><input type="radio" name="product" value="teal"> teal</label>
+        <label class="bb-button bb-button--sm"><input type="radio" name="product" value="cyan"> cyan</label>
+        <label class="bb-button bb-button--sm"><input type="radio" name="product" value="indigo"> indigo</label>
+        <label class="bb-button bb-button--sm"><input type="radio" name="product" value="violet"> violet</label>
+        <label class="bb-button bb-button--sm"><input type="radio" name="product" value="fuchsia"> fuchsia</label>
+      </fieldset>
+    </form>
+
+    <section class="demo-section" id="tokens">
+      <h2 data-i18n="colors">Colors</h2>
+      <div class="demo-grid" id="colorSwatches"></div>
+      <h2 data-i18n="spacing">Spacing and radius</h2>
+      <div class="demo-grid" id="spaceSwatches"></div>
+      <h2 data-i18n="type">Typography</h2>
+      <div class="bb-card" style="padding: 18px; box-shadow: none;">
+        <p style="margin: 0; font-size: 2.4rem; font-weight: 700; line-height: 1.1;" data-i18n="typeDisplay">Production infrastructure</p>
+        <p style="margin: 8px 0 0;" data-i18n="typeBody">Body text: Space Grotesk in English, Vazirmatn in Persian (line-height 1.9, no letter spacing).</p>
+        <p style="margin: 8px 0 0; font-family: var(--bb-font-mono);">kubectl get nodes -o wide</p>
+      </div>
+    </section>
+
+    <section class="demo-section" id="components">
+      <h2 data-i18n="buttons">Buttons and badges</h2>
+      <div class="demo-row">
+        <a class="bb-button bb-button--primary" href="#components" data-i18n="primary">Primary</a>
+        <a class="bb-button bb-button--secondary" href="#components" data-i18n="secondary">Secondary</a>
+        <a class="bb-button bb-button--ghost" href="#components" data-i18n="ghost">Ghost</a>
+        <button class="bb-button bb-button--primary bb-button--sm" type="button" data-i18n="small">Small</button>
+        <button class="bb-button bb-button--sm" type="button" data-i18n="small">Small</button>
+      </div>
+      <div class="demo-row">
+        <span class="bb-badge bb-badge--public" data-i18n="public">Public</span>
+        <span class="bb-badge bb-badge--request" data-i18n="request">Request</span>
+        <span class="bb-badge bb-badge--accent" data-i18n="accent">Accent</span>
+        <span class="bb-badge bb-badge--neutral" data-i18n="neutral">Neutral</span>
+        <span class="bb-badge">2021 - Present</span>
+      </div>
+
+      <h2 data-i18n="profile">Profile items, signal card and metrics</h2>
+      <div class="demo-two">
+        <div style="display: grid; gap: 10px;">
+          <a class="bb-profile-item" href="mailto:behnam@bea.sh">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v.35l8 5.2 8-5.2V6H4Zm16 12V8.73l-7.46 4.85a1 1 0 0 1-1.08 0L4 8.73V18h16Z"/></svg>
+            <span class="bb-ltr">behnam@bea.sh</span>
+          </a>
+          <span class="bb-profile-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C7.58 2 4 5.35 4 9.46c0 5.84 7.15 12.14 7.46 12.4a1 1 0 0 0 1.08.12C12.88 21.82 21 17.82 21 9.46 21 5.35 16.42 2 12 2Zm0 17.35C9.93 17 6 12.83 6 9.46 6 6.39 8.55 4 12 4s6 2.39 6 5.46c0 4.16-3.63 7.82-6 9.89Z"/></svg>
+            <span data-i18n="location">Tehran, Iran - Hybrid</span>
+          </span>
+          <div class="bb-signal-card">
+            <span class="bb-signal-dot" aria-hidden="true"></span>
+            <p data-i18n="signal">Available for hybrid infrastructure, automation, and reliability work.</p>
+          </div>
+        </div>
+        <div class="bb-metric-grid">
+          <div><strong>10+</strong><span data-i18n="m1">Years hands-on</span></div>
+          <div><strong>200+</strong><span data-i18n="m2">CI/CD pipelines</span></div>
+          <div><strong>30+</strong><span data-i18n="m3">K8s nodes</span></div>
+          <div><strong>24/7</strong><span data-i18n="m4">Production mindset</span></div>
+        </div>
+      </div>
+
+      <h2 data-i18n="cards">Capability and service cards</h2>
+      <div class="demo-cards">
+        <div class="bb-capability-card">
+          <span class="bb-capability-index">01</span>
+          <h3 data-i18n="capTitle">Platform Operations</h3>
+          <p data-i18n="capBody">Linux, Docker, Kubernetes, on-prem networking, and high availability.</p>
+        </div>
+        <article class="bb-service-card">
+          <div class="bb-service-header">
+            <h3>IP Info</h3>
+            <span class="bb-badge bb-badge--public" data-i18n="public">Public</span>
+          </div>
+          <p data-i18n="ipBody">Instant IP, ASN, and network details.</p>
+          <div class="bb-service-links">
+            <a href="https://ip.bea.sh">ip.bea.sh</a>
+          </div>
+        </article>
+        <article class="bb-service-card bb-service-card--featured">
+          <div class="bb-service-header">
+            <h3 data-i18n="aptTitle">APT Repository</h3>
+            <span class="bb-badge bb-badge--request" data-i18n="request">Request</span>
+          </div>
+          <p data-i18n="aptBody">Featured card: spans two columns on wide screens.</p>
+          <div class="bb-service-links">
+            <span>registry.behnam.pro/ubuntu</span>
+          </div>
+          <button class="bb-button bb-button--sm" type="button" data-i18n="guide">Usage guide</button>
+        </article>
+      </div>
+
+      <h2 data-i18n="posts">Post card and code block</h2>
+      <div class="demo-two">
+        <ul style="display: grid; gap: 14px; margin: 0; padding: 0; list-style: none;">
+          <li class="bb-post-card">
+            <h2><a href="#components" data-i18n="postTitle">Recovering an on-prem Kubernetes cluster</a></h2>
+            <p class="bb-post-meta"><time datetime="2026-10-17" data-i18n="postDate">October 17, 2026</time></p>
+            <p data-i18n="postBody">Problem and result in two sentences.</p>
+          </li>
+        </ul>
+        <div class="bb-code-block">
+          <pre class="bb-code"><code>curl -fsSL https://registry.behnam.pro/bootstrap-apt.sh | sudo bash</code></pre>
+          <button class="bb-code-copy" type="button">Copy</button>
+        </div>
+      </div>
+
+      <h2 data-i18n="usage">Usage</h2>
+      <pre class="bb-code"><code>&lt;html lang="en" data-product="teal"&gt;
+&lt;link rel="stylesheet" href="https://bea.sh/ds/v1/tokens.css"&gt;
+&lt;link rel="stylesheet" href="https://bea.sh/ds/v1/base.css"&gt;
+&lt;link rel="stylesheet" href="https://bea.sh/ds/v1/components.css"&gt;</code></pre>
+    </section>
+  </main>
+
+  <footer class="bb-footer">
+    <p data-i18n="footer">Behnam Bagheri Design System</p>
+    <a href="#top" data-i18n="top">Back to top</a>
+  </footer>
+
+  <script>
+    const html = document.documentElement;
+    const form = document.querySelector('.demo-controls');
+    const themeToggle = document.getElementById('themeToggle');
+
+    const FA = {
+      tipTitle: 'قوس و سنگ تاج',
+      tipBody: 'آخرین سنگی که قوس را قفل می‌کند؛ کمتر دیده می‌شود، اما همه‌چیز به آن تکیه دارد.',
+      tipNote: 'راهنما: نشانگر را روی لوگو ببرید یا روی لینک برند فوکوس کنید.',
+      brand: 'سیستم طراحی بهنام باقری',
+      navTokens: 'توکن‌ها',
+      navComponents: 'کامپوننت‌ها',
+      eyebrow: 'سیستم طراحی نسخه ۱',
+      title: 'یک هویت در همه سایت‌ها.',
+      lead: 'ظاهر پایه همه‌جا یکسان است و هر محصول فقط رنگ تأکیدش را عوض می‌کند.',
+      theme: 'پوسته',
+      direction: 'جهت',
+      product: 'رنگ محصول',
+      colors: 'رنگ‌ها',
+      spacing: 'فاصله‌ها و گردی گوشه‌ها',
+      type: 'تایپوگرافی',
+      typeDisplay: 'زیرساخت پروداکشن',
+      typeBody: 'متن بدنه: Space Grotesk برای انگلیسی و وزیرمتن برای فارسی (ارتفاع خط ۱٫۹، بدون فاصله حروف).',
+      buttons: 'دکمه‌ها و نشان‌ها',
+      primary: 'اصلی',
+      secondary: 'ثانویه',
+      ghost: 'شفاف',
+      small: 'کوچک',
+      public: 'عمومی',
+      request: 'با درخواست',
+      accent: 'تأکیدی',
+      neutral: 'خنثی',
+      profile: 'اطلاعات تماس، کارت وضعیت و آمار',
+      location: 'تهران، ایران - هیبرید',
+      signal: 'آماده همکاری در زیرساخت هیبرید، اتوماسیون و پایداری سرویس‌ها.',
+      m1: 'سال تجربه عملی',
+      m2: 'پایپ‌لاین CI/CD',
+      m3: 'نود کوبرنتیز',
+      m4: 'نگاه پروداکشن',
+      cards: 'کارت توانمندی و سرویس',
+      capTitle: 'عملیات پلتفرم',
+      capBody: 'لینوکس، داکر، کوبرنتیز (Kubernetes)، شبکه on-prem و دسترس‌پذیری بالا.',
+      ipBody: 'نمایش فوری IP، ASN و اطلاعات شبکه.',
+      aptTitle: 'مخزن APT',
+      aptBody: 'کارت ویژه: در صفحه‌های عریض دو ستون می‌گیرد.',
+      guide: 'راهنمای استفاده',
+      posts: 'کارت مطلب و بلوک کد',
+      postTitle: 'بازیابی یک کلاستر کوبرنتیز on-prem',
+      postDate: '۲۵ مهر ۱۴۰۵',
+      postBody: 'مسئله و نتیجه در دو جمله.',
+      usage: 'نحوه استفاده',
+      footer: 'سیستم طراحی بهنام باقری',
+      top: 'بازگشت به بالا',
+    };
+    const EN = {};
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      EN[el.dataset.i18n] = el.textContent;
+    });
+
+    const swatches = [
+      'bg', 'surface', 'surface-strong', 'text', 'muted', 'faint', 'line',
+      'accent', 'accent-hover', 'accent-subtle', 'on-accent',
+      'success', 'warning', 'danger', 'success-subtle', 'warning-subtle', 'danger-subtle',
+      'keystone', 'keystone-text', 'code-bg', 'code-raised', 'code-text',
+    ];
+    document.getElementById('colorSwatches').innerHTML = swatches
+      .map((name) => `<div class="swatch"><span style="background: var(--bb-${name})"></span><span>${name}</span><code>--bb-${name}</code></div>`)
+      .join('');
+
+    const spaces = ['2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'];
+    const radii = ['sm', 'md', 'lg', 'full'];
+    document.getElementById('spaceSwatches').innerHTML =
+      spaces.map((name) => `<div class="swatch"><div class="space-bar" style="width: var(--bb-space-${name})"></div><span>space-${name}</span><code>--bb-space-${name}</code></div>`).join('') +
+      radii.map((name) => `<div class="swatch"><span style="background: var(--bb-accent-subtle); border-color: var(--bb-accent); border-radius: var(--bb-radius-${name})"></span><span>radius-${name}</span><code>--bb-radius-${name}</code></div>`).join('');
+
+    const apply = () => {
+      const data = new FormData(form);
+      const theme = data.get('theme');
+      const dir = data.get('dir');
+      const product = data.get('product');
+
+      html.setAttribute('data-theme', theme);
+      themeToggle.dataset.current = theme;
+      themeToggle.setAttribute('aria-label', `Theme: ${theme}`);
+      themeToggle.title = `Theme: ${theme}`;
+
+      html.dir = dir;
+      html.lang = dir === 'rtl' ? 'fa' : 'en';
+      const strings = dir === 'rtl' ? FA : EN;
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        el.textContent = strings[el.dataset.i18n] ?? EN[el.dataset.i18n];
+      });
+
+      if (product === 'blue') html.removeAttribute('data-product');
+      else html.setAttribute('data-product', product);
+    };
+
+    form.addEventListener('change', apply);
+    // Same behaviour as the sites: Light or Dark only, starting from the OS preference.
+    themeToggle.addEventListener('click', () => {
+      form.elements.theme.value = new FormData(form).get('theme') === 'dark' ? 'light' : 'dark';
+      apply();
+    });
+    document.querySelectorAll('.bb-code-copy').forEach((button) => {
+      button.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(button.previousElementSibling.textContent);
+          button.textContent = 'Copied';
+        } catch {
+          button.textContent = 'Failed';
+        }
+        setTimeout(() => { button.textContent = 'Copy'; }, 1200);
+      });
+    });
+    form.elements.theme.value = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    apply();
+  </script>
+</body>
+</html>

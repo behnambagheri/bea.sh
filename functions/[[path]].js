@@ -10,11 +10,14 @@ const LINK_HEADER = '</llms.txt>; rel="describedby"; type="text/markdown", </sit
 const PUBLIC_FILES = new Set([
   '/', '/index.html', '/styles.css', '/script.js', '/llms.txt', '/robots.txt', '/sitemap.xml',
   '/favicon.ico', '/favicon.svg', '/apple-touch-icon.png', '/fa', '/fa/', '/fa/index.html',
-  '/blog', '/fa/blog',
+  '/blog', '/fa/blog', '/ds',
 ]);
 
 // Directories whose whole contents are site content.
-const PUBLIC_PREFIXES = ['/public/', '/blog/', '/fa/blog/'];
+const PUBLIC_PREFIXES = ['/public/', '/blog/', '/fa/blog/', '/ds/'];
+
+// Design system files other domains load (CSS and fonts need CORS); cached for a week.
+const DS_PREFIX = '/ds/v1/';
 
 function isPublicPath(pathname) {
   return PUBLIC_FILES.has(pathname) || PUBLIC_PREFIXES.some((prefix) => pathname.startsWith(prefix));
@@ -54,6 +57,11 @@ export async function onRequest({ request, env, next }) {
   } else {
     const asset = await fetchAsset(request);
     response = new Response(asset.body, asset);
+  }
+
+  if (url.pathname.startsWith(DS_PREFIX) && response.ok) {
+    response.headers.set('access-control-allow-origin', '*');
+    response.headers.set('cache-control', 'public, max-age=604800, stale-while-revalidate=86400');
   }
 
   if (isRoot) {
