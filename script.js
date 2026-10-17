@@ -21,15 +21,17 @@ const cycleTheme = () => {
   applyTheme(next);
 };
 
-button.addEventListener('click', cycleTheme);
+if (button) {
+  button.addEventListener('click', cycleTheme);
 
-prefersDark.addEventListener('change', () => {
-  if ((localStorage.getItem(THEME_KEY) || 'auto') === 'auto') {
-    applyTheme('auto');
-  }
-});
+  prefersDark.addEventListener('change', () => {
+    if ((localStorage.getItem(THEME_KEY) || 'auto') === 'auto') {
+      applyTheme('auto');
+    }
+  });
 
-applyTheme(localStorage.getItem(THEME_KEY) || 'auto');
+  applyTheme(localStorage.getItem(THEME_KEY) || 'auto');
+}
 
 document.querySelectorAll('.request-access').forEach((buttonEl) => {
   buttonEl.addEventListener('click', () => {
@@ -162,4 +164,39 @@ if ('IntersectionObserver' in window) {
   revealItems.forEach((item) => revealObserver.observe(item));
 } else {
   revealItems.forEach((item) => item.classList.add('is-visible'));
+}
+
+const navLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')];
+const navTargets = navLinks
+  .map((link) => document.getElementById(link.getAttribute('href').slice(1)))
+  .filter(Boolean)
+  .sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1));
+
+const setCurrentNav = (id) => {
+  navLinks.forEach((link) => {
+    if (link.getAttribute('href') === `#${id}`) {
+      link.setAttribute('aria-current', 'true');
+    } else {
+      link.removeAttribute('aria-current');
+    }
+  });
+};
+
+// The current section is the last nav target whose top has reached the sticky
+// header (sections use scroll-margin-top: 108px, so anchor jumps land just above this line).
+const NAV_LINE = 120;
+let navFrame = 0;
+
+const updateCurrentNav = () => {
+  navFrame = 0;
+  const current = navTargets.filter((target) => target.getBoundingClientRect().top <= NAV_LINE).pop();
+  setCurrentNav(current?.id);
+};
+
+if (navTargets.length) {
+  window.addEventListener('scroll', () => {
+    if (!navFrame) navFrame = requestAnimationFrame(updateCurrentNav);
+  }, { passive: true });
+  window.addEventListener('resize', updateCurrentNav);
+  updateCurrentNav();
 }
