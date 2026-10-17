@@ -1,0 +1,13 @@
+apiVersion: v2
+name: bea-sh
+description: Behnam Bagheri's personal site (bea.sh), served by nginx
+type: application
+# CI publishes 1.0.<run number> with appVersion sha-<commit>; these are the local defaults.
+version: 1.0.0
+appVersion: "latest"
+home: https://bea.sh
+sources:
+  - https://github.com/behnambagheri/bea.sh
+maintainers:
+  - name: Behnam Bagheri
+    url: https://bea.sh

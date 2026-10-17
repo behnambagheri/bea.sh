@@ -23,6 +23,7 @@ This site exists for Behnam Bagheri's personal branding. Every change should ser
 - `ds/` is the Behnam Bagheri Design System shared by all of Behnam's sites: `ds/v1/tokens.css` (`--bb-` tokens, light/dark, `[data-product]` accents), `ds/v1/base.css` (self-hosted Space Grotesk and Vazirmatn, body, RTL), `ds/v1/components.css` (`bb-` classes built with logical properties), and `ds/index.html` (noindex live demo). `/ds/v1/*` is served with `Access-Control-Allow-Origin: *` and a one-week cache so other domains can load it. Keep token names and values in sync with the Figma file "Behnam Bagheri Design System"; breaking changes go to a new `ds/v2/`.
 - `blog/` and `fa/blog/` hold the bilingual blog; `templates/` holds post templates and is not served.
 - `Dockerfile`, `nginx.conf`, and `docker-compose.yml` serve the same site from an nginx container with the same `/` and `Link` behavior.
+- `charts/bea-sh/` is the Helm chart for Kubernetes. `.github/workflows/ci.yml` runs the tests, lints the chart and smoke-tests the image; on `main` it pushes `ghcr.io/behnambagheri/bea.sh` (`latest`, `sha-<commit>`) and the chart to `oci://ghcr.io/behnambagheri/charts/bea-sh` as version `1.0.<run number>` with that image as its `appVersion`.
 
 ## Blog
 - English posts live at `blog/SLUG/index.html`, Persian ones at `fa/blog/SLUG/index.html`, with the same English kebab-case `SLUG`. Start from `templates/blog-post.en.html` and `templates/blog-post.fa.html` (`templates/` is never served).
@@ -34,6 +35,7 @@ This site exists for Behnam Bagheri's personal branding. Every change should ser
 ## Development
 - Open `index.html` directly, or serve the root with any static server (e.g., `python3 -m http.server`).
 - Docker: `docker compose up -d --build` serves the site on `127.0.0.1:81`.
+- Kubernetes: `helm upgrade --install bea-sh oci://ghcr.io/behnambagheri/charts/bea-sh -n <namespace> --set ingress.enabled=true ...`; check changes with `helm lint charts/bea-sh --strict`.
 - The Dockerfile copies an explicit allowlist (`index.html`, `styles.css`, `script.js`, `llms.txt`, `robots.txt`, `sitemap.xml`, `public/`, `ds/`, `blog/`, `fa/`). Add any new served file there and to `PUBLIC_FILES` in `functions/[[path]].js`, or it will be missing or return 404.
 
 ## Coding Style

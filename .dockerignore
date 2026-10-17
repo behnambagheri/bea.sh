@@ -9,3 +9,7 @@ AGENTS.md
 Dockerfile
 docker-compose.yml
 functions
+.github
+charts
+tests
+templates

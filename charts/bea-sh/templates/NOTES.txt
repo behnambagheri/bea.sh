@@ -1,0 +1,12 @@
+The site is running as {{ include "bea-sh.fullname" . }} ({{ include "bea-sh.image" . }}).
+
+For local access:
+  kubectl --namespace {{ .Release.Namespace }} port-forward service/{{ include "bea-sh.fullname" . }} 8080:{{ .Values.service.port }}
+  curl -A Mozilla -I http://127.0.0.1:8080/
+{{- if .Values.ingress.enabled }}
+
+Hosts:
+{{- range .Values.ingress.hosts }}
+  http{{ if $.Values.ingress.tls }}s{{ end }}://{{ .host }}/
+{{- end }}
+{{- end }}

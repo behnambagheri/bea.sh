@@ -1,0 +1,108 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  # Let publishing finish; supersede only pull request checks.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+env:
+  CHART_DIR: charts/bea-sh
+  CHART_REGISTRY: oci://ghcr.io/${{ github.repository_owner }}/charts
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+      - run: npm test
+      - uses: azure/setup-helm@v4.3.0
+        with:
+          version: v3.19.0
+      - run: helm lint "$CHART_DIR" --strict
+      - run: helm template bea-sh "$CHART_DIR" --set ingress.enabled=true > /dev/null
+  container:
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          load: true
+          tags: bea-sh:test
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: Container smoke test
+        run: |
+          # Same read-only setup as the chart's Deployment.
+          docker run -d --name site -p 8080:80 --read-only \
+            --tmpfs /var/cache/nginx --tmpfs /run --tmpfs /tmp bea-sh:test
+          for _ in $(seq 1 20); do curl -fsS -o /dev/null http://127.0.0.1:8080/ && break; sleep 1; done
+          curl -fsS -A Mozilla http://127.0.0.1:8080/ | grep -q '<html'
+          curl -fsS -A Mozilla http://127.0.0.1:8080/fa/ | grep -q 'dir="rtl"'
+          curl -fsS http://127.0.0.1:8080/ | grep -q '^# Behnam Bagheri'
+          curl -fsS -o /dev/null http://127.0.0.1:8080/ds/v1/tokens.css
+          # Repo files are never in the image; unknown paths fall back to the home page.
+          ! curl -fsS -A Mozilla http://127.0.0.1:8080/Dockerfile | grep -q '^FROM '
+      - if: failure()
+        run: docker logs site
+  publish:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: [validate, container]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/metadata-action@v5
+        id: meta
+        with:
+          images: ghcr.io/${{ github.repository }}
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=sha,prefix=sha-
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          platforms: linux/amd64,linux/arm64
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          provenance: true
+          sbom: true
+      - uses: azure/setup-helm@v4.3.0
+        with:
+          version: v3.19.0
+      - name: Package and push the Helm chart
+        env:
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Each chart version pins the image built from the same commit.
+          version="1.0.${GITHUB_RUN_NUMBER}"
+          app_version="sha-${GITHUB_SHA::7}"
+          helm package "$CHART_DIR" --version "$version" --app-version "$app_version" --destination dist
+          echo "$GHCR_TOKEN" | helm registry login ghcr.io --username "$GITHUB_ACTOR" --password-stdin
+          helm push "dist/bea-sh-${version}.tgz" "$CHART_REGISTRY"
+          {
+            echo "### Published"
+            echo "- Image: \`ghcr.io/${GITHUB_REPOSITORY}:${app_version}\`"
+            echo "- Chart: \`${CHART_REGISTRY}/bea-sh --version ${version}\`"
+          } >> "$GITHUB_STEP_SUMMARY"
