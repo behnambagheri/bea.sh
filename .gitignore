@@ -1,3 +1,4 @@
 .idea
 .codex
 .DS_Store
+/\.claude/
