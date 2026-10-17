@@ -1,6 +1,9 @@
 // Advertise the Markdown profile so AI agents can find it from any response.
 const CANONICAL_HOST = 'bea.sh';
 
+// Hosts that duplicate the canonical site; visitors and crawlers are sent to bea.sh.
+const REDIRECT_HOSTS = new Set(['www.bea.sh', 'behnambagheri.ir', 'www.behnambagheri.ir']);
+
 const LINK_HEADER = '</llms.txt>; rel="describedby"; type="text/markdown", </sitemap.xml>; rel="sitemap"; type="application/xml"';
 
 // Pages uploads the whole repo, so only site assets are served; everything else is a 404.
@@ -27,8 +30,7 @@ function wantsPlainProfile(request) {
 export async function onRequest({ request, env, next }) {
   const url = new URL(request.url);
 
-  // www.bea.sh duplicates the canonical host, so send visitors and crawlers to bea.sh.
-  if (url.hostname === `www.${CANONICAL_HOST}`) {
+  if (REDIRECT_HOSTS.has(url.hostname)) {
     url.hostname = CANONICAL_HOST;
     url.protocol = 'https:';
     return Response.redirect(url.toString(), 301);

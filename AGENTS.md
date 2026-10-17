@@ -19,7 +19,7 @@ This site exists for Behnam Bagheri's personal branding. Every change should ser
 - Static personal site with no build step: `index.html`, `styles.css`, and `script.js` live in the repo root.
 - Static assets (fonts, images) go under `public/`.
 - `llms.txt` is the Markdown profile for LLMs and AI agents (llmstxt.org format); `robots.txt` and `sitemap.xml` support crawlers; `index.html` carries schema.org `Person` JSON-LD and `<link>` tags pointing to `/llms.txt`.
-- `functions/[[path]].js` is the Cloudflare Pages Function (production, bea.sh): it serves only allowlisted site files (Pages uploads the whole repo), returns `llms.txt` as plain text for `/` to `curl`/`wget`/`httpie` or `Accept: text/markdown`, and adds a `Link` header pointing to `/llms.txt`.
+- `functions/[[path]].js` is the Cloudflare Pages Function (production, bea.sh): it serves only allowlisted site files (Pages uploads the whole repo), returns `llms.txt` as plain text for `/` to `curl`/`wget`/`httpie` or `Accept: text/markdown`, redirects `www.bea.sh` and `behnambagheri.ir` (with `www`) to `bea.sh`, and adds a `Link` header pointing to `/llms.txt`.
 - `blog/` and `fa/blog/` hold the bilingual blog; `templates/` holds post templates and is not served.
 - `Dockerfile`, `nginx.conf`, and `docker-compose.yml` serve the same site from an nginx container with the same `/` and `Link` behavior.
 

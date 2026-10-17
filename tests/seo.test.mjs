@@ -141,11 +141,13 @@ test('Pages function marks pages.dev hosts noindex but not the canonical host', 
   }
 });
 
-test('Pages function redirects www to the canonical host, keeping path and query', async () => {
-  for (const [path, location] of [['/', 'https://bea.sh/'], ['/fa/?ref=x', 'https://bea.sh/fa/?ref=x'], ['/missing', 'https://bea.sh/missing']]) {
-    const response = await call(path, { host: 'www.bea.sh' });
-    assert.equal(response.status, 301, path);
-    assert.equal(response.headers.get('location'), location, path);
+test('Pages function redirects duplicate hosts to the canonical host, keeping path and query', async () => {
+  for (const host of ['www.bea.sh', 'behnambagheri.ir', 'www.behnambagheri.ir']) {
+    for (const [path, location] of [['/', 'https://bea.sh/'], ['/fa/?ref=x', 'https://bea.sh/fa/?ref=x'], ['/missing', 'https://bea.sh/missing']]) {
+      const response = await call(path, { host });
+      assert.equal(response.status, 301, `${host}${path}`);
+      assert.equal(response.headers.get('location'), location, `${host}${path}`);
+    }
   }
 });
 
