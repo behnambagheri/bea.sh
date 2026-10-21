@@ -61,7 +61,7 @@ test('JSON-LD is valid and describes the person', () => {
 
 test('favicons are linked and present', () => {
   for (const [rel, href] of [['icon', '/favicon.ico'], ['icon', '/favicon.svg'], ['apple-touch-icon', '/apple-touch-icon.png']]) {
-    assert.match(head, new RegExp(`<link rel="${rel}" href="${href}"`), `${href} not linked`);
+    assert.match(head, new RegExp(`<link rel="${rel}" href="${href}(?:\\?v=\\d{8})?"`), `${href} not linked`);
     assert.ok(existsSync(`${root}${href.slice(1)}`), `${href} missing`);
   }
   assert.match(read('favicon.svg').toString(), /^<svg [^>]*viewBox="0 0 64 64"/);
@@ -213,4 +213,29 @@ test('Pages load the design system before the page styles', () => {
     assert.ok(order.every((index, i) => index > 0 && (i === 0 || index > order[i - 1])), file);
   }
   assert.match(read('Dockerfile').toString(), /COPY ds \.\/ds/);
+});
+
+test('brand exports match the favicon and include valid raster sizes', async () => {
+  assert.deepEqual(read('favicon.svg'), read('public/brand/logo-icon.svg'));
+  for (const name of ['logo-icon.png', 'logo-mark.png']) {
+    assert.deepEqual(pngSize(read(`public/brand/${name}`)), [1024, 1024]);
+  }
+  const ico = read('favicon.ico');
+  const sizes = [];
+  for (let index = 0; index < ico.readUInt16LE(4); index += 1) {
+    const entry = 6 + index * 16;
+    const size = ico[entry] || 256;
+    const length = ico.readUInt32LE(entry + 8);
+    const offset = ico.readUInt32LE(entry + 12);
+    assert.equal(ico[entry + 1] || 256, size);
+    assert.equal(ico.readUInt16LE(entry + 6), 32);
+    assert.deepEqual(pngSize(ico.subarray(offset, offset + length)), [size, size]);
+    sizes.push(size);
+  }
+  assert.deepEqual(sizes, [16, 32, 48]);
+  for (const name of ['logo-icon.svg', 'logo-mark.svg', 'logo-mark-inverse.svg', 'logo-monochrome.svg']) {
+    const response = await call(`/public/brand/${name}`);
+    assert.equal(response.status, 200, name);
+    assert.deepEqual(Buffer.from(await response.arrayBuffer()), read(`public/brand/${name}`));
+  }
 });
