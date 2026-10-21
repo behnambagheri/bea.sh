@@ -60,8 +60,12 @@ test('JSON-LD is valid and describes the person', () => {
 });
 
 test('favicons are linked and present', () => {
-  for (const [rel, href] of [['icon', '/favicon.ico'], ['icon', '/favicon.svg'], ['apple-touch-icon', '/apple-touch-icon.png']]) {
-    assert.match(head, new RegExp(`<link rel="${rel}" href="${href}"`), `${href} not linked`);
+  for (const [rel, href] of [
+    ['icon', '/favicon.ico'],
+    ['icon', '/favicon.svg'],
+    ['apple-touch-icon', '/apple-touch-icon.png'],
+  ]) {
+    assert.match(head, new RegExp(`<link rel="${rel}" href="${href}(?:\\?v=\\d{8})?"`), `${href} not linked`);
     assert.ok(existsSync(`${root}${href.slice(1)}`), `${href} missing`);
   }
   assert.match(read('favicon.svg').toString(), /^<svg [^>]*viewBox="0 0 64 64"/);
@@ -99,8 +103,9 @@ test('English and Persian pages link to each other with hreflang', () => {
     assert.match(page, /<link rel="alternate" hreflang="fa" href="https:\/\/bea\.sh\/fa\/">/);
     assert.match(page, /<link rel="alternate" hreflang="x-default" href="https:\/\/bea\.sh\/">/);
   }
-  // The English page stays visually unchanged: no visible link to /fa/ in its body.
-  assert.doesNotMatch(html.slice(html.indexOf('<body')), /href="[^"]*\/fa\/?"/);
+  // Visitors can reach either language from the redesigned header.
+  assert.match(html.slice(html.indexOf('<body')), /class="language-link" href="\/fa\/" hreflang="fa"/);
+  assert.match(fa.slice(fa.indexOf('<body')), /class="language-link" href="\/" hreflang="en"/);
 });
 
 // Minimal stand-in for the Pages ASSETS binding: serves repo files by path.
@@ -118,7 +123,14 @@ const call = (path, { host = 'bea.sh', ua = 'Mozilla/5.0 (compatible; Googlebot/
   onRequest({ request: new Request(`https://${host}${path}`, { headers: { 'user-agent': ua } }), env, next: () => {} });
 
 test('Pages function serves crawler files and icons, including to CLI clients', async () => {
-  for (const path of ['/robots.txt', '/sitemap.xml', '/favicon.ico', '/favicon.svg', '/apple-touch-icon.png', '/public/og-image.png']) {
+  for (const path of [
+    '/robots.txt',
+    '/sitemap.xml',
+    '/favicon.ico',
+    '/favicon.svg',
+    '/apple-touch-icon.png',
+    '/public/og-image.png',
+  ]) {
     for (const ua of ['Mozilla/5.0 (compatible; Googlebot/2.1)', 'curl/8.7.1']) {
       const response = await call(path, { ua });
       assert.equal(response.status, 200, `${path} for ${ua}`);
@@ -143,7 +155,11 @@ test('Pages function marks pages.dev hosts noindex but not the canonical host', 
 
 test('Pages function redirects duplicate hosts to the canonical host, keeping path and query', async () => {
   for (const host of ['www.bea.sh', 'behnambagheri.ir', 'www.behnambagheri.ir']) {
-    for (const [path, location] of [['/', 'https://bea.sh/'], ['/fa/?ref=x', 'https://bea.sh/fa/?ref=x'], ['/missing', 'https://bea.sh/missing']]) {
+    for (const [path, location] of [
+      ['/', 'https://bea.sh/'],
+      ['/fa/?ref=x', 'https://bea.sh/fa/?ref=x'],
+      ['/missing', 'https://bea.sh/missing'],
+    ]) {
       const response = await call(path, { host });
       assert.equal(response.status, 301, `${host}${path}`);
       assert.equal(response.headers.get('location'), location, `${host}${path}`);
@@ -152,7 +168,13 @@ test('Pages function redirects duplicate hosts to the canonical host, keeping pa
 });
 
 test('Pages function keeps repo files out of the site', async () => {
-  for (const path of ['/AGENTS.md', '/nginx.conf', '/package.json', '/tests/seo.test.mjs']) {
+  for (const path of [
+    '/AGENTS.md',
+    '/nginx.conf',
+    '/package.json',
+    '/tests/seo.test.mjs',
+    '/design-system/behnam-bagheri/MASTER.md',
+  ]) {
     assert.equal((await call(path)).status, 404, path);
   }
 });
@@ -195,7 +217,12 @@ test('Docker image ships the blog', () => {
 });
 
 test('Pages function serves the design system with CORS and a long cache', async () => {
-  for (const path of ['/ds/v1/tokens.css', '/ds/v1/base.css', '/ds/v1/components.css', '/ds/v1/fonts/vazirmatn/Vazirmatn-variable.woff2']) {
+  for (const path of [
+    '/ds/v1/tokens.css',
+    '/ds/v1/base.css',
+    '/ds/v1/components.css',
+    '/ds/v1/fonts/vazirmatn/Vazirmatn-variable.woff2',
+  ]) {
     const response = await call(path);
     assert.equal(response.status, 200, path);
     assert.equal(response.headers.get('access-control-allow-origin'), '*', path);
@@ -210,7 +237,82 @@ test('Pages load the design system before the page styles', () => {
   for (const file of ['index.html', 'fa/index.html', 'blog/index.html', 'fa/blog/index.html']) {
     const page = read(file).toString();
     const order = ['tokens.css', 'base.css', 'components.css', 'styles.css'].map((name) => page.indexOf(name));
-    assert.ok(order.every((index, i) => index > 0 && (i === 0 || index > order[i - 1])), file);
+    assert.ok(
+      order.every((index, i) => index > 0 && (i === 0 || index > order[i - 1])),
+      file,
+    );
   }
   assert.match(read('Dockerfile').toString(), /COPY ds \.\/ds/);
+});
+
+test('both home pages retain the same complete service directory and access policies', () => {
+  const directory = (page) =>
+    [
+      ...page.matchAll(
+        /<article\s+class="bb-service-card"\s+data-access="([^"]+)"\s+data-search="([^"]+)"\s*>([\s\S]*?)<\/article>/g,
+      ),
+    ].map(([, access, name, body]) => ({
+      name,
+      access,
+      urls: [...body.matchAll(/href="(https:[^"]+)"/g)].map((match) => match[1]),
+      disclosure: /<details class="access-disclosure">/.test(body),
+    }));
+  const en = directory(html);
+  const fa = directory(read('fa/index.html').toString());
+  assert.equal(en.length, 18);
+  assert.equal(en.filter((service) => service.access === 'public').length, 12);
+  assert.equal(en.filter((service) => service.access === 'request').length, 6);
+  assert.deepEqual(fa, en);
+  for (const service of en) assert.equal(service.disclosure, service.access === 'request', service.name);
+});
+
+test('both languages offer the same APT commands inside an accessible native dialog', () => {
+  const commands = (page) => [...page.matchAll(/<pre><code>([\s\S]*?)<\/code><\/pre>/g)].map((match) => match[1]);
+  const fa = read('fa/index.html').toString();
+  assert.equal(commands(html).length, 4);
+  assert.deepEqual(commands(fa), commands(html));
+  for (const page of [html, fa]) {
+    assert.match(page, /<dialog class="usage-dialog" id="aptUsageModal" aria-labelledby="aptUsageModalTitle">/);
+    assert.match(page, /<h2 id="aptUsageModalTitle">/);
+    assert.match(page, /class="skip-link" href="#top"/);
+    assert.match(page, /<label class="bb-visually-hidden" for="serviceSearch">/);
+    assert.equal([...page.matchAll(/<h1\b/g)].length, 1);
+    const ids = [...page.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]);
+    assert.equal(new Set(ids).size, ids.length, 'IDs must be unique');
+  }
+});
+
+test('home pages keep content in static HTML without third-party runtime dependencies', () => {
+  for (const page of [html, read('fa/index.html').toString()]) {
+    assert.doesNotMatch(page, /<script\b[^>]*src="https?:\/\//);
+    assert.doesNotMatch(page, /<link\b[^>]*rel="stylesheet"[^>]*href="https?:\/\//);
+    assert.doesNotMatch(page, /class="[^"]*\breveal\b/);
+    assert.match(page, /class="service-controls" hidden/);
+    assert.match(page, /<script src="\/script\.js\?v=\d{8}(?:\.\d+)?" defer><\/script>/);
+  }
+});
+
+test('brand exports match the favicon and include valid raster sizes', async () => {
+  assert.deepEqual(read('favicon.svg'), read('public/brand/logo-icon.svg'));
+  for (const name of ['logo-icon.png', 'logo-mark.png']) {
+    assert.deepEqual(pngSize(read(`public/brand/${name}`)), [1024, 1024]);
+  }
+  const ico = read('favicon.ico');
+  const sizes = [];
+  for (let index = 0; index < ico.readUInt16LE(4); index += 1) {
+    const entry = 6 + index * 16;
+    const size = ico[entry] || 256;
+    const length = ico.readUInt32LE(entry + 8);
+    const offset = ico.readUInt32LE(entry + 12);
+    assert.equal(ico[entry + 1] || 256, size);
+    assert.equal(ico.readUInt16LE(entry + 6), 32);
+    assert.deepEqual(pngSize(ico.subarray(offset, offset + length)), [size, size]);
+    sizes.push(size);
+  }
+  assert.deepEqual(sizes, [16, 32, 48]);
+  for (const name of ['logo-icon.svg', 'logo-mark.svg', 'logo-mark-inverse.svg', 'logo-monochrome.svg']) {
+    const response = await call(`/public/brand/${name}`);
+    assert.equal(response.status, 200, name);
+    assert.deepEqual(Buffer.from(await response.arrayBuffer()), read(`public/brand/${name}`));
+  }
 });

@@ -2,20 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://bea.sh/</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://bea.sh/"/>
     <xhtml:link rel="alternate" hreflang="fa" href="https://bea.sh/fa/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bea.sh/"/>
   </url>
   <url>
     <loc>https://bea.sh/fa/</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://bea.sh/"/>
     <xhtml:link rel="alternate" hreflang="fa" href="https://bea.sh/fa/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bea.sh/"/>
   </url>
   <url>
     <loc>https://bea.sh/llms.txt</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-21</lastmod>
   </url>
 </urlset>

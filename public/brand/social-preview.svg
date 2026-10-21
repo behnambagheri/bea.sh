@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <svg x="94" y="211" width="224" height="224" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Behnam Bagheri — the keystone arch</title>
+  <desc>Two supports meet at a central keystone above a shared foundation.</desc>
+  <path d="M11 47V34a21 21 0 0 1 11.794-18.875l4.384 8.988A11 11 0 0 0 21 34v13Z" fill="#f4f7fb"/>
+  <path d="M53 47V34a21 21 0 0 0-11.794-18.875l-4.384 8.988A11 11 0 0 1 43 34v13Z" fill="#f4f7fb"/>
+  <path d="M26 13.5h12L35 25h-6Z" fill="#d4a72c"/>
+  <path d="M9 49h46v5H9Z" fill="#f4f7fb"/>
+</svg>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="380" y="215" font-size="27" font-weight="700" letter-spacing="1" fill="#d4a72c">DEVOPS ENGINEER - TEHRAN, IRAN</text>
+    <text x="380" y="312" font-size="68" font-weight="700" letter-spacing="-2" fill="#f4f7fb">Behnam Bagheri</text>
+    <text x="380" y="390" font-size="31" fill="#a8b0bd">Production infrastructure, automation, and</text>
+    <text x="380" y="435" font-size="31" fill="#a8b0bd">reliability for real-world systems.</text>
+  </g>
+</svg>

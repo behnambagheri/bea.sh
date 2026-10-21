@@ -1,208 +1,218 @@
-const THEME_KEY = 'bb-theme';
-const button = document.getElementById('themeButton');
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+(() => {
+  const root = document.documentElement;
+  const isPersian = root.lang === 'fa';
+  const text = isPersian
+    ? {
+        light: 'حالت روشن. تغییر به حالت تیره',
+        dark: 'حالت تیره. تغییر به حالت روشن',
+        copy: 'کپی',
+        copied: 'کپی شد',
+        failed: 'کپی انجام نشد؛ متن را دستی انتخاب کنید.',
+        results: (count, total) =>
+          `${new Intl.NumberFormat('fa').format(count)} سرویس از ${new Intl.NumberFormat('fa').format(total)} سرویس`,
+      }
+    : {
+        light: 'Theme: light. Switch to dark',
+        dark: 'Theme: dark. Switch to light',
+        copy: 'Copy',
+        copied: 'Copied',
+        failed: 'Copy failed. Select and copy the text manually.',
+        results: (count, total) => `${count} of ${total} services`,
+      };
 
-// The design system reads data-theme from <html>.
-const root = document.documentElement;
-
-// Light or dark only: the OS preference decides until the visitor picks one, then the pick is remembered.
-const savedTheme = () => {
-  const theme = localStorage.getItem(THEME_KEY);
-  return theme === 'light' || theme === 'dark' ? theme : null;
-};
-
-const currentTheme = () => savedTheme() || (prefersDark.matches ? 'dark' : 'light');
-
-const applyTheme = () => {
-  const theme = currentTheme();
-  if (savedTheme()) {
-    root.setAttribute('data-theme', theme);
-  } else {
-    root.removeAttribute('data-theme');
+  // Theme selection works for this visit even if the browser blocks storage.
+  const themeButton = document.getElementById('themeButton');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+  let selectedTheme = null;
+  try {
+    const stored = localStorage.getItem('bb-theme');
+    if (stored === 'light' || stored === 'dark') selectedTheme = stored;
+  } catch {
+    /* The system preference remains the initial default. */
   }
-  // The button's icon shows the theme on screen (sun or moon); clicking switches to the other one.
-  const label = `Theme: ${theme}. Switch to ${theme === 'dark' ? 'light' : 'dark'}`;
-  button.dataset.current = theme;
-  button.setAttribute('aria-label', label);
-  button.title = label;
-};
 
-if (button) {
-  button.addEventListener('click', () => {
-    localStorage.setItem(THEME_KEY, currentTheme() === 'dark' ? 'light' : 'dark');
+  const currentTheme = () => selectedTheme || (prefersDark.matches ? 'dark' : 'light');
+  const applyTheme = () => {
+    const theme = currentTheme();
+    if (selectedTheme) root.dataset.theme = theme;
+    else root.removeAttribute('data-theme');
+    if (!themeButton) return;
+    themeButton.dataset.current = theme;
+    themeButton.setAttribute('aria-label', text[theme]);
+    themeButton.title = text[theme];
+  };
+
+  if (themeButton) {
     applyTheme();
-  });
-
-  prefersDark.addEventListener('change', applyTheme);
-
-  applyTheme();
-}
-
-document.querySelectorAll('.request-access').forEach((buttonEl) => {
-  buttonEl.addEventListener('click', () => {
-    const panel = buttonEl.closest('.bb-service-card')?.querySelector('.access-panel');
-    if (!panel) return;
-    const isHidden = panel.hasAttribute('hidden');
-    if (isHidden) {
-      panel.removeAttribute('hidden');
-      buttonEl.setAttribute('aria-expanded', 'true');
-      buttonEl.textContent = 'Hide contact';
-    } else {
-      panel.setAttribute('hidden', '');
-      buttonEl.setAttribute('aria-expanded', 'false');
-      buttonEl.textContent = 'Request access';
-    }
-  });
-});
-
-const modalBackdrop = document.getElementById('modalBackdrop');
-const modalCloseButtons = document.querySelectorAll('.modal-close');
-let activeModal = null;
-
-const openModal = (modalId) => {
-  if (!modalBackdrop) return;
-  const modal = document.getElementById(modalId);
-  if (!modal) return;
-  activeModal = modal;
-  modalBackdrop.removeAttribute('hidden');
-  document.body.classList.add('modal-open');
-  modal.focus();
-};
-
-const closeModal = () => {
-  if (!modalBackdrop || !activeModal) return;
-  modalBackdrop.setAttribute('hidden', '');
-  document.body.classList.remove('modal-open');
-  activeModal = null;
-};
-
-document.querySelectorAll('.usage-guide').forEach((buttonEl) => {
-  buttonEl.addEventListener('click', () => {
-    const modalTarget = buttonEl.getAttribute('data-modal-target');
-    if (!modalTarget) return;
-    openModal(modalTarget);
-  });
-});
-
-modalCloseButtons.forEach((buttonEl) => {
-  buttonEl.addEventListener('click', closeModal);
-});
-
-if (modalBackdrop) {
-  modalBackdrop.addEventListener('click', (event) => {
-    if (event.target === modalBackdrop) {
-      closeModal();
-    }
-  });
-}
-
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && activeModal) {
-    closeModal();
-  }
-});
-
-const copyTextToClipboard = async (text) => {
-  if (navigator.clipboard && window.isSecureContext) {
-    await navigator.clipboard.writeText(text);
-    return;
+    themeButton.hidden = false;
+    themeButton.addEventListener('click', () => {
+      selectedTheme = currentTheme() === 'dark' ? 'light' : 'dark';
+      try {
+        localStorage.setItem('bb-theme', selectedTheme);
+      } catch {
+        /* Keep the in-memory choice. */
+      }
+      applyTheme();
+    });
+    prefersDark.addEventListener('change', applyTheme);
   }
 
-  const textArea = document.createElement('textarea');
-  textArea.value = text;
-  textArea.setAttribute('readonly', '');
-  textArea.style.position = 'fixed';
-  textArea.style.opacity = '0';
-  document.body.appendChild(textArea);
-  textArea.select();
-  document.execCommand('copy');
-  textArea.remove();
-};
+  // All services remain readable in the HTML when JavaScript is unavailable.
+  const serviceGrid = document.getElementById('serviceGrid');
+  const search = document.getElementById('serviceSearch');
+  const controls = document.querySelector('.service-controls');
+  const results = document.getElementById('serviceResults');
+  const empty = document.getElementById('serviceEmpty');
+  const reset = document.getElementById('resetServices');
+  const filters = [...document.querySelectorAll('[data-filter]')];
+  const normalize = (value) =>
+    value
+      .toLocaleLowerCase()
+      .replace(/ي/g, 'ی')
+      .replace(/ك/g, 'ک')
+      .replace(/[\u064B-\u065F\u200C]/g, '')
+      .trim();
 
-document.querySelectorAll('.modal pre').forEach((preEl) => {
-  const codeEl = preEl.querySelector('code');
-  if (!codeEl || !preEl.parentElement) return;
-
-  preEl.classList.add('bb-code');
-  const wrapper = document.createElement('div');
-  wrapper.className = 'bb-code-block';
-  preEl.parentElement.insertBefore(wrapper, preEl);
-  wrapper.appendChild(preEl);
-
-  const copyButton = document.createElement('button');
-  copyButton.type = 'button';
-  copyButton.className = 'bb-code-copy';
-  copyButton.textContent = 'Copy';
-  wrapper.appendChild(copyButton);
-
-  copyButton.addEventListener('click', async () => {
-    const code = codeEl.textContent || '';
-    if (!code) return;
-    try {
-      await copyTextToClipboard(code);
-      copyButton.textContent = 'Copied';
-      setTimeout(() => {
-        copyButton.textContent = 'Copy';
-      }, 1200);
-    } catch {
-      copyButton.textContent = 'Failed';
-      setTimeout(() => {
-        copyButton.textContent = 'Copy';
-      }, 1200);
-    }
-  });
-});
-
-const revealItems = document.querySelectorAll('.reveal');
-
-if ('IntersectionObserver' in window) {
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
-        revealObserver.unobserve(entry.target);
+  if (serviceGrid && search && controls && results && empty && reset) {
+    const services = [...serviceGrid.querySelectorAll('.bb-service-card')].map((card) => ({
+      card,
+      searchable: normalize(`${card.dataset.search} ${card.textContent}`),
+    }));
+    let access = 'all';
+    const updateServices = () => {
+      const terms = normalize(search.value).split(/\s+/).filter(Boolean);
+      let count = 0;
+      services.forEach(({ card, searchable }) => {
+        const matches =
+          (access === 'all' || card.dataset.access === access) && terms.every((term) => searchable.includes(term));
+        card.hidden = !matches;
+        if (matches) count += 1;
       });
-    },
-    { threshold: 0.12 },
-  );
+      filters.forEach((filter) => filter.setAttribute('aria-pressed', String(filter.dataset.filter === access)));
+      results.textContent = text.results(count, services.length);
+      empty.hidden = count !== 0;
+    };
+    filters.forEach((filter) =>
+      filter.addEventListener('click', () => {
+        access = filter.dataset.filter;
+        updateServices();
+      }),
+    );
+    search.addEventListener('input', updateServices);
+    reset.addEventListener('click', () => {
+      search.value = '';
+      access = 'all';
+      updateServices();
+      search.focus();
+    });
+    updateServices();
+    controls.hidden = false;
+    results.hidden = false;
+  }
 
-  revealItems.forEach((item) => revealObserver.observe(item));
-} else {
-  revealItems.forEach((item) => item.classList.add('is-visible'));
-}
-
-const navLinks = [...document.querySelectorAll('.bb-nav a[href^="#"]')];
-const navTargets = navLinks
-  .map((link) => document.getElementById(link.getAttribute('href').slice(1)))
-  .filter(Boolean)
-  .sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1));
-
-const setCurrentNav = (id) => {
-  navLinks.forEach((link) => {
-    if (link.getAttribute('href') === `#${id}`) {
-      link.setAttribute('aria-current', 'true');
-    } else {
-      link.removeAttribute('aria-current');
-    }
+  document.querySelectorAll('.usage-guide').forEach((trigger) => {
+    const dialog = document.getElementById(trigger.dataset.modalTarget);
+    if (!dialog || typeof dialog.showModal !== 'function') return;
+    trigger.hidden = false;
+    trigger.addEventListener('click', () => dialog.showModal());
+    dialog.querySelector('.modal-close')?.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (event) => {
+      if (event.target !== dialog) return;
+      const rect = dialog.getBoundingClientRect();
+      if (
+        event.clientX < rect.left ||
+        event.clientX > rect.right ||
+        event.clientY < rect.top ||
+        event.clientY > rect.bottom
+      )
+        dialog.close();
+    });
   });
-};
 
-// The current section is the last nav target whose top has reached the sticky
-// header (sections use scroll-margin-top: 108px, so anchor jumps land just above this line).
-const NAV_LINE = 120;
-let navFrame = 0;
+  const copyText = async (value) => {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(value);
+      return;
+    }
+    const field = document.createElement('textarea');
+    const focus = document.activeElement;
+    field.value = value;
+    field.setAttribute('readonly', '');
+    field.style.cssText = 'position:fixed;opacity:0;';
+    // Keep the fallback inside the active dialog, outside its inert siblings.
+    (document.querySelector('dialog[open]') || document.body).appendChild(field);
+    field.select();
+    try {
+      if (!document.execCommand('copy')) throw new Error('Clipboard unavailable');
+    } finally {
+      field.remove();
+      focus?.focus();
+    }
+  };
 
-const updateCurrentNav = () => {
-  navFrame = 0;
-  const current = navTargets.filter((target) => target.getBoundingClientRect().top <= NAV_LINE).pop();
-  setCurrentNav(current?.id);
-};
+  document.querySelectorAll('.usage-dialog').forEach((dialog) => {
+    const status = document.createElement('p');
+    status.className = 'copy-status';
+    status.setAttribute('role', 'status');
+    dialog.appendChild(status);
+    dialog.querySelectorAll('pre').forEach((pre) => {
+      const code = pre.querySelector('code');
+      if (!code) return;
+      pre.classList.add('bb-code');
+      const wrapper = document.createElement('div');
+      wrapper.className = 'bb-code-block';
+      pre.before(wrapper);
+      wrapper.appendChild(pre);
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'bb-code-copy';
+      button.textContent = text.copy;
+      button.setAttribute(
+        'aria-label',
+        `${text.copy}: ${pre.closest('.guide-block')?.querySelector('h3')?.textContent || 'APT'}`,
+      );
+      wrapper.appendChild(button);
+      let timer;
+      button.addEventListener('click', async () => {
+        clearTimeout(timer);
+        button.disabled = true;
+        try {
+          await copyText(code.textContent || '');
+          button.textContent = text.copied;
+          status.textContent = text.copied;
+        } catch {
+          status.textContent = text.failed;
+        } finally {
+          button.disabled = false;
+          timer = setTimeout(() => {
+            button.textContent = text.copy;
+          }, 1800);
+        }
+      });
+    });
+  });
 
-if (navTargets.length) {
-  window.addEventListener('scroll', () => {
-    if (!navFrame) navFrame = requestAnimationFrame(updateCurrentNav);
-  }, { passive: true });
-  window.addEventListener('resize', updateCurrentNav);
-  updateCurrentNav();
-}
+  const navLinks = [...document.querySelectorAll('.bb-nav a[href^="#"]')];
+  const targets = navLinks.map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  if (targets.length) {
+    let frame = 0;
+    const updateNav = () => {
+      frame = 0;
+      const line = (document.querySelector('.bb-header')?.getBoundingClientRect().bottom || 0) + 40;
+      const active = targets.filter((section) => section.getBoundingClientRect().top <= line).pop();
+      navLinks.forEach((link) => {
+        if (link.hash === `#${active?.id}`) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    };
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (!frame) frame = requestAnimationFrame(updateNav);
+      },
+      { passive: true },
+    );
+    window.addEventListener('resize', updateNav);
+    updateNav();
+  }
+})();

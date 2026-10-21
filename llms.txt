@@ -4,6 +4,8 @@
 
 This file is a plain-text profile for AI agents, recruiters' assistants, and command-line users. Everything here matches the human-readable page at https://bea.sh/.
 
+The website presents this work as “Infrastructure. Built to hold.”: practical platform operations, delivery systems, and reliability tooling. Its service directory distinguishes public tools from services available on request.
+
 ## Contact
 
 - Email: behnam@bea.sh (preferred)
@@ -60,6 +62,8 @@ Services Behnam designed and operates, many hosted in Iran so they keep working 
 ### بهنام باقری — مهندس دواپس (DevOps)
 
 بهنام باقری (Behnam Bagheri) مهندس و متخصص دواپس (DevOps) در تهران با بیش از ۱۰ سال تجربه در راه‌اندازی، نگهداری و اتوماسیون زیرساخت production است: کلاسترهای کوبرنتیز (Kubernetes) روی سرورهای داخلی (on-prem)، پایپ‌لاین‌های CI/CD، مانیتورینگ و هشدار، بکاپ و بازیابی از فاجعه. آماده همکاری هیبریدی (حضوری و دورکاری) در حوزه زیرساخت، اتوماسیون و پایداری سرویس‌ها. به فارسی و انگلیسی کار می‌کند.
+
+شعار صفحه «زیرساختی که می‌شود به آن تکیه کرد» است: عملیات پلتفرم، تحویل نرم‌افزار و ابزارهای پایداری. فهرست سرویس‌ها ابزارهای عمومی را از سرویس‌هایی که به درخواست دسترسی نیاز دارند جدا می‌کند.
 
 #### راه‌های تماس
 

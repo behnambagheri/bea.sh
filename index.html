@@ -1,495 +1,829 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Behnam Bagheri - DevOps Engineer in Tehran</title>
-  <meta
-    name="description"
-    content="DevOps engineer in Tehran, Iran: on-prem Kubernetes, CI/CD, Prometheus and Grafana monitoring, disaster recovery, and public Docker, npm, PyPI and APT proxies."
-  >
-  <meta name="author" content="Behnam Bagheri">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <link rel="canonical" href="https://bea.sh/">
-  <link rel="alternate" hreflang="en" href="https://bea.sh/">
-  <link rel="alternate" hreflang="fa" href="https://bea.sh/fa/">
-  <link rel="alternate" hreflang="x-default" href="https://bea.sh/">
-  <link rel="describedby" type="text/markdown" href="/llms.txt" title="Profile for LLMs and AI agents">
-  <link rel="alternate" type="text/markdown" href="/llms.txt" title="Profile in Markdown">
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-  <link rel="icon" href="/favicon.ico" sizes="32x32">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <meta property="og:type" content="profile">
-  <meta property="og:title" content="Behnam Bagheri - DevOps Engineer">
-  <meta property="og:description" content="DevOps engineer in Tehran building reliable CI/CD, Kubernetes, observability, backup, and private infrastructure services.">
-  <meta property="og:url" content="https://bea.sh/">
-  <meta property="og:site_name" content="Behnam Bagheri">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:locale:alternate" content="fa_IR">
-  <meta property="og:image" content="https://bea.sh/public/og-image.png">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Behnam Bagheri - DevOps Engineer, Tehran, Iran">
-  <meta property="profile:first_name" content="Behnam">
-  <meta property="profile:last_name" content="Bagheri">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Behnam Bagheri - DevOps Engineer">
-  <meta name="twitter:description" content="DevOps engineer in Tehran building reliable CI/CD, Kubernetes, observability, backup, and private infrastructure services.">
-  <meta name="twitter:image" content="https://bea.sh/public/og-image.png">
-  <meta name="twitter:image:alt" content="Behnam Bagheri - DevOps Engineer, Tehran, Iran">
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfilePage",
-      "url": "https://bea.sh/",
-      "mainEntity": {
-        "@type": "Person",
-        "@id": "https://bea.sh/#person",
-        "name": "Behnam Bagheri",
-        "alternateName": ["بهنام باقری", "Behnam Baqeri"],
-        "jobTitle": "DevOps Engineer",
-        "disambiguatingDescription": "مهندس DevOps در تهران؛ کوبرنتیز (Kubernetes)، CI/CD، مانیتورینگ با Prometheus و Grafana، بکاپ و بازیابی از فاجعه.",
-        "knowsLanguage": [
-          { "@type": "Language", "name": "Persian", "alternateName": "fa" },
-          { "@type": "Language", "name": "English", "alternateName": "en" }
-        ],
-        "description": "DevOps engineer with 10+ years running on-prem Kubernetes, CI/CD pipelines, monitoring and alerting, backups, and disaster recovery. Open to hybrid infrastructure, automation, and reliability roles.",
-        "email": "mailto:behnam@bea.sh",
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Behnam Bagheri - DevOps Engineer in Tehran</title>
+    <meta
+      name="description"
+      content="DevOps engineer in Tehran, Iran: on-prem Kubernetes, CI/CD, Prometheus and Grafana monitoring, disaster recovery, and public Docker, npm, PyPI and APT proxies.">
+    <meta name="author" content="Behnam Bagheri">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://bea.sh/">
+    <link rel="alternate" hreflang="en" href="https://bea.sh/">
+    <link rel="alternate" hreflang="fa" href="https://bea.sh/fa/">
+    <link rel="alternate" hreflang="x-default" href="https://bea.sh/">
+    <link rel="describedby" type="text/markdown" href="/llms.txt" title="Profile for LLMs and AI agents">
+    <link rel="alternate" type="text/markdown" href="/llms.txt" title="Profile in Markdown">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <link rel="icon" href="/favicon.ico?v=20261021" sizes="32x32">
+    <link rel="icon" href="/favicon.svg?v=20261021" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261021">
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Behnam Bagheri - DevOps Engineer">
+    <meta
+      property="og:description"
+      content="DevOps engineer in Tehran building reliable CI/CD, Kubernetes, observability, backup, and private infrastructure services.">
+    <meta property="og:url" content="https://bea.sh/">
+    <meta property="og:site_name" content="Behnam Bagheri">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fa_IR">
+    <meta property="og:image" content="https://bea.sh/public/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Behnam Bagheri - DevOps Engineer, Tehran, Iran">
+    <meta property="profile:first_name" content="Behnam">
+    <meta property="profile:last_name" content="Bagheri">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Behnam Bagheri - DevOps Engineer">
+    <meta
+      name="twitter:description"
+      content="DevOps engineer in Tehran building reliable CI/CD, Kubernetes, observability, backup, and private infrastructure services.">
+    <meta name="twitter:image" content="https://bea.sh/public/og-image.png">
+    <meta name="twitter:image:alt" content="Behnam Bagheri - DevOps Engineer, Tehran, Iran">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
         "url": "https://bea.sh/",
-        "sameAs": [
-          "https://www.linkedin.com/in/behnambaqeri/",
-          "https://github.com/behnambagheri",
-          "https://behnambagheri.ir/"
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Tehran",
-          "addressCountry": "IR"
-        },
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Bitmax"
-        },
-        "knowsAbout": [
-          "DevOps",
-          "Site Reliability Engineering",
-          "Kubernetes",
-          "Docker",
-          "Linux",
-          "CI/CD",
-          "Atlassian Bamboo",
-          "Bitbucket",
-          "Prometheus",
-          "Grafana",
-          "Alertmanager",
-          "Sentry",
-          "PostgreSQL",
-          "Backup and disaster recovery",
-          "Incident response",
-          "Bash",
-          "Python",
-          "On-prem networking"
-        ]
+        "mainEntity": {
+          "@type": "Person",
+          "@id": "https://bea.sh/#person",
+          "name": "Behnam Bagheri",
+          "alternateName": ["بهنام باقری", "Behnam Baqeri"],
+          "jobTitle": "DevOps Engineer",
+          "disambiguatingDescription": "مهندس DevOps در تهران؛ کوبرنتیز (Kubernetes)، CI/CD، مانیتورینگ با Prometheus و Grafana، بکاپ و بازیابی از فاجعه.",
+          "knowsLanguage": [
+            { "@type": "Language", "name": "Persian", "alternateName": "fa" },
+            { "@type": "Language", "name": "English", "alternateName": "en" }
+          ],
+          "description": "DevOps engineer with 10+ years running on-prem Kubernetes, CI/CD pipelines, monitoring and alerting, backups, and disaster recovery. Open to hybrid infrastructure, automation, and reliability roles.",
+          "email": "mailto:behnam@bea.sh",
+          "url": "https://bea.sh/",
+          "sameAs": [
+            "https://www.linkedin.com/in/behnambaqeri/",
+            "https://github.com/behnambagheri",
+            "https://behnambagheri.ir/"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Tehran",
+            "addressCountry": "IR"
+          },
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Bitmax"
+          },
+          "knowsAbout": [
+            "DevOps",
+            "Site Reliability Engineering",
+            "Kubernetes",
+            "Docker",
+            "Linux",
+            "CI/CD",
+            "Atlassian Bamboo",
+            "Bitbucket",
+            "Prometheus",
+            "Grafana",
+            "Alertmanager",
+            "Sentry",
+            "PostgreSQL",
+            "Backup and disaster recovery",
+            "Incident response",
+            "Bash",
+            "Python",
+            "On-prem networking"
+          ]
+        }
       }
-    }
-  </script>
-  <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="ds/v1/tokens.css?v=20261018">
-  <link rel="stylesheet" href="ds/v1/base.css?v=20261018">
-  <link rel="stylesheet" href="ds/v1/components.css?v=20261018">
-  <link rel="stylesheet" href="styles.css?v=20261018">
-</head>
-<body>
-  <header class="bb-header">
-    <a class="bb-brand" href="#top" aria-label="Behnam Bagheri home" aria-describedby="logo-meaning">
-      <span class="bb-tooltip-host">
-        <img class="bb-brand-mark" src="/favicon.svg" width="36" height="36" alt="">
-        <span class="bb-tooltip" id="logo-meaning" role="tooltip">
-          <strong class="bb-tooltip-title">The keystone arch</strong>
-          <span><b>Keystone</b> &mdash; the last stone that locks an arch. Rarely seen, yet everything rests on it, like infrastructure.</span>
-          <span><b>Arch</b> &mdash; a stable structure carrying the load; its two sides are Dev and Ops.</span>
-          <span><b>Base</b> &mdash; the platform everything is built on.</span>
-          <span class="bb-tooltip-note">A quiet nod to Persian architecture.</span>
+    </script>
+    <link rel="stylesheet" href="ds/v1/tokens.css?v=20261018">
+    <link rel="stylesheet" href="ds/v1/base.css?v=20261018">
+    <link rel="stylesheet" href="ds/v1/components.css?v=20261018">
+    <link rel="stylesheet" href="styles.css?v=20261021.3">
+    <script>
+      try {
+        const t = localStorage.getItem('bb-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch {}
+    </script>
+  </head>
+  <body class="home">
+    <a class="skip-link" href="#top">Skip to content</a>
+    <header class="bb-header">
+      <a class="bb-brand" href="#top" aria-label="Behnam Bagheri home" aria-describedby="logo-meaning">
+        <span class="bb-tooltip-host">
+          <img class="bb-brand-mark" src="/favicon.svg?v=20261021" width="36" height="36" alt="">
+          <span class="bb-tooltip" id="logo-meaning" role="tooltip">
+            <strong class="bb-tooltip-title">The keystone arch</strong>
+            <span
+              ><b>Keystone</b> &mdash; the last stone that locks an arch. Rarely seen, yet everything rests on it, like
+              infrastructure.</span
+            >
+            <span><b>Arch</b> &mdash; a stable structure carrying the load; its two sides are Dev and Ops.</span>
+            <span><b>Base</b> &mdash; the platform everything is built on.</span>
+            <span class="bb-tooltip-note">A quiet nod to Persian architecture.</span>
+          </span>
         </span>
-      </span>
-      <span>Behnam Bagheri</span>
-    </a>
-    <nav class="bb-nav" aria-label="Primary navigation">
-      <a class="bb-nav-link" href="#experience">Experience</a>
-      <a class="bb-nav-link" href="#services">Services</a>
-      <a class="bb-nav-link" href="#contact">Contact</a>
-      <button id="themeButton" type="button" class="bb-theme-toggle" aria-label="Theme: light" title="Theme: light">
-        <svg class="bb-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0-5a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm0 17a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1ZM3 11h1a1 1 0 1 1 0 2H3a1 1 0 1 1 0-2Zm17 0h1a1 1 0 1 1 0 2h-1a1 1 0 1 1 0-2ZM5.64 4.22l.71.71a1 1 0 0 1-1.42 1.42l-.7-.71a1 1 0 0 1 1.41-1.42Zm12.02 12.02.71.71a1 1 0 0 1-1.42 1.41l-.7-.7a1 1 0 0 1 1.41-1.42ZM19.78 5.64l-.71.71a1 1 0 0 1-1.42-1.42l.71-.7a1 1 0 0 1 1.42 1.41ZM7.76 17.66l-.71.71a1 1 0 0 1-1.41-1.42l.7-.71a1 1 0 0 1 1.42 1.42Z"/></svg>
-        <svg class="bb-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.05 8.05 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Z"/></svg>
-      </button>
-    </nav>
-  </header>
-
-  <main id="top">
-    <section class="hero-section reveal">
-      <div class="hero-content">
-        <h1 class="bb-eyebrow">Behnam Bagheri - DevOps Engineer, Tehran</h1>
-        <p class="hero-title">Production infrastructure, automation, and reliability for real-world systems.</p>
-        <p class="hero-copy">
-          I operate on-prem Kubernetes, CI/CD pipelines, monitoring, backups, and private platform services with a practical focus on uptime, recovery, and clear operational workflows.
-        </p>
-        <div class="hero-actions" id="contact">
-          <a class="bb-button bb-button--primary" href="mailto:behnam@bea.sh">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v.35l8 5.2 8-5.2V6H4Zm16 12V8.73l-7.46 4.85a1 1 0 0 1-1.08 0L4 8.73V18h16Z"/></svg>
-            Email me
-          </a>
-          <a class="bb-button bb-button--secondary" href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 3H3.55A1.55 1.55 0 0 0 2 4.55v14.9A1.55 1.55 0 0 0 3.55 21h16.9A1.55 1.55 0 0 0 22 19.45V4.55A1.55 1.55 0 0 0 20.45 3ZM8.34 18.5H5.7V9.75h2.64ZM7 8.56a1.5 1.5 0 1 1 1.5-1.5A1.51 1.51 0 0 1 7 8.56Zm11.5 9.94h-2.63V13.5c0-1.19-.43-2-1.51-2a1.64 1.64 0 0 0-1.54 1.11 2 2 0 0 0-.1.71v5.18H9.09V9.75h2.63v1.2a2.69 2.69 0 0 1 2.48-1.36c1.81 0 3.3 1.23 3.3 3.86Z"/></svg>
-            LinkedIn
-          </a>
-        </div>
-      </div>
-
-      <aside class="hero-panel" aria-label="Operational profile">
-        <div class="bb-signal-card">
-          <span class="bb-signal-dot" aria-hidden="true"></span>
-          <p>Available for hybrid infrastructure, automation, and reliability work.</p>
-        </div>
-        <div class="bb-metric-grid">
-          <div>
-            <strong>10+</strong>
-            <span>Years hands-on</span>
-          </div>
-          <div>
-            <strong>200+</strong>
-            <span>CI/CD pipelines</span>
-          </div>
-          <div>
-            <strong>30+</strong>
-            <span>K8s nodes</span>
-          </div>
-          <div>
-            <strong>24/7</strong>
-            <span>Production mindset</span>
-          </div>
-        </div>
-      </aside>
-    </section>
-
-    <section class="profile-band reveal" aria-label="Contact details">
-      <a class="bb-profile-item" href="mailto:behnam@bea.sh">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v.35l8 5.2 8-5.2V6H4Zm16 12V8.73l-7.46 4.85a1 1 0 0 1-1.08 0L4 8.73V18h16Z"/></svg>
-        <span>behnam@bea.sh</span>
+        <span>Behnam Bagheri</span>
       </a>
-      <a class="bb-profile-item" href="https://github.com/behnambagheri" target="_blank" rel="noreferrer">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
-        <span>github.com/behnambagheri</span>
-      </a>
-      <span class="bb-profile-item">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C7.58 2 4 5.35 4 9.46c0 5.84 7.15 12.14 7.46 12.4a1 1 0 0 0 1.08.12C12.88 21.82 21 17.82 21 9.46 21 5.35 16.42 2 12 2Zm0 17.35C9.93 17 6 12.83 6 9.46 6 6.39 8.55 4 12 4s6 2.39 6 5.46c0 4.16-3.63 7.82-6 9.89Zm0-13.31a3.38 3.38 0 1 0 0 6.76 3.38 3.38 0 0 0 0-6.76Z"/></svg>
-        <span>Tehran, Iran - Hybrid</span>
-      </span>
-    </section>
-
-    <section class="section-grid" id="experience">
-      <div class="section-intro reveal">
-        <p class="bb-eyebrow">Experience</p>
-        <h2>DevOps Engineer at Bitmax</h2>
-        <p>
-          Production infrastructure work across Kubernetes, CI/CD, observability, automation, incident response, and recovery planning.
-        </p>
+      <nav class="bb-nav" aria-label="Primary navigation">
+        <a class="bb-nav-link" href="#experience">Experience</a>
+        <a class="bb-nav-link" href="#services">Services</a>
+        <a class="bb-nav-link" href="#contact">Contact</a>
+      </nav>
+      <div class="header-tools">
+        <a class="language-link" href="/fa/" hreflang="fa" lang="fa" aria-label="Read this page in Persian">فارسی</a>
+        <button id="themeButton" type="button" class="bb-theme-toggle" aria-label="Switch color theme" hidden>
+          <svg class="line-icon bb-icon-sun icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5" />
+          </svg>
+          <svg class="line-icon bb-icon-moon icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.5 13A8.5 8.5 0 0 1 11 3.5 8.5 8.5 0 1 0 20.5 13Z" />
+          </svg>
+        </button>
       </div>
+    </header>
 
-      <div class="timeline-card bb-card reveal">
-        <div class="role-header">
-          <div>
-            <p class="bb-eyebrow">Bitmax</p>
-            <h3>DevOps Engineer</h3>
+    <main id="top" tabindex="-1">
+      <section class="hero-section" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <p class="bb-eyebrow hero-identity">Behnam Bagheri / DevOps Engineer</p>
+          <h1 class="hero-title" id="hero-title">
+            <span class="bb-visually-hidden">Behnam Bagheri — DevOps Engineer. </span>Infrastructure.<br><span
+              >Built to hold.</span
+            >
+          </h1>
+          <p class="hero-copy">
+            I operate on-prem Kubernetes, CI/CD pipelines, monitoring, backups, and private platform services with a
+            practical focus on uptime, recovery, and clear operational workflows.
+          </p>
+          <div class="hero-actions">
+            <a class="bb-button bb-button--primary" href="#contact"
+              >Let’s talk infrastructure
+              <svg class="line-icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 17 17 7M7 7h10v10" /></svg
+            ></a>
+            <a class="text-link" href="#experience"
+              >Explore my work
+              <svg class="line-icon icon-right" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 12h16m-6-6 6 6-6 6" /></svg
+            ></a>
           </div>
-          <span class="bb-badge">2021 - Present</span>
+          <p class="hero-location"><span class="location-cross" aria-hidden="true">+</span> Tehran, Iran · Hybrid</p>
         </div>
-        <p class="role-context">On-prem Kubernetes clusters supporting backend and frontend microservices.</p>
-        <ul class="work-list">
-          <li>Designed, deployed, and operated on-prem Kubernetes clusters with 30+ nodes.</li>
-          <li>Built and maintained 200+ CI/CD pipelines using Atlassian Bamboo and Bitbucket.</li>
-          <li>Automated backup management, reporting, deployment notifications, and operational workflows with Bash and Python.</li>
-          <li>Implemented monitoring and alerting with Prometheus, Grafana, and Alertmanager.</li>
-          <li>Handled production incidents across hardware failures, database outages, and network disruptions.</li>
-          <li>Built cybersecurity playbooks, restore procedures, rollback mechanisms, and staged rollout workflows.</li>
+        <figure class="hero-figure">
+          <div class="figure-heading"><span>Infrastructure by design</span><span aria-hidden="true">FIG. 01</span></div>
+          <svg class="architecture-art" viewBox="0 0 480 400" aria-hidden="true">
+            <defs>
+              <pattern id="blueprint-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+                <path d="M24 0H0v24" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.18" />
+              </pattern>
+            </defs>
+            <rect width="480" height="400" fill="url(#blueprint-grid)" />
+            <g class="art-guides" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35">
+              <path d="M72 324h336M104 84v260m272-260v260M72 108h336" stroke-dasharray="4 6" />
+              <path d="M104 354h272m-272-5v10m272-10v10M60 108v216m-5-216h10m-10 216h10" />
+              <circle cx="240" cy="228" r="112" stroke-dasharray="3 7" />
+              <path d="M228 228h24m-12-12v24" />
+            </g>
+            <g class="art-stone" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
+              <path d="M120 312V228h44v84Zm196 0v-84h44v84Z" />
+              <path d="m120 220 7-42 40 18-3 24Zm11-50 26-33 29 34-16 18Zm33-39 39-17 11 43-23 10Z" />
+              <path d="m360 220-7-42-40 18 3 24Zm-11-50-26-33-29 34 16 18Zm-33-39-39-17-11 43 23 10Z" />
+            </g>
+            <path class="art-keystone" d="m218 104 44 0-8 58h-28Z" stroke="currentColor" stroke-width="1.5" />
+            <path class="art-base" d="M100 312h280v12H100Z" fill="currentColor" />
+            <g class="art-labels" fill="currentColor" font-size="10" font-family="monospace" letter-spacing="1">
+              <text x="240" y="64" text-anchor="middle">RELIABILITY</text>
+              <text x="142" y="292" text-anchor="middle" transform="rotate(-90 142 292)">DEV</text>
+              <text x="338" y="292" text-anchor="middle" transform="rotate(-90 338 292)">OPS</text>
+              <text x="240" y="379" text-anchor="middle">A FOUNDATION FOR EVERYTHING ELSE</text>
+            </g>
+            <path d="M240 74v20" fill="none" stroke="currentColor" stroke-width="1" />
+          </svg>
+          <figcaption><span class="figure-dot" aria-hidden="true"></span>Build. Ship. Observe. Recover.</figcaption>
+        </figure>
+      </section>
+
+      <section class="proof-band" aria-label="Experience in numbers">
+        <div><strong dir="ltr">10+</strong><span>Years hands-on</span></div>
+        <div><strong dir="ltr">200+</strong><span>CI/CD pipelines</span></div>
+        <div><strong dir="ltr">30+</strong><span>Kubernetes nodes</span></div>
+        <div><strong dir="ltr">24/7</strong><span>Production mindset</span></div>
+      </section>
+      <div class="toolchain">
+        <span>Tools of the trade</span>
+        <ul aria-label="Tools of the trade">
+          <li>Linux</li>
+          <li>Kubernetes</li>
+          <li>Docker</li>
+          <li>CI/CD</li>
+          <li>Prometheus</li>
+          <li>Python</li>
         </ul>
       </div>
-    </section>
 
-    <section class="capabilities reveal" aria-label="Core capabilities">
-      <div class="bb-capability-card">
-        <span class="bb-capability-index">01</span>
-        <h3>Platform Operations</h3>
-        <p>Linux, Docker, Kubernetes, on-prem networking, and practical high-availability operations.</p>
-      </div>
-      <div class="bb-capability-card">
-        <span class="bb-capability-index">02</span>
-        <h3>Delivery Systems</h3>
-        <p>Bamboo, Bitbucket, Git, deployment automation, staged rollouts, and rollback paths.</p>
-      </div>
-      <div class="bb-capability-card">
-        <span class="bb-capability-index">03</span>
-        <h3>Reliability Tooling</h3>
-        <p>Prometheus, Grafana, Alertmanager, Sentry hooks, backup workflows, and disaster recovery.</p>
-      </div>
-    </section>
+      <section class="section-grid" id="experience" aria-labelledby="experience-title">
+        <div class="section-intro">
+          <p class="bb-eyebrow">01 / Experience</p>
+          <h2 id="experience-title">Built in production.<br>Proven in practice.</h2>
+          <p>
+            10+ years of hands-on infrastructure work, with a focus on systems that teams can operate, recover, and
+            trust.
+          </p>
+          <a class="text-link" href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer"
+            >Connect on LinkedIn
+            <svg class="line-icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 17 17 7M7 7h10v10" /></svg
+          ></a>
+        </div>
+        <div class="timeline-card bb-card">
+          <div class="role-header">
+            <div>
+              <p class="bb-eyebrow">Bitmax</p>
+              <h3>DevOps Engineer</h3>
+            </div>
+            <span class="bb-badge">2021 - Present</span>
+          </div>
+          <p class="role-context">On-prem Kubernetes clusters supporting backend and frontend microservices.</p>
+          <ul class="work-list">
+            <li>Designed, deployed, and operated on-prem Kubernetes clusters with 30+ nodes.</li>
+            <li>Built and maintained 200+ CI/CD pipelines using Atlassian Bamboo and Bitbucket.</li>
+            <li>
+              Automated backup management, reporting, deployment notifications, and operational workflows with Bash and
+              Python.
+            </li>
+            <li>Implemented monitoring and alerting with Prometheus, Grafana, and Alertmanager.</li>
+            <li>Handled production incidents across hardware failures, database outages, and network disruptions.</li>
+            <li>
+              Built cybersecurity playbooks, restore procedures, rollback mechanisms, and staged rollout workflows.
+            </li>
+          </ul>
+        </div>
+      </section>
 
-    <section class="services-section" id="services">
-      <div class="section-intro services-intro reveal">
-        <p class="bb-eyebrow">Hosted Services</p>
-        <h2>Public tooling and private infrastructure services.</h2>
-        <p>
-          Many services are hosted in Iran and are designed to remain useful during international connectivity outages.
-        </p>
-      </div>
+      <section class="capabilities-section" aria-labelledby="capabilities-title">
+        <div class="section-heading">
+          <div>
+            <p class="bb-eyebrow">02 / What I do</p>
+            <h2 id="capabilities-title">From the first deploy<br>to the next recovery.</h2>
+          </div>
+          <p>Practical engineering across the infrastructure lifecycle.</p>
+        </div>
+        <div class="capabilities">
+          <div class="bb-capability-card">
+            <span class="bb-capability-index">01</span>
+            <h3>Platform Operations</h3>
+            <p>Linux, Docker, Kubernetes, on-prem networking, and practical high-availability operations.</p>
+          </div>
+          <div class="bb-capability-card">
+            <span class="bb-capability-index">02</span>
+            <h3>Delivery Systems</h3>
+            <p>Bamboo, Bitbucket, Git, deployment automation, staged rollouts, and rollback paths.</p>
+          </div>
+          <div class="bb-capability-card">
+            <span class="bb-capability-index">03</span>
+            <h3>Reliability Tooling</h3>
+            <p>Prometheus, Grafana, Alertmanager, Sentry hooks, backup workflows, and disaster recovery.</p>
+          </div>
+        </div>
+      </section>
 
-      <div class="services-grid">
-        <article class="bb-service-card reveal" data-access="public">
-          <div class="bb-service-header">
-            <h3>IP Info</h3>
-            <span class="bb-badge bb-badge--public">Public</span>
+      <section class="services-section" id="services" aria-labelledby="services-title">
+        <div class="section-heading">
+          <div>
+            <p class="bb-eyebrow">03 / Hosted services</p>
+            <h2 id="services-title">Useful tools.<br>Real infrastructure.</h2>
           </div>
-          <p>Instant IP, ASN, and network details for quick debugging and verification.</p>
-          <div class="bb-service-links">
-            <a href="https://ip.behnam.pro" target="_blank" rel="noreferrer">ip.behnam.pro</a>
-            <a href="https://ip.bea.sh" target="_blank" rel="noreferrer">ip.bea.sh</a>
+          <p>
+            Many services are hosted in Iran and are designed to remain useful during international connectivity
+            outages.
+          </p>
+        </div>
+        <div class="service-controls" hidden>
+          <div class="service-filters" role="group" aria-label="Filter services by access">
+            <button class="filter-button" type="button" data-filter="all" aria-pressed="true">All services</button>
+            <button class="filter-button" type="button" data-filter="public" aria-pressed="false">Public</button>
+            <button class="filter-button" type="button" data-filter="request" aria-pressed="false">By request</button>
           </div>
-        </article>
+          <div class="service-search">
+            <svg class="line-icon icon-search" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="10.5" cy="10.5" r="6.5" />
+              <path d="m16 16 4.5 4.5" /></svg
+            ><label class="bb-visually-hidden" for="serviceSearch">Search services</label
+            ><input
+              id="serviceSearch"
+              type="search"
+              placeholder="Search by name, tool, or domain…"
+              autocomplete="off"
+              aria-controls="serviceGrid">
+          </div>
+        </div>
+        <p class="service-results" id="serviceResults" role="status" aria-atomic="true" hidden>18 services</p>
+        <div class="services-grid" id="serviceGrid">
+          <article
+            class="bb-service-card"
+            data-access="public"
+            data-search="IP Info Instant IP, ASN, and network details for quick debugging and verification."
+          >
+            <div class="service-topline">
+              <span class="service-icon"
+                ><svg class="line-icon icon-network" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="5" r="3" />
+                  <rect x="2" y="16" width="6" height="5" rx="1" />
+                  <rect x="16" y="16" width="6" height="5" rx="1" />
+                  <path d="M12 8v4M5 16v-4h14v4" /></svg></span
+              ><span class="service-number" aria-hidden="true">01</span>
+            </div>
+            <div class="bb-service-header">
+              <h3>IP Info</h3>
+              <span class="bb-badge bb-badge--public">Public</span>
+            </div>
+            <p>Instant IP, ASN, and network details for quick debugging and verification.</p>
+            <div class="bb-service-links">
+              <a href="https://ip.behnam.pro" target="_blank" rel="noreferrer">ip.behnam.pro</a>
+              <a href="https://ip.bea.sh" target="_blank" rel="noreferrer">ip.bea.sh</a>
+            </div>
+          </article>
 
-        <article class="bb-service-card reveal" data-access="public">
-          <div class="bb-service-header">
-            <h3>Telegram Proxy</h3>
-            <span class="bb-badge bb-badge--public">Public</span>
-          </div>
-          <p>Telegram API proxy to improve reliability and connectivity.</p>
-          <div class="bb-service-links">
-            <a href="https://tg.behnam.pro" target="_blank" rel="noreferrer">tg.behnam.pro</a>
-            <a href="https://tg.bea.sh" target="_blank" rel="noreferrer">tg.bea.sh</a>
-          </div>
-        </article>
+          <article
+            class="bb-service-card"
+            data-access="public"
+            data-search="Telegram Proxy Telegram API proxy to improve reliability and connectivity."
+          >
+            <div class="service-topline">
+              <span class="service-icon"
+                ><svg class="line-icon icon-message" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H4l-2 2V11.5A8.5 8.5 0 0 1 10.5 3h2a8.5 8.5 0 0 1 8.5 8.5Z" />
+                  <path d="M7 9h10M7 14h6" /></svg></span
+              ><span class="service-number" aria-hidden="true">02</span>
+            </div>
+            <div class="bb-service-header">
+              <h3>Telegram Proxy</h3>
+              <span class="bb-badge bb-badge--public">Public</span>
+            </div>
+            <p>Telegram API proxy to improve reliability and connectivity.</p>
+            <div class="bb-service-links">
+              <a href="https://tg.behnam.pro" target="_blank" rel="noreferrer">tg.behnam.pro</a>
+              <a href="https://tg.bea.sh" target="_blank" rel="noreferrer">tg.bea.sh</a>
+            </div>
+          </article>
 
-        <article class="bb-service-card reveal" data-access="public">
-          <div class="bb-service-header">
-            <h3>Pastebin</h3>
-            <span class="bb-badge bb-badge--public">Public</span>
-          </div>
-          <p>Lightweight paste sharing for logs, snippets, and quick notes.</p>
-          <div class="bb-service-links">
-            <a href="https://paste.behnam.pro" target="_blank" rel="noreferrer">paste.behnam.pro</a>
-            <a href="https://paste.bea.sh" target="_blank" rel="noreferrer">paste.bea.sh</a>
-          </div>
-        </article>
+          <article
+            class="bb-service-card"
+            data-access="public"
+            data-search="Pastebin Lightweight paste sharing for logs, snippets, and quick notes."
+          >
+            <div class="service-topline">
+              <span class="service-icon"
+                ><svg class="line-icon icon-code" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18" /></svg></span
+              ><span class="service-number" aria-hidden="true">03</span>
+            </div>
+            <div class="bb-service-header">
+              <h3>Pastebin</h3>
+              <span class="bb-badge bb-badge--public">Public</span>
+            </div>
+            <p>Lightweight paste sharing for logs, snippets, and quick notes.</p>
+            <div class="bb-service-links">
+              <a href="https://paste.behnam.pro" target="_blank" rel="noreferrer">paste.behnam.pro</a>
+              <a href="https://paste.bea.sh" target="_blank" rel="noreferrer">paste.bea.sh</a>
+            </div>
+          </article>
 
-        <article class="bb-service-card reveal" data-access="public">
-          <div class="bb-service-header">
-            <h3>Shortener</h3>
-            <span class="bb-badge bb-badge--public">Public</span>
-          </div>
-          <p>Simple URL shortener for fast, clean links.</p>
-          <div class="bb-service-links">
-            <a href="https://s.behnam.pro" target="_blank" rel="noreferrer">s.behnam.pro</a>
-            <a href="https://s.bea.sh" target="_blank" rel="noreferrer">s.bea.sh</a>
-          </div>
-        </article>
+          <article
+            class="bb-service-card"
+            data-access="public"
+            data-search="Shortener Simple URL shortener for fast, clean links."
+          >
+            <div class="service-topline">
+              <span class="service-icon"
+                ><svg class="line-icon icon-code" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18" /></svg></span
+              ><span class="service-number" aria-hidden="true">04</span>
+            </div>
+            <div class="bb-service-header">
+              <h3>Shortener</h3>
+              <span class="bb-badge bb-badge--public">Public</span>
+            </div>
+            <p>Simple URL shortener for fast, clean links.</p>
+            <div class="bb-service-links">
+              <a href="https://s.behnam.pro" target="_blank" rel="noreferrer">s.behnam.pro</a>
+              <a href="https://s.bea.sh" target="_blank" rel="noreferrer">s.bea.sh</a>
+            </div>
+          </article>
 
-        <article class="bb-service-card reveal" data-access="public">
-          <div class="bb-service-header">
-            <h3>Drive</h3>
-            <span class="bb-badge bb-badge--public">Public</span>
-          </div>
-          <p>Curated files and useful resources for quick downloads.</p>
-          <div class="bb-service-links">
-            <a href="https://drive.behnam.pro" target="_blank" rel="noreferrer">drive.behnam.pro</a>
-            <a href="https://drive.bea.sh" target="_blank" rel="noreferrer">drive.bea.sh</a>
-          </div>
-        </article>
+          <article
+            class="bb-service-card"
+            data-access="public"
+            data-search="Drive Curated files and useful resources for quick downloads."
+          >
+            <div class="service-topline">
+              <span class="service-icon"
+                ><svg class="line-icon icon-code" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18" /></svg></span
+              ><span class="service-number" aria-hidden="true">05</span>
+            </div>
+            <div class="bb-service-header">
+              <h3>Drive</h3>
+              <span class="bb-badge bb-badge--public">Public</span>
+            </div>
+            <p>Curated files and useful resources for quick downloads.</p>
+            <div class="bb-service-links">
+              <a href="https://drive.behnam.pro" target="_blank" rel="noreferrer">drive.behnam.pro</a>
+              <a href="https://drive.bea.sh" target="_blank" rel="noreferrer">drive.bea.sh</a>
+            </div>
+          </article>
 
-        <article class="bb-service-card reveal" data-access="public">
-          <div class="bb-service-header">
-            <h3>Clash Converter</h3>
-            <span class="bb-badge bb-badge--public">Public</span>
-          </div>
-          <p>Browser-based Mihomo and Clash config builder for clean YAML output.</p>
-          <div class="bb-service-links">
-            <a href="https://clash-converter.behnam.pro" target="_blank" rel="noreferrer">clash-converter.behnam.pro</a>
-          </div>
-        </article>
+          <article
+            class="bb-service-card"
+            data-access="public"
+            data-search="Clash Converter Browser-based Mihomo and Clash config builder for clean YAML output."
+          >
+            <div class="service-topline">
+              <span class="service-icon"
+                ><svg class="line-icon icon-code" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18" /></svg></span
+              ><span class="service-number" aria-hidden="true">06</span>
+            </div>
+            <div class="bb-service-header">
+              <h3>Clash Converter</h3>
+              <span class="bb-badge bb-badge--public">Public</span>
+            </div>
+            <p>Browser-based Mihomo and Clash config builder for clean YAML output.</p>
+            <div class="bb-service-links">
+              <a href="https://clash-converter.behnam.pro" target="_blank" rel="noreferrer"
+                >clash-converter.behnam.pro</a
+              >
+            </div>
+          </article>
 
-        <article class="bb-service-card reveal" data-access="public">
-          <div class="bb-service-header">
-            <h3>Sing-box Converter</h3>
-            <span class="bb-badge bb-badge--public">Public</span>
-          </div>
-          <p>Convert proxy links and configs to Sing-box JSON directly in the browser.</p>
-          <div class="bb-service-links">
-            <a href="https://sbox-converter.behnam.pro" target="_blank" rel="noreferrer">sbox-converter.behnam.pro</a>
-          </div>
-        </article>
+          <article
+            class="bb-service-card"
+            data-access="public"
+            data-search="Sing-box Converter Convert proxy links and configs to Sing-box JSON directly in the browser."
+          >
+            <div class="service-topline">
+              <span class="service-icon"
+                ><svg class="line-icon icon-code" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18" /></svg></span
+              ><span class="service-number" aria-hidden="true">07</span>
+            </div>
+            <div class="bb-service-header">
+              <h3>Sing-box Converter</h3>
+              <span class="bb-badge bb-badge--public">Public</span>
+            </div>
+            <p>Convert proxy links and configs to Sing-box JSON directly in the browser.</p>
+            <div class="bb-service-links">
+              <a href="https://sbox-converter.behnam.pro" target="_blank" rel="noreferrer">sbox-converter.behnam.pro</a>
+            </div>
+          </article>
 
-        <article class="bb-service-card reveal" data-access="request">
-          <div class="bb-service-header">
-            <h3>Matrix Chat</h3>
-            <span class="bb-badge bb-badge--request">Request</span>
-          </div>
-          <p>Private Matrix homeserver you can use with any Element app.</p>
-          <div class="bb-service-links">
-            <a href="https://matrix.behnam.pro" target="_blank" rel="noreferrer">matrix.behnam.pro</a>
-          </div>
-          <button class="request-access bb-button bb-button--sm" type="button" data-service="Matrix Chat" aria-expanded="false">Request access</button>
-          <div class="access-panel" hidden>
-            <p>Contact: <a href="mailto:behnam@bea.sh">behnam@bea.sh</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
-          </div>
-        </article>
+          <article
+            class="bb-service-card"
+            data-access="request"
+            data-search="Matrix Chat Private Matrix homeserver you can use with any Element app."
+          >
+            <div class="service-topline">
+              <span class="service-icon"
+                ><svg class="line-icon icon-message" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H4l-2 2V11.5A8.5 8.5 0 0 1 10.5 3h2a8.5 8.5 0 0 1 8.5 8.5Z" />
+                  <path d="M7 9h10M7 14h6" /></svg></span
+              ><span class="service-number" aria-hidden="true">08</span>
+            </div>
+            <div class="bb-service-header">
+              <h3>Matrix Chat</h3>
+              <span class="bb-badge bb-badge--request">Request</span>
+            </div>
+            <p>Private Matrix homeserver you can use with any Element app.</p>
+            <div class="bb-service-links">
+              <a href="https://matrix.behnam.pro" target="_blank" rel="noreferrer">matrix.behnam.pro</a>
+            </div>
+            <details class="access-disclosure">
+              <summary>Request access</summary>
+              <div class="access-panel">
+                <p>Contact me by email to discuss access.</p>
+                <a class="bb-ltr" href="mailto:behnam@bea.sh">behnam@bea.sh</a>
+              </div>
+            </details>
+          </article>
 
-        <article class="bb-service-card reveal" data-access="public">
-          <div class="bb-service-header">
-            <h3>Element Web</h3>
-            <span class="bb-badge bb-badge--public">Public</span>
-          </div>
-          <p>Hosted Element web client for Matrix chat.</p>
-          <div class="bb-service-links">
-            <a href="https://element.behnam.pro" target="_blank" rel="noreferrer">element.behnam.pro</a>
-          </div>
-        </article>
+          <article
+            class="bb-service-card"
+            data-access="public"
+            data-search="Element Web Hosted Element web client for Matrix chat."
+          >
+            <div class="service-topline">
+              <span class="service-icon"
+                ><svg class="line-icon icon-message" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H4l-2 2V11.5A8.5 8.5 0 0 1 10.5 3h2a8.5 8.5 0 0 1 8.5 8.5Z" />
+                  <path d="M7 9h10M7 14h6" /></svg></span
+              ><span class="service-number" aria-hidden="true">09</span>
+            </div>
+            <div class="bb-service-header">
+              <h3>Element Web</h3>
+              <span class="bb-badge bb-badge--public">Public</span>
+            </div>
+            <p>Hosted Element web client for Matrix chat.</p>
+            <div class="bb-service-links">
+              <a href="https://element.behnam.pro" target="_blank" rel="noreferrer">element.behnam.pro</a>
+            </div>
+          </article>
 
-        <article class="bb-service-card reveal" data-access="request">
-          <div class="bb-service-header">
-            <h3>Meet</h3>
-            <span class="bb-badge bb-badge--request">Request</span>
-          </div>
-          <p>Private Jitsi Meet instance for secure video calls.</p>
-          <div class="bb-service-links">
-            <a href="https://meet.behnam.pro" target="_blank" rel="noreferrer">meet.behnam.pro</a>
-          </div>
-          <button class="request-access bb-button bb-button--sm" type="button" data-service="Meet" aria-expanded="false">Request access</button>
-          <div class="access-panel" hidden>
-            <p>Contact: <a href="mailto:behnam@bea.sh">behnam@bea.sh</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
-          </div>
-        </article>
+          <article
+            class="bb-service-card"
+            data-access="request"
+            data-search="Meet Private Jitsi Meet instance for secure video calls."
+          >
+            <div class="service-topline">
+              <span class="service-icon"
+                ><svg class="line-icon icon-message" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H4l-2 2V11.5A8.5 8.5 0 0 1 10.5 3h2a8.5 8.5 0 0 1 8.5 8.5Z" />
+                  <path d="M7 9h10M7 14h6" /></svg></span
+              ><span class="service-number" aria-hidden="true">10</span>
+            </div>
+            <div class="bb-service-header">
+              <h3>Meet</h3>
+              <span class="bb-badge bb-badge--request">Request</span>
+            </div>
+            <p>Private Jitsi Meet instance for secure video calls.</p>
+            <div class="bb-service-links">
+              <a href="https://meet.behnam.pro" target="_blank" rel="noreferrer">meet.behnam.pro</a>
+            </div>
+            <details class="access-disclosure">
+              <summary>Request access</summary>
+              <div class="access-panel">
+                <p>Contact me by email to discuss access.</p>
+                <a class="bb-ltr" href="mailto:behnam@bea.sh">behnam@bea.sh</a>
+              </div>
+            </details>
+          </article>
 
-        <article class="bb-service-card reveal" data-access="request">
-          <div class="bb-service-header">
-            <h3>Desk</h3>
-            <span class="bb-badge bb-badge--request">Request</span>
-          </div>
-          <p>RustDesk relay for secure remote access sessions.</p>
-          <div class="bb-service-links">
-            <a href="https://desk.behnam.pro" target="_blank" rel="noreferrer">desk.behnam.pro</a>
-          </div>
-          <button class="request-access bb-button bb-button--sm" type="button" data-service="Desk" aria-expanded="false">Request access</button>
-          <div class="access-panel" hidden>
-            <p>Contact: <a href="mailto:behnam@bea.sh">behnam@bea.sh</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
-          </div>
-        </article>
+          <article
+            class="bb-service-card"
+            data-access="request"
+            data-search="Desk RustDesk relay for secure remote access sessions."
+          >
+            <div class="service-topline">
+              <span class="service-icon"
+                ><svg class="line-icon icon-message" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H4l-2 2V11.5A8.5 8.5 0 0 1 10.5 3h2a8.5 8.5 0 0 1 8.5 8.5Z" />
+                  <path d="M7 9h10M7 14h6" /></svg></span
+              ><span class="service-number" aria-hidden="true">11</span>
+            </div>
+            <div class="bb-service-header">
+              <h3>Desk</h3>
+              <span class="bb-badge bb-badge--request">Request</span>
+            </div>
+            <p>RustDesk relay for secure remote access sessions.</p>
+            <div class="bb-service-links">
+              <a href="https://desk.behnam.pro" target="_blank" rel="noreferrer">desk.behnam.pro</a>
+            </div>
+            <details class="access-disclosure">
+              <summary>Request access</summary>
+              <div class="access-panel">
+                <p>Contact me by email to discuss access.</p>
+                <a class="bb-ltr" href="mailto:behnam@bea.sh">behnam@bea.sh</a>
+              </div>
+            </details>
+          </article>
 
-        <article class="bb-service-card reveal" data-access="public">
-          <div class="bb-service-header">
-            <h3>Docker Proxy</h3>
-            <span class="bb-badge bb-badge--public">Public</span>
-          </div>
-          <p>Docker registry proxy to improve image pulls and reliability.</p>
-          <div class="bb-service-links">
-            <a href="https://docker.behnam.pro" target="_blank" rel="noreferrer">docker.behnam.pro</a>
-          </div>
-        </article>
+          <article
+            class="bb-service-card"
+            data-access="public"
+            data-search="Docker Proxy Docker registry proxy to improve image pulls and reliability."
+          >
+            <div class="service-topline">
+              <span class="service-icon"
+                ><svg class="line-icon icon-package" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m12 2 9 5v10l-9 5-9-5V7Zm-9 5 9 5 9-5m-9 5v10M7.5 4.5l9 5V14" /></svg></span
+              ><span class="service-number" aria-hidden="true">12</span>
+            </div>
+            <div class="bb-service-header">
+              <h3>Docker Proxy</h3>
+              <span class="bb-badge bb-badge--public">Public</span>
+            </div>
+            <p>Docker registry proxy to improve image pulls and reliability.</p>
+            <div class="bb-service-links">
+              <a href="https://docker.behnam.pro" target="_blank" rel="noreferrer">docker.behnam.pro</a>
+            </div>
+          </article>
 
-        <article class="bb-service-card reveal" data-access="request">
-          <div class="bb-service-header">
-            <h3>Private Registry</h3>
-            <span class="bb-badge bb-badge--request">Request</span>
-          </div>
-          <p>Private Docker registry for controlled image distribution.</p>
-          <div class="bb-service-links">
-            <a href="https://reg.behnam.pro" target="_blank" rel="noreferrer">reg.behnam.pro</a>
-          </div>
-          <button class="request-access bb-button bb-button--sm" type="button" data-service="Private Registry" aria-expanded="false">Request access</button>
-          <div class="access-panel" hidden>
-            <p>Contact: <a href="mailto:behnam@bea.sh">behnam@bea.sh</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
-          </div>
-        </article>
+          <article
+            class="bb-service-card"
+            data-access="request"
+            data-search="Private Registry Private Docker registry for controlled image distribution."
+          >
+            <div class="service-topline">
+              <span class="service-icon"
+                ><svg class="line-icon icon-package" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m12 2 9 5v10l-9 5-9-5V7Zm-9 5 9 5 9-5m-9 5v10M7.5 4.5l9 5V14" /></svg></span
+              ><span class="service-number" aria-hidden="true">13</span>
+            </div>
+            <div class="bb-service-header">
+              <h3>Private Registry</h3>
+              <span class="bb-badge bb-badge--request">Request</span>
+            </div>
+            <p>Private Docker registry for controlled image distribution.</p>
+            <div class="bb-service-links">
+              <a href="https://reg.behnam.pro" target="_blank" rel="noreferrer">reg.behnam.pro</a>
+            </div>
+            <details class="access-disclosure">
+              <summary>Request access</summary>
+              <div class="access-panel">
+                <p>Contact me by email to discuss access.</p>
+                <a class="bb-ltr" href="mailto:behnam@bea.sh">behnam@bea.sh</a>
+              </div>
+            </details>
+          </article>
 
-        <article class="bb-service-card reveal" data-access="public">
-          <div class="bb-service-header">
-            <h3>NPM Proxy</h3>
-            <span class="bb-badge bb-badge--public">Public</span>
-          </div>
-          <p>NPM proxy for faster, more reliable package installs.</p>
-          <div class="bb-service-links">
-            <a href="https://registry.behnam.pro/repository/npm/" target="_blank" rel="noreferrer">registry.behnam.pro/repository/npm</a>
-          </div>
-        </article>
+          <article
+            class="bb-service-card"
+            data-access="public"
+            data-search="NPM Proxy NPM proxy for faster, more reliable package installs."
+          >
+            <div class="service-topline">
+              <span class="service-icon"
+                ><svg class="line-icon icon-package" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m12 2 9 5v10l-9 5-9-5V7Zm-9 5 9 5 9-5m-9 5v10M7.5 4.5l9 5V14" /></svg></span
+              ><span class="service-number" aria-hidden="true">14</span>
+            </div>
+            <div class="bb-service-header">
+              <h3>NPM Proxy</h3>
+              <span class="bb-badge bb-badge--public">Public</span>
+            </div>
+            <p>NPM proxy for faster, more reliable package installs.</p>
+            <div class="bb-service-links">
+              <a href="https://registry.behnam.pro/repository/npm/" target="_blank" rel="noreferrer"
+                >registry.behnam.pro/repository/npm</a
+              >
+            </div>
+          </article>
 
-        <article class="bb-service-card reveal" data-access="public">
-          <div class="bb-service-header">
-            <h3>PyPI Proxy</h3>
-            <span class="bb-badge bb-badge--public">Public</span>
-          </div>
-          <p>PyPI proxy for faster, more reliable package installs.</p>
-          <div class="bb-service-links">
-            <a href="https://registry.behnam.pro/repository/pypi/simple" target="_blank" rel="noreferrer">registry.behnam.pro/repository/pypi/simple</a>
-          </div>
-        </article>
+          <article
+            class="bb-service-card"
+            data-access="public"
+            data-search="PyPI Proxy PyPI proxy for faster, more reliable package installs."
+          >
+            <div class="service-topline">
+              <span class="service-icon"
+                ><svg class="line-icon icon-package" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m12 2 9 5v10l-9 5-9-5V7Zm-9 5 9 5 9-5m-9 5v10M7.5 4.5l9 5V14" /></svg></span
+              ><span class="service-number" aria-hidden="true">15</span>
+            </div>
+            <div class="bb-service-header">
+              <h3>PyPI Proxy</h3>
+              <span class="bb-badge bb-badge--public">Public</span>
+            </div>
+            <p>PyPI proxy for faster, more reliable package installs.</p>
+            <div class="bb-service-links">
+              <a href="https://registry.behnam.pro/repository/pypi/simple" target="_blank" rel="noreferrer"
+                >registry.behnam.pro/repository/pypi/simple</a
+              >
+            </div>
+          </article>
 
-        <article class="bb-service-card reveal bb-service-card--featured" data-access="public">
-          <div class="bb-service-header">
-            <h3>APT Repository</h3>
-            <span class="bb-badge bb-badge--public">Public</span>
-          </div>
-          <p>Ubuntu APT mirror/proxy to speed up package installs and updates.</p>
-          <div class="bb-service-links">
-            <a href="https://registry.behnam.pro/ubuntu" target="_blank" rel="noreferrer">registry.behnam.pro/ubuntu</a>
-          </div>
-          <button class="usage-guide bb-button bb-button--sm" type="button" data-modal-target="aptUsageModal">Usage guide</button>
-        </article>
+          <article
+            class="bb-service-card"
+            data-access="public"
+            data-search="APT Repository Ubuntu APT mirror/proxy to speed up package installs and updates."
+          >
+            <div class="service-topline">
+              <span class="service-icon"
+                ><svg class="line-icon icon-package" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m12 2 9 5v10l-9 5-9-5V7Zm-9 5 9 5 9-5m-9 5v10M7.5 4.5l9 5V14" /></svg></span
+              ><span class="service-number" aria-hidden="true">16</span>
+            </div>
+            <div class="bb-service-header">
+              <h3>APT Repository</h3>
+              <span class="bb-badge bb-badge--public">Public</span>
+            </div>
+            <p>Ubuntu APT mirror/proxy to speed up package installs and updates.</p>
+            <div class="bb-service-links">
+              <a href="https://registry.behnam.pro/ubuntu" target="_blank" rel="noreferrer"
+                >registry.behnam.pro/ubuntu</a
+              >
+            </div>
+            <button class="usage-guide bb-button bb-button--sm" type="button" data-modal-target="aptUsageModal" hidden>
+              Usage guide
+              <svg class="line-icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 17 17 7M7 7h10v10" />
+              </svg>
+            </button>
+          </article>
 
-        <article class="bb-service-card reveal" data-access="request">
-          <div class="bb-service-header">
-            <h3>DNS</h3>
-            <span class="bb-badge bb-badge--request">Request</span>
-          </div>
-          <p>Private DNS resolver for trusted and consistent name resolution.</p>
-          <div class="bb-service-links">
-            <span>46.245.114.114</span>
-          </div>
-          <button class="request-access bb-button bb-button--sm" type="button" data-service="DNS" aria-expanded="false">Request access</button>
-          <div class="access-panel" hidden>
-            <p>Contact: <a href="mailto:behnam@bea.sh">behnam@bea.sh</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
-          </div>
-        </article>
+          <article
+            class="bb-service-card"
+            data-access="request"
+            data-search="DNS Private DNS resolver for trusted and consistent name resolution."
+          >
+            <div class="service-topline">
+              <span class="service-icon"
+                ><svg class="line-icon icon-network" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="5" r="3" />
+                  <rect x="2" y="16" width="6" height="5" rx="1" />
+                  <rect x="16" y="16" width="6" height="5" rx="1" />
+                  <path d="M12 8v4M5 16v-4h14v4" /></svg></span
+              ><span class="service-number" aria-hidden="true">17</span>
+            </div>
+            <div class="bb-service-header">
+              <h3>DNS</h3>
+              <span class="bb-badge bb-badge--request">Request</span>
+            </div>
+            <p>Private DNS resolver for trusted and consistent name resolution.</p>
+            <div class="bb-service-links">
+              <span>46.245.114.114</span>
+            </div>
+            <details class="access-disclosure">
+              <summary>Request access</summary>
+              <div class="access-panel">
+                <p>Contact me by email to discuss access.</p>
+                <a class="bb-ltr" href="mailto:behnam@bea.sh">behnam@bea.sh</a>
+              </div>
+            </details>
+          </article>
 
-        <article class="bb-service-card reveal" data-access="request">
-          <div class="bb-service-header">
-            <h3>Mail</h3>
-            <span class="bb-badge bb-badge--request">Request</span>
-          </div>
-          <p>Private email service for managed, hosted inboxes.</p>
-          <div class="bb-service-links">
-            <a href="https://mail.bea.sh" target="_blank" rel="noreferrer">mail.bea.sh</a>
-          </div>
-          <button class="request-access bb-button bb-button--sm" type="button" data-service="Mail" aria-expanded="false">Request access</button>
-          <div class="access-panel" hidden>
-            <p>Contact: <a href="mailto:behnam@bea.sh">behnam@bea.sh</a> or <a href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-  </main>
+          <article
+            class="bb-service-card"
+            data-access="request"
+            data-search="Mail Private email service for managed, hosted inboxes."
+          >
+            <div class="service-topline">
+              <span class="service-icon"
+                ><svg class="line-icon icon-message" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H4l-2 2V11.5A8.5 8.5 0 0 1 10.5 3h2a8.5 8.5 0 0 1 8.5 8.5Z" />
+                  <path d="M7 9h10M7 14h6" /></svg></span
+              ><span class="service-number" aria-hidden="true">18</span>
+            </div>
+            <div class="bb-service-header">
+              <h3>Mail</h3>
+              <span class="bb-badge bb-badge--request">Request</span>
+            </div>
+            <p>Private email service for managed, hosted inboxes.</p>
+            <div class="bb-service-links">
+              <a href="https://mail.bea.sh" target="_blank" rel="noreferrer">mail.bea.sh</a>
+            </div>
+            <details class="access-disclosure">
+              <summary>Request access</summary>
+              <div class="access-panel">
+                <p>Contact me by email to discuss access.</p>
+                <a class="bb-ltr" href="mailto:behnam@bea.sh">behnam@bea.sh</a>
+              </div>
+            </details>
+          </article>
+        </div>
+        <div class="service-empty" id="serviceEmpty" hidden>
+          <h3>No services found.</h3>
+          <p>Try another name or clear your filters.</p>
+          <button class="bb-button" type="button" id="resetServices">Reset filters</button>
+        </div>
+      </section>
 
-  <footer class="bb-footer">
-    <p>Behnam Bagheri - DevOps Engineer</p>
-    <a href="#top">Back to top</a>
-  </footer>
+      <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        <div>
+          <p class="bb-eyebrow">04 / Get in touch</p>
+          <h2 id="contact-title">Good infrastructure<br>starts with a conversation.</h2>
+          <p class="contact-copy">
+            Looking for a DevOps, SRE, or infrastructure engineer? Tell me about your team, your systems, and what comes
+            next.
+          </p>
+          <a class="contact-email bb-ltr" href="mailto:behnam@bea.sh"
+            >behnam@bea.sh
+            <svg class="line-icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 17 17 7M7 7h10v10" /></svg
+          ></a>
+          <div class="contact-links">
+            <a class="text-link" href="https://www.linkedin.com/in/behnambaqeri/" target="_blank" rel="noreferrer"
+              >LinkedIn
+              <svg class="line-icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 17 17 7M7 7h10v10" /></svg></a
+            ><a class="text-link" href="https://github.com/behnambagheri" target="_blank" rel="noreferrer"
+              >GitHub
+              <svg class="line-icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 17 17 7M7 7h10v10" /></svg
+            ></a>
+          </div>
+        </div>
+        <aside class="contact-note">
+          <span class="bb-signal-dot" aria-hidden="true"></span>
+          <p>Open to infrastructure &amp; reliability work</p>
+          <span>Tehran, Iran · Hybrid</span>
+        </aside>
+      </section>
+    </main>
 
-  <div class="modal-backdrop" id="modalBackdrop" hidden>
-    <div
-      class="modal"
-      id="aptUsageModal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="aptUsageModalTitle"
-      tabindex="-1"
-    >
+    <footer class="bb-footer">
+      <p>
+        Behnam Bagheri<span class="footer-divider" aria-hidden="true"> / </span
+        ><span>Infrastructure, with intention.</span>
+      </p>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+
+    <dialog class="usage-dialog" id="aptUsageModal" aria-labelledby="aptUsageModalTitle">
       <div class="modal-header">
         <h2 id="aptUsageModalTitle">APT Repository Usage</h2>
         <button class="modal-close" type="button" aria-label="Close usage guide">Close</button>
@@ -530,9 +864,7 @@ deb https://registry.behnam.pro/ubuntu plucky-updates main universe restricted m
 deb https://registry.behnam.pro/ubuntu plucky-security main universe restricted multiverse
 EOF</code></pre>
       </section>
-    </div>
-  </div>
-
-  <script src="script.js?v=20261018"></script>
-</body>
+    </dialog>
+    <script src="/script.js?v=20261021.2" defer></script>
+  </body>
 </html>
